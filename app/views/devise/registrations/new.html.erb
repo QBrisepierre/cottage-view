@@ -1,7 +1,19 @@
-<div class="container">
-  <div class="row">
+<div class="container-fluid">
+
+  <div class="row auth-no-margin align-items-center" style="height: 90vh">
+    <div class="col align-self-end">
+      <div class="container p-5">
+        <div class="row">
+          <h2 class="text-white fw-bold fs-1">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</h2>
+          <p class="text-white fw-ligh no-margin">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo, repellendus ipsam est cupiditate libero mollitia itaque animi, maiores ullam dolor vitae, et in totam debitis reprehenderit sit vel odio earum?</p>
+        </div>
+      </div>
+    </div>
+
     <div class="col">
-      <h2>Sign up</h2>
+      <div class="container w-50">
+        <h2 class="fw-bold">Sign up</h2>
+        <p>or <%= link_to "Sign in", new_user_session_path, class: "link-underline link-underline-opacity-0" %></p>
 
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= f.error_notification %>
@@ -11,19 +23,26 @@
                         required: true,
                         autofocus: true,
                         as: :email,
+                        label: false,
+                        placeholder: "Email",
                         input_html: { autocomplete: "email" }%>
             <%= f.input :first_name,
                         required: true,
                         autofocus: true,
+                        label: false,
+                        placeholder: "Elon",
                         input_html: { autocomplete: "firs_name" }%>
             <%= f.input :last_name,
                         required: true,
                         autofocus: true,
+                        label: false,
+                        placeholder: "Musk",
                         input_html: { autocomplete: "last_name" }%>
             <%= f.input :birthday_date,
                         required: true,
                         autofocus: true,
                         as: :date,
+                        label: false,
                         start_year: Date.today.year - 90,
                         end_year: Date.today.year - 16,
                         order: [:day, :month, :year],
@@ -31,20 +50,22 @@
                         input_html: { autocomplete: "birthday_date" }%>
             <%= f.input :password,
                         required: true,
+                        label: false,
+                        placeholder: "Password",
                         hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                         input_html: { autocomplete: "new-password" } %>
             <%= f.input :password_confirmation,
                         required: true,
+                        label: false,
+                        placeholder: "Confirm password",
                         input_html: { autocomplete: "new-password" } %>
           </div>
 
           <div class="form-actions">
-            <%= f.button :submit, "Sign up" %>
+            <%= f.button :submit, "Sign up", class: "btn btn-primary btn-lg w-100 mt-4" %>
           </div>
         <% end %>
-
-        <%= render "devise/shared/links" %>
-
+      </div>
     </div>
   </div>
 </div>
