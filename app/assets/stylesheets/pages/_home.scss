@@ -1,1 +1,16 @@
 // Specific CSS for your home-page
+@media (min-width: 481px) and (max-width: 1320px) {
+    #background-img {
+        background-image: none !important;
+    }
+}
+
+@media (min-width: 1320px) {
+    #background-img {
+        background-position: 0% 0;
+        background-size:50%;
+        background-repeat: no-repeat;
+        height: 100vh
+    }
+}
+

@@ -12,8 +12,7 @@
 
   <% if current_page?(new_user_session_path) || current_page?(new_user_registration_path) %>
     <% img = ["kyhq7c9ejvefzylobaji", "xqnmel5kveuznf9i5kne"] %>
-    <body style="background-image: url('<%= cl_image_path img.sample %>'); background-position: 0% 0;
-          background-size:50%; background-repeat: no-repeat; height: 100vh">
+    <body id="background-img" style="background-image: url('<%= cl_image_path img.sample %>')">
       <%= render "shared/auth_navbar" %>
     </body>
   <% elsif current_page?(root_path) %>
