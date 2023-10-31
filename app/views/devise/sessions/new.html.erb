@@ -1,20 +1,47 @@
-<h2>Log in</h2>
+<div class="container-fluid">
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+  <div class="row auth-no-margin align-items-center" style="height: 90vh">
+    <div class="col align-self-end">
+      <div class="container p-5">
+        <div class="row">
+          <h2 class="text-white fw-bold fs-1">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</h2>
+          <p class="text-white fw-ligh no-margin">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo, repellendus ipsam est cupiditate libero mollitia itaque animi, maiores ullam dolor vitae, et in totam debitis reprehenderit sit vel odio earum?</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="container w-50">
+        <h2 class="fw-bold">Sign in</h2>
+        <p>or <%= link_to "create an account", new_user_registration_path, class: "link-underline link-underline-opacity-0" %></p>
+
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="form-inputs">
+            <%= f.input :email,
+                        required: false,
+                        autofocus: true,
+                        label: false,
+                        placeholder: "Email",
+                        input_html: { autocomplete: "email" } %>
+            <%= f.input :password,
+                        required: false,
+                        label: false,
+                        placeholder: "Password",
+                        input_html: { autocomplete: "current-password" } %>
+            <div class="d-flex justify-content-between">
+              <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+              <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+                <%= link_to "Forgot your password?", new_password_path(resource_name), class: "link-underline link-underline-opacity-0" %>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <%= f.button :submit, "Sign in", class: "btn btn-primary rounded-4 btn-lg w-100 mt-4" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
+</div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
