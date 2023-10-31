@@ -14,14 +14,18 @@
     <% img = ["kyhq7c9ejvefzylobaji", "xqnmel5kveuznf9i5kne"] %>
     <body style="background-image: url('<%= cl_image_path img.sample %>'); background-position: 0% 0;
           background-size:50%; background-repeat: no-repeat; height: 100vh">
+      <%= render "shared/auth_navbar" %>
     </body>
-    <%= render "shared/auth_navbar" %>
+  <% elsif current_page?(root_path) %>
+   <body style="background-image: url('<%= cl_image_path "pwcelwky1b3595adnwyb" %>'); background-size: 100%; background-repeat: no-repeat">
+      <%= render "shared/navbar" %>
+    </body>
   <% else %>
     <body>
-      <%= render "shared/navbar" %>
+    <%= render "shared/navbar" %>
   <% end %>
-      <%= render "shared/flashes" %>
-      <%= yield %>
+    <%= render "shared/flashes" %>
+    <%= yield %>
     </body>
 
 </html>
