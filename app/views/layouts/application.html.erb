@@ -10,7 +10,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <% if current_page?(new_user_session_path) || current_page?(new_user_registration_path) %>
+  <% if current_page?(new_user_session_path) || current_page?(new_user_registration_path) || current_page?( new_user_password_path) %>
     <% img = ["kyhq7c9ejvefzylobaji", "xqnmel5kveuznf9i5kne"] %>
     <body id="background-img" style="background-image: url('<%= cl_image_path img.sample %>')">
       <%= render "shared/auth_navbar" %>
