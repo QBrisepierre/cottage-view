@@ -1,18 +1,38 @@
-<h2>Forgot your password?</h2>
+<div class="container-fluid">
 
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
+  <div class="row auth-no-margin align-items-center" style="height: 90vh">
+    <div class="col-12 d-none d-xxl-block col-xxl-6 align-self-end">
+      <div class="container p-5">
+        <div class="row">
+          <h2 class="text-white fw-bold fs-1">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</h2>
+          <p class="text-white fw-ligh no-margin">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo, repellendus ipsam est cupiditate libero mollitia itaque animi, maiores ullam dolor vitae, et in totam debitis reprehenderit sit vel odio earum?</p>
+        </div>
+      </div>
+    </div>
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
+    <div class="col-12 col-xxl-6">
+      <div class="container responsive-form ">
+        <h2 class="fw-bold mb-4">Forgot password ?</h2>
+        <p>Enter the email address you used when you joined and we’ll send you instructions to reset your password.<p>
+        <p class="mb-5">For security reasons, we do NOT store your password. So rest assured that we will never send your password via email.</p>
+
+        <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+          <%= f.error_notification %>
+
+          <div class="form-inputs">
+            <%= f.input :email,
+                        required: true,
+                        autofocus: true,
+                        label: false,
+                        placeholder: "Email",
+                        input_html: { autocomplete: "email" } %>
+          </div>
+
+          <div class="form-actions">
+            <%= f.button :submit, "Reset password", class: "btn btn-primary rounded-4 btn-lg w-100 mt-4" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

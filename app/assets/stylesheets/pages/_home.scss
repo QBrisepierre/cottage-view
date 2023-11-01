@@ -1,5 +1,5 @@
 // Specific CSS for your home-page
-@media (min-width: 481px) and (max-width: 1320px) {
+@media (max-width: 1320px) {
     #background-img {
         background-image: none !important;
     }
@@ -11,6 +11,9 @@
         background-size:50%;
         background-repeat: no-repeat;
         height: 100vh
+    }
+    .responsive-form {
+        width: 75%;
     }
 }
 
