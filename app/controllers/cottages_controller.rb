@@ -13,18 +13,21 @@ class CottagesController < ApplicationController
   end
 
   def create
-    raise
-    @cottage = Cottage.new(cottage_params)
+    @cottage = Cottage.new
     @cottage.user = current_user
-    if @cottage.save
-      params[:cottage][:equipments].each do |equip|
-        cottage_equip = CottageEquipment.new(cottage_id: @cottage.id, equipment_id: equip.to_i)
-        cottage_equip.save
-      end
-      redirect_to cottage_path(@cottage)
-    else
-      render :new, status: :unprocessable_entity
-    end
+    @cottage.current_step = session[:cottage_step]
+    @cottage.next_step
+    session[:cottage_step] = @cottage.current_step
+    render :new, status: :multiple_choices
+    #if @cottage.save
+    #  params[:cottage][:equipments].each do |equip|
+    #    cottage_equip = CottageEquipment.new(cottage_id: @cottage.id, equipment_id: equip.to_i)
+    #    cottage_equip.save
+    #  end
+    #  redirect_to cottage_path(@cottage)
+    #else
+    #  render :new, status: :unprocessable_entity
+    #end
   end
 
   private

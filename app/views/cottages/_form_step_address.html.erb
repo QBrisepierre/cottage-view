@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <h2>Où est situé votre logement ?</h2>
+      <p>Votre adresse est uniquement communiquée aux voyageurs une fois leur réservation effectuée.
+      </p>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <%= f.input :address,
+                          required: true,
+                          autofocus: true, 
+                          label: "Adress",
+                          input_html: { autocomplete: "Address" }%>
+      </div>
+    </div>
+  </div>
+</div>
