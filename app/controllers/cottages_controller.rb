@@ -13,6 +13,7 @@ class CottagesController < ApplicationController
   end
 
   def create
+    raise
     @cottage = Cottage.new(cottage_params)
     @cottage.user = current_user
     if @cottage.save
@@ -33,6 +34,6 @@ class CottagesController < ApplicationController
   end
 
   def cottage_params
-    params.require(:cottage).permit(:name, :description, :user_id)
+    params.require(:cottage).permit(:name, :description, :total_bedroom, :total_bed, :total_bathroom, :total_occupancy, :address, :price, :user_id)
   end
 end
