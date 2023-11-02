@@ -1,5 +1,6 @@
 class Equipment < ApplicationRecord
-  belongs_to :cottage
+  has_many :cottage_equipments
+  has_many :cottages, through: :cottage_equipments
   has_one_attached :icon
   validates :name, presence: true
   validates :category, inclusion: { in: ["Salle de bain", "Chambre et linge", "Divertissement", "Famille", "Chauffage et climatisation",

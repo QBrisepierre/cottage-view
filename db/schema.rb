@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_01_164059) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_02_123936) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,32 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_01_164059) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "cottage_equipments", force: :cascade do |t|
+    t.bigint "equipment_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "cottage_id"
+    t.index ["cottage_id"], name: "index_cottage_equipments_on_cottage_id"
+    t.index ["equipment_id"], name: "index_cottage_equipments_on_equipment_id"
+  end
+
+  create_table "cottages", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "total_bedroom"
+    t.integer "total_bed"
+    t.integer "total_bathroom"
+    t.integer "total_occupancy"
+    t.string "address"
+    t.integer "price"
+    t.float "latitude"
+    t.float "longitude"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cottages_on_user_id"
+  end
+
   create_table "equipment", force: :cascade do |t|
     t.string "name"
     t.boolean "has", default: false
@@ -68,4 +94,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_01_164059) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "cottage_equipments", "cottages"
+  add_foreign_key "cottage_equipments", "equipment"
+  add_foreign_key "cottages", "users"
 end
