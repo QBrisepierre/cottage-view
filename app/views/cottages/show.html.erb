@@ -1,2 +1,15 @@
-<h1><%= @cottage.name %></h1>
-<p><%= @cottage.description %></p>
+<div class="container">
+  <div class="row">
+    <div class="col mb-3">
+      <h1><%= @cottage.name %></h1>
+      <p><%= @cottage.description %></p>
+      <% @cottage.equipments.each do |equipment| %>
+      <div class="d-flex">
+        <%= cl_image_tag equipment.icon.key, width: 20, height: 20 %>
+        <p><%= equipment.name %></p>
+
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -5,7 +5,6 @@ class CottagesController < ApplicationController
   end
 
   def show
-    
   end
 
   def new
@@ -13,7 +12,7 @@ class CottagesController < ApplicationController
   end
 
   def create
-    @cottage = Cottage.new
+    @cottage = Cottage.new(cottage_params)
     @cottage.user = current_user
     @cottage.current_step = session[:cottage_step]
     @cottage.next_step

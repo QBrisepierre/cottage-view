@@ -1,98 +1,17 @@
-<div class="container-fluid">
-    <div class="col-12">
-      <div class="container">
-        <h2 class="fw-bold">Create cottage</h2>
-
-        <%= simple_form_for(@cottage) do |f| %>
-          <%= render @cottage.current_step, f: f%>
-        
-
-          <!--<div class="row g-3 form-inputs">
-            <div class="col-12">
-              <%= f.input :name,
-                          required: true,
-                          autofocus: true,
-                          label: false,
-                          placeholder: "Name",
-                          input_html: { autocomplete: "name" }%>
-            </div>
-            <div class="col-12">
-              <%= f.input :description,
-                          required: true,
-                          autofocus: true,
-                          label: false,
-                          placeholder: "Description",
-                          input_html: { autocomplete: "description" }%>
-            </div>
-            <div class="col-1">
-              <%= f.input :total_bedroom,
-                          collection: 1..10,
-                          required: true,
-                          autofocus: true, 
-                          selected: 1,
-                          label: "Bedroom",
-                          input_html: { autocomplete: "Total bedroom" }%>
-            </div>
-            <div class="col-1">
-              <%= f.input :total_bed,
-                          collection: 1..10,
-                          required: true,
-                          autofocus: true, 
-                          selected: 1,
-                          label: "Bed",
-                          input_html: { autocomplete: "Total bed" }%>
-            </div>
-            <div class="col-1">
-              <%= f.input :total_bathroom,
-                          collection: 1..10,
-                          required: true,
-                          autofocus: true, 
-                          selected: 1,
-                          label: "Bathroom",
-                          input_html: { autocomplete: "Total bathroom" }%>
-            </div>
-            <div class="col-1">
-              <%= f.input :total_occupancy,
-                          collection: 1..10,
-                          required: true,
-                          autofocus: true, 
-                          selected: 1,
-                          label: "Peoples",
-                          input_html: { autocomplete: "Total occupancy" }%>
-            </div>
-            <div class="col-2">
-              <%= f.input :price,
-                          required: true,
-                          autofocus: true, 
-                          label: "Price",
-                          input_html: { autocomplete: "price"} do %>
-                <div class="input-group">
-                  <%= f.input_field :price, class: "form-control" %>
-                  <span class="input-group-text">€</span>
-                </div>
-              <% end %>
-            </div>
-            <div class="col-6">
-              <%= f.input :address,
-                          required: true,
-                          autofocus: true, 
-                          label: "Adress",
-                          input_html: { autocomplete: "Address" }%>
-            </div>
-            <div class="form-switch">
-              <%= f.input :equipments,
-              collection: Equipment.all,
-                          as: :check_boxes,
-                          input_html: { multiple: true } %>
-            
-            </div>
-          </div>-->
-
-          <div class="form-actions">
-            <%= f.submit "Create", class: "btn btn-primary rounded-4 btn-lg w-100 mt-4" %>
-          </div>
-        <% end %>
+<div class="container" style="height: 80vh">
+  <div class="row h-100">
+    <div class="col">
+      <h2 class="fw-bold">Create cottage</h2>
+      <%= simple_form_for @cottage, html: { class: "h-100"} do |f| %>
+        <%= render @cottage.current_step, f: f%>   
+    </div>       
+  </div>
+  <div class="row">
+    <div class="col-2 align-self-end">
+      <div class="form-actions">
+        <%= f.submit "Create", class: "btn bg-black text-white rounded-4 btn w-100 mt-4" %>
       </div>
     </div>
   </div>
+      <% end %>
 </div>
