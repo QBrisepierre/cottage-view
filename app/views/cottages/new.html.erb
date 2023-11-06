@@ -3,13 +3,30 @@
     <div class="col">
       <h2 class="fw-bold">Create cottage</h2>
       <%= simple_form_for @cottage, html: { class: "h-100"} do |f| %>
-         
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-6">
+              <h2>Où est situé votre logement ?</h2>
+              <p>Votre adresse est uniquement communiquée aux voyageurs une fois leur réservation effectuée.
+              </p>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-6">
+                <%= f.input :address,
+                                  required: true,
+                                  autofocus: true, 
+                                  label: "Adress",
+                                  input_html: { autocomplete: "Address" }%>
+              </div>
+            </div>
+          </div>
+        </div>
     </div>       
   </div>
   <div class="row">
     <div class="col-2 align-self-end">
       <div class="form-actions">
-        <%= f.submit "Create", class: "btn bg-black text-white rounded-4 btn w-100 mt-4" %>
+        <%= f.submit "Continue", class: "btn bg-black text-white rounded-4 btn w-100 mt-4" %>
       </div>
     </div>
   </div>

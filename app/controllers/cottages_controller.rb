@@ -1,5 +1,7 @@
 class CottagesController < ApplicationController
+
   before_action :set_params, only: [:show]
+
   def index
     @cottages = Cottage.all
   end
@@ -12,12 +14,11 @@ class CottagesController < ApplicationController
   end
 
   def create
+    @cottage = Cottage.new(cottage_params)
+    @cottage.user_id = current_user.id if @cottage.user_id.nil?
     if @cottage.save
-      params[:cottage][:equipments].each do |equip|
-        cottage_equip = CottageEquipment.new(cottage_id: @cottage.id, equipment_id: equip.to_i)
-        cottage_equip.save
-      end
-      redirect_to cottage_path(@cottage)
+      session[:cottage_id] = @cottage.id
+      redirect_to cottage_steps_path
     else
       render :new, status: :unprocessable_entity
     end
