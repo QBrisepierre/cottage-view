@@ -9,7 +9,6 @@ class CottageStepsController < ApplicationController
 
   def update
     @cottage = Cottage.find(session[:cottage_id])
-    raise
     case step
     when :equipments
       params[:cottage][:equipments].each do |equip|

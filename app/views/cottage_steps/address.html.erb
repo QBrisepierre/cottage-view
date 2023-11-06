@@ -2,7 +2,7 @@
   <div class="row h-100">
     <div class="col">
       <h2 class="fw-bold">Create cottage</h2>
-      <%= simple_form_for @cottage, html: { class: "h-100"} do |f| %>
+      <%= simple_form_for @cottage, url: wizard_path, html: { class: "h-100"} do |f| %>
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-6">
@@ -11,7 +11,7 @@
               </p>
             </div>
             <div class="row justify-content-center">
-              
+              <div data-controller="address_map" class="map">
                 <div class="col-6">
                   <%= f.input :address,
                                     required: true,
@@ -19,8 +19,8 @@
                                     label: "Address",
                                     input_html: { autocomplete: "Address" }%>
                 </div>
-                <div data-controller="addressmap">
-                </div>
+
+              </div>
             </div>
           </div>
         </div>
