@@ -11,12 +11,12 @@
   </head>
 
   <% if current_page?(new_user_session_path) || current_page?(new_user_registration_path) || current_page?( new_user_password_path) %>
-    <% img = ["https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/xqnmel5kveuznf9i5kne", "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/kyhq7c9ejvefzylobaji"] %>
-    <body id="background-img" style="background-image: url('<%= cl_image_path img.sample %>')">
+    <% img = ["xqnmel5kveuznf9i5kne", "kyhq7c9ejvefzylobaji"] %>
+    <body id="background-img" style="background-image: url('<%= cl_image_path img.sample, quality: "auto", fetch_format: "auto" %>')">
       <%= render "shared/auth_navbar" %>
     </body>
   <% elsif current_page?(root_path) %>
-   <body style="background-image: url('<%= cl_image_path "pwcelwky1b3595adnwyb" %>'); background-size: 100%; background-repeat: no-repeat">
+   <body style="background-image: url('<%= cl_image_path "pwcelwky1b3595adnwyb", quality: "auto", fetch_format: "auto" %>'); background-size: 100%; background-repeat: no-repeat">
       <%= render "shared/navbar" %>
     </body>
   <% else %>
