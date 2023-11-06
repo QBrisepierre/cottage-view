@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <h2>Donnez les informations principales concernant votre logement</h2>
+      <p>Vous pourrez ajouter d'autres informations plus tard, comme les types de lit.
+      </p>
+    </div>
+    <%= simple_form_for @cottage, url: wizard_path, html: { class: "h-100"} do |f| %>
+      <div class="row justify-content-center">
+        <div class="col-6">
+          <div class="">
+            <%= f.input :total_bedroom,
+                        collection: 1..10,
+                        required: true,
+                        autofocus: true, 
+                        selected: 1,
+                        label: "Bedroom",
+                        input_html: { autocomplete: "Total bedroom" }%>
+          </div>
+          <div class="">
+            <%= f.input :total_bed,
+                        collection: 1..10,
+                        required: true,
+                        autofocus: true, 
+                        selected: 1,
+                        label: "Bed",
+                        input_html: { autocomplete: "Total bed" }%>
+          </div>
+          <div class="">
+            <%= f.input :total_bathroom,
+                        collection: 1..10,
+                        required: true,
+                        autofocus: true, 
+                        selected: 1,
+                        label: "Bathroom",
+                        input_html: { autocomplete: "Total bathroom" }%>
+          </div>
+          <div class="">
+            <%= f.input :total_occupancy,
+                        collection: 1..10,
+                        required: true,
+                        autofocus: true, 
+                        selected: 1,
+                        label: "Peoples",
+                        input_html: { autocomplete: "Total occupancy" }%>
+          </div>
+        </div>
+
+      </div>
+      <div class="row">
+    <div class="col-2 align-self-end">
+      <div class="form-actions">
+        <%= f.submit "Continue", class: "btn bg-black text-white rounded-4 btn w-100 mt-4" %>
+      </div>
+    </div>
+  </div>
+      <% end %>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <h2>Indiquez aux voyageurs quels sont les équipements de votre logement</h2>
+      <p>Vous pourrez ajouter des équipements une fois votre annonce publiée.
+      </p>
+    </div>
+    <%= simple_form_for @cottage, url: wizard_path, html: { class: "h-100"} do |f| %>
+      <div class="row justify-content-center">
+        <div class="col-6">
+          <div class="form-switch">
+          <%= f.input :equipments,
+              collection: Equipment.all,
+              as: :check_boxes,
+              input_html: { multiple: true } %>
+                  
+          </div>
+        </div>
+      </div>
+      <div class="col-2 align-self-end">
+        <div class="form-actions">
+          <%= f.submit "Create", class: "btn bg-black text-white rounded-4 btn w-100 mt-4" %>
+        </div>
+      </div>
+    </div>
+      <% end %>
+  </div>
+</div>
