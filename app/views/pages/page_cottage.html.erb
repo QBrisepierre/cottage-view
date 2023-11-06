@@ -1,0 +1,22 @@
+<div class="container" style="height: 80vh">
+    <div class="row h-100 justify-content-around align-items-center">
+    <div class="col-4">
+        <h4>Etape 1</h4>
+        <h2>Parlez-nous de votre logement</h2>
+        <p>Au cours de cette étape, nous allons vous demander quel type de logement vous proposez
+        et si les voyageurs pourront le réserver dans son intégralité ou si vous ne louez qu'une
+        chambre. Nous vous demanderons ensuite d'indiquer son emplacement et sa capacité d'accueil.
+        </p>
+    </div>
+    <div class="col-4">
+        <%= cl_image_tag "lro1t0jpb1rloavw6b8qqd1nwpeg", height: 300, width: 400, crop: :fill  %>
+    </div>
+    </div>
+<div class="row">
+    <div class="col-2 align-self-end">
+      <div class="form-actions">
+        <%= link_to "Continue", new_cottage_path, class: "btn bg-black text-white rounded-4 btn w-100 mt-4" %>
+      </div>
+    </div>
+  </div>
+</div>

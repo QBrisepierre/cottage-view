@@ -1,5 +1,4 @@
 class CottagesController < ApplicationController
-
   before_action :set_params, only: [:show]
 
   def index
