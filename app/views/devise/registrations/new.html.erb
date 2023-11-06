@@ -41,13 +41,13 @@
             <%= f.input :birthday_date,
                         required: true,
                         autofocus: true,
-                        as: :date,
+                        as: :string,
                         label: false,
                         start_year: Date.today.year - 90,
                         end_year: Date.today.year - 16,
                         order: [:day, :month, :year],
-                        label: 'Date of birth (DD/MM/YYYY)',
-                        input_html: { autocomplete: "birthday_date" }%>
+                        label: 'Date of birth',
+                        input_html: { autocomplete: "birthday_date", data: { controller: "datepickr"} }%>
             <%= f.input :password,
                         required: true,
                         label: false,
