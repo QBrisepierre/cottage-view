@@ -6,7 +6,7 @@
           <% cottage.equipments.where(category: "Extérieur").count > 0 ? principal_equip = cottage.equipments.where(category: "Extérieur").first.name : "Beau chalet" %>
           <div class="card">
             <% if cottage.photos.attached? %>
-              <%= cl_image_tag cottage.photos.first.key, quality: "auto", fetch_format: "auto" %>
+              <%= cl_image_tag cottage.photos.first.key, quality: "auto", fetch_format: "auto", crop: :fill, aspect_ratio: "1.0", gravity: "auto" %>
             <% else %>
               <%= cl_image_tag "xqnmel5kveuznf9i5kne", quality: "auto", fetch_format: "auto", crop: :fill, aspect_ratio: "1.0", gravity: "auto" %>
             <% end %>
