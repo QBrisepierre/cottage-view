@@ -1,0 +1,14 @@
+.card-checkboxe {
+  background-color: aqua;
+  width: 50px;
+  height: 50px;
+  float: none !important;
+}
+
+.form-check-input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
