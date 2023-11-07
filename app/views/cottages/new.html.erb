@@ -1,37 +1,24 @@
-<div class="container" style="height: 80vh">
-  <div class="row h-100">
-    <div class="col">
-      <h2 class="fw-bold">Create cottage</h2>
+<div class="container">
+  <div class="row justify-content-center align-items-center" style="height: 80vh;">
+    <div class="col-6">
+      <h2 class="fw-medium fs-1">Où est situé votre logement ?</h2>
+      <p class="text-secondary fs-5">Votre adresse est uniquement communiquée aux voyageurs une fois leur réservation effectuée.</p>
       <%= simple_form_for @cottage, html: { class: "h-100"} do |f| %>
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-6">
-              <h2>Où est situé votre logement ?</h2>
-              <p>Votre adresse est uniquement communiquée aux voyageurs une fois leur réservation effectuée.
-              </p>
-            </div>
-            <div class="row justify-content-center">
-              
-                <div class="col-6">
-                  <%= f.input :address,
-                                    required: true,
-                                    autofocus: true, 
-                                    label: "Address",
-                                    input_html: { autocomplete: "Address" }%>
-                </div>
-                <div data-controller="addressmap">
-                </div>
-            </div>
-          </div>
+        <div class="form">
+          <%= f.input :address,
+            required: true,
+            autofocus: true, 
+            label: false,
+            input_html: { autocomplete: "Address" }
+          %>
         </div>
-    </div>       
-  </div>
-  <div class="row">
-    <div class="col-2 align-self-end">
-      <div class="form-actions">
-        <%= f.submit "Continue", class: "btn bg-black text-white rounded-4 btn w-100 mt-4" %>
-      </div>
     </div>
   </div>
-      <% end %>
+  <div class="row">
+    <div class="col-10"></div>
+    <div class="col-2">
+      <%= f.submit "Create", class: "btn bg-black text-white rounded-4 btn w-100 mt-4" %>
+    </div>
+    <% end %>
+  </div>
 </div>

@@ -1,6 +1,6 @@
 class CottageStepsController < ApplicationController
   include Wicked::Wizard
-  steps :rooms, :equipments
+  steps :rooms, :equipments, :photos, :name, :description
 
   def show
     @cottage = Cottage.find(session[:cottage_id])
