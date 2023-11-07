@@ -24,6 +24,6 @@ class CottageStepsController < ApplicationController
   private
 
   def cottage_params
-    params.require(:cottage).permit(:name, :description, :total_bedroom, :total_bed, :total_bathroom, :total_occupancy, :address, :price, :user_id)
+    params.require(:cottage).permit(:name, :description, :total_bedroom, :total_bed, :total_bathroom, :total_occupancy, :address, :price, :user_id, photos: [] )
   end
 end
