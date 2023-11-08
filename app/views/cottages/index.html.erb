@@ -1,9 +1,8 @@
-<div class="container">
+<div class="container-fluid">
   <div class="content">
     <div class="cards">
       <% @cottages.each do |cottage| %>
         <%= link_to cottage_path(cottage), class: "text-decoration-none" do %>
-          <% cottage.equipments.where(category: "Extérieur").count > 0 ? principal_equip = cottage.equipments.where(category: "Extérieur").first.name : "Beau chalet" %>
           <div class="card">
             <% if cottage.photos.attached? %>
               <%= cl_image_tag cottage.photos.first.key, quality: "auto", fetch_format: "auto", crop: :fill, aspect_ratio: "1.0", gravity: "auto" %>
@@ -11,8 +10,8 @@
               <%= cl_image_tag "xqnmel5kveuznf9i5kne", quality: "auto", fetch_format: "auto", crop: :fill, aspect_ratio: "1.0", gravity: "auto" %>
             <% end %>
             <p class="pt-2 mb-0"><%= cottage.name %></p>
-            <p class="text-secondary mb-0"><%= principal_equip %></p>
-            <p class=""><%= cottage.price %><i class="fa-solid fa-euro-sign"></i> par nuit</p>
+            <p class="text-secondary mb-0"><%= cottage.equipments.sample.name %></p>
+            <p class=""><%= cottage.price %>€ par nuit</p>
           </div>
         <% end %>
       <% end %>
