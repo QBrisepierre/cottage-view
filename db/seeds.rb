@@ -11,15 +11,6 @@ CottageEquipment.destroy_all
 # Deleting all Cottage
 Cottage.destroy_all
 
-# Config cloudinary
-Cloudinary.config_from_url("cloudinary://252855681667482:cSDuow3rYmnQLfn-DMEq6QN6E5g@falconium")
-Cloudinary.config do |config|
-  config.secure = true
-end
-
-# Destroy all image cottage
-Cloudinary::Api.delete_resources_by_prefix('development/')
-
 # Creating all Equipments we need
 category = ["Salle de bain", "Chambre et linge", "Divertissement", "Famille", "Chauffage et climatisation",
 "Sécurité à la maison", "Internet et bureau", "Cuisine et salle à manger", "Caractéristiques de l'emplacement",
@@ -449,12 +440,6 @@ exteriors.each_with_index do |image, index|
   cottage.save
 
   # Adding some photos to cottage
-  
-  
-
-  
-  
-
   
   # Adding exterior photo at first
   file = URI.open(image)
