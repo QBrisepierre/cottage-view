@@ -1,5 +1,6 @@
 require "open-uri"
 require 'faker'
+require "cloudinary"
 
 # Deleting all equipemnts
 Equipment.destroy_all
@@ -9,6 +10,15 @@ CottageEquipment.destroy_all
 
 # Deleting all Cottage
 Cottage.destroy_all
+
+# Config cloudinary
+Cloudinary.config_from_url("cloudinary://252855681667482:cSDuow3rYmnQLfn-DMEq6QN6E5g@falconium")
+Cloudinary.config do |config|
+  config.secure = true
+end
+
+# Destroy all image cottage
+Cloudinary::Api.delete_resources_by_prefix('development/')
 
 # Creating all Equipments we need
 category = ["Salle de bain", "Chambre et linge", "Divertissement", "Famille", "Chauffage et climatisation",
@@ -351,62 +361,81 @@ puts "Creating Cottage"
 # Recup all equipments
 equipements = Equipment.all
 
-# Photos exterior cottage
-exteriors = [
-    "https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg",
-    "https://images.pexels.com/photos/65225/boat-house-cottage-waters-lake-65225.jpeg",
-    "https://images.pexels.com/photos/434549/pexels-photo-434549.jpeg",
-    "https://images.pexels.com/photos/371404/pexels-photo-371404.jpeg",
-    "https://images.pexels.com/photos/7061662/pexels-photo-7061662.jpeg",
-    "https://images.pexels.com/photos/7031406/pexels-photo-7031406.jpeg",
-    "https://images.pexels.com/photos/5875866/pexels-photo-5875866.jpeg",
-    "https://images.pexels.com/photos/4969837/pexels-photo-4969837.jpeg",
-    "https://images.pexels.com/photos/9211816/pexels-photo-9211816.jpeg",
-    "https://images.pexels.com/photos/4947737/pexels-photo-4947737.jpeg",
-    "https://images.pexels.com/photos/7163610/pexels-photo-7163610.jpeg",
-    "https://images.pexels.com/photos/4558574/pexels-photo-4558574.jpeg",
-    "https://images.pexels.com/photos/7174109/pexels-photo-7174109.jpeg",
-    "https://images.pexels.com/photos/5764100/pexels-photo-5764100.jpeg",
-    "https://images.pexels.com/photos/6032280/pexels-photo-6032280.jpeg",
-    "https://images.pexels.com/photos/17968541/pexels-photo-17968541/free-photo-of-maisons-village-maison-blanc.jpeg"
-  ]
-
-  # Photos interior cottage
-  interiors = [
-  "https://images.pexels.com/photos/4906249/pexels-photo-4906249.jpeg",
-  "https://images.pexels.com/photos/6775268/pexels-photo-6775268.jpeg",
-  "https://images.pexels.com/photos/4906407/pexels-photo-4906407.jpeg",
-  "https://images.pexels.com/photos/4825713/pexels-photo-4825713.jpeg",
-  "https://images.pexels.com/photos/3951742/pexels-photo-3951742.jpeg",
-  "https://images.pexels.com/photos/3932957/pexels-photo-3932957.jpeg",
-  "https://images.pexels.com/photos/4940808/pexels-photo-4940808.jpeg",
-  "https://images.pexels.com/photos/5998041/pexels-photo-5998041.jpeg",
-  "https://images.pexels.com/photos/6032416/pexels-photo-6032416.jpeg",
-  "https://images.pexels.com/photos/4906243/pexels-photo-4906243.jpeg",
-  "https://images.pexels.com/photos/5824497/pexels-photo-5824497.jpeg",
-  "https://images.pexels.com/photos/9220873/pexels-photo-9220873.jpeg",
-  "https://images.pexels.com/photos/5824493/pexels-photo-5824493.jpeg",
-  "https://images.pexels.com/photos/5824499/pexels-photo-5824499.jpeg",
-  "https://images.pexels.com/photos/7061663/pexels-photo-7061663.jpeg",
-  "https://images.pexels.com/photos/5490199/pexels-photo-5490199.jpeg",
-  "https://images.pexels.com/photos/6370036/pexels-photo-6370036.jpeg",
-  "https://images.pexels.com/photos/4947139/pexels-photo-4947139.jpeg",
-  "https://images.pexels.com/photos/5824495/pexels-photo-5824495.jpeg",
-  "https://images.pexels.com/photos/3951743/pexels-photo-3951743.jpeg",
-  "https://images.pexels.com/photos/5490204/pexels-photo-5490204.jpeg",
-  "https://images.pexels.com/photos/4947749/pexels-photo-4947749.jpeg",
-  "https://images.pexels.com/photos/9220877/pexels-photo-9220877.jpeg",
-  "https://images.pexels.com/photos/5824513/pexels-photo-5824513.jpeg",
-  "https://images.pexels.com/photos/9220882/pexels-photo-9220882.jpeg",
-  "https://images.pexels.com/photos/5824877/pexels-photo-5824877.jpeg",
-  "https://images.pexels.com/photos/5490203/pexels-photo-5490203.jpeg",
-  "https://images.pexels.com/photos/16747776/pexels-photo-16747776/free-photo-of-dans-une-maison-suedoise.jpeg"
+# Title of cottage
+title_cottages = [
+  "Chalet de montagne avec vue panoramique",
+  "Cocon alpin pour une escapade romantique",
+  "Chalet familial près des pistes de ski",
+ " Chalet rustique au cœur de la nature",
+  "Retraite tranquille en chalet de montagne",
+  "Luxe et détente dans un chalet privé",
+  "Chalet moderne avec jacuzzi en plein air",
+  "Séjour chaleureux dans un chalet en bois",
+  "Chalet avec accès au lac cristallin",
+  "Expérience montagnarde dans un chalet typique",
+  "Chalet isolé pour un séjour paisible",
+  "Chalet design avec vue imprenable",
+  "Séjour en famille dans un chalet spacieux",
+  "Évasion en chalet de luxe en forêt",
+  "Détente totale dans un chalet bien-être",
+  "Chalet de charme pour une escapade authentique"
 ]
 
-# Boucle for creating 50 cottage
-for image in exteriors do
+  # Images principal for cottage
+  exteriors = [
+      "https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg",
+      "https://images.pexels.com/photos/65225/boat-house-cottage-waters-lake-65225.jpeg",
+      "https://images.pexels.com/photos/434549/pexels-photo-434549.jpeg",
+      "https://images.pexels.com/photos/371404/pexels-photo-371404.jpeg",
+      "https://images.pexels.com/photos/7061662/pexels-photo-7061662.jpeg",
+      "https://images.pexels.com/photos/7031406/pexels-photo-7031406.jpeg",
+      "https://images.pexels.com/photos/5875866/pexels-photo-5875866.jpeg",
+      "https://images.pexels.com/photos/4969837/pexels-photo-4969837.jpeg",
+      "https://images.pexels.com/photos/9211816/pexels-photo-9211816.jpeg",
+      "https://images.pexels.com/photos/4947737/pexels-photo-4947737.jpeg",
+      "https://images.pexels.com/photos/7163610/pexels-photo-7163610.jpeg",
+      "https://images.pexels.com/photos/4558574/pexels-photo-4558574.jpeg",
+      "https://images.pexels.com/photos/7174109/pexels-photo-7174109.jpeg",
+      "https://images.pexels.com/photos/5764100/pexels-photo-5764100.jpeg",
+      "https://images.pexels.com/photos/6032280/pexels-photo-6032280.jpeg",
+      "https://images.pexels.com/photos/17968541/pexels-photo-17968541/free-photo-of-maisons-village-maison-blanc.jpeg"
+  ]
+# Interior images for cottage
+  interiors = [
+    "https://images.pexels.com/photos/4906249/pexels-photo-4906249.jpeg",
+    "https://images.pexels.com/photos/6775268/pexels-photo-6775268.jpeg",
+    "https://images.pexels.com/photos/4906407/pexels-photo-4906407.jpeg",
+    "https://images.pexels.com/photos/4825713/pexels-photo-4825713.jpeg",
+    "https://images.pexels.com/photos/3951742/pexels-photo-3951742.jpeg",
+    "https://images.pexels.com/photos/3932957/pexels-photo-3932957.jpeg",
+    "https://images.pexels.com/photos/4940808/pexels-photo-4940808.jpeg",
+    "https://images.pexels.com/photos/5998041/pexels-photo-5998041.jpeg",
+    "https://images.pexels.com/photos/6032416/pexels-photo-6032416.jpeg",
+    "https://images.pexels.com/photos/4906243/pexels-photo-4906243.jpeg",
+    "https://images.pexels.com/photos/5824497/pexels-photo-5824497.jpeg",
+    "https://images.pexels.com/photos/9220873/pexels-photo-9220873.jpeg",
+    "https://images.pexels.com/photos/5824493/pexels-photo-5824493.jpeg",
+    "https://images.pexels.com/photos/5824499/pexels-photo-5824499.jpeg",
+    "https://images.pexels.com/photos/7061663/pexels-photo-7061663.jpeg",
+    "https://images.pexels.com/photos/5490199/pexels-photo-5490199.jpeg",
+    "https://images.pexels.com/photos/6370036/pexels-photo-6370036.jpeg",
+    "https://images.pexels.com/photos/4947139/pexels-photo-4947139.jpeg",
+    "https://images.pexels.com/photos/5824495/pexels-photo-5824495.jpeg",
+    "https://images.pexels.com/photos/3951743/pexels-photo-3951743.jpeg",
+    "https://images.pexels.com/photos/5490204/pexels-photo-5490204.jpeg",
+    "https://images.pexels.com/photos/4947749/pexels-photo-4947749.jpeg",
+    "https://images.pexels.com/photos/9220877/pexels-photo-9220877.jpeg",
+    "https://images.pexels.com/photos/5824513/pexels-photo-5824513.jpeg",
+    "https://images.pexels.com/photos/9220882/pexels-photo-9220882.jpeg",
+    "https://images.pexels.com/photos/5824877/pexels-photo-5824877.jpeg",
+    "https://images.pexels.com/photos/5490203/pexels-photo-5490203.jpeg",
+    "https://images.pexels.com/photos/16747776/pexels-photo-16747776/free-photo-of-dans-une-maison-suedoise.jpeg"
+  ]
+
+  
+exteriors.each_with_index do |image, index|
   cottage = Cottage.new(
-    name: Faker::Book.title,
+    name: title_cottages[index],
     description: Faker::Lorem.paragraph_by_chars,
     total_bedroom: rand(1..10),
     total_bed: rand(1..5),
@@ -415,12 +444,18 @@ for image in exteriors do
     address: Faker::Address.full_address,
     price: rand(50..400),
     user_id: user.id
-    )
-
+  )
   # Save the Cottage
   cottage.save
 
   # Adding some photos to cottage
+  
+  
+
+  
+  
+
+  
   # Adding exterior photo at first
   file = URI.open(image)
   cottage.photos.attach(io: file, filename: "#{cottage.name}.png", content_type: "image/png")

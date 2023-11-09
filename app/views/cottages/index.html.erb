@@ -6,8 +6,6 @@
           <div class="card">
             <% if cottage.photos.attached? %>
               <%= cl_image_tag cottage.photos.first.key, quality: "auto", fetch_format: "auto", crop: :fill, aspect_ratio: "1.0", gravity: "auto" %>
-            <% else %>
-              <%= cl_image_tag "xqnmel5kveuznf9i5kne", quality: "auto", fetch_format: "auto", crop: :fill, aspect_ratio: "1.0", gravity: "auto" %>
             <% end %>
             <p class="pt-2 mb-0"><%= cottage.name %></p>
             <p class="text-secondary mb-0"><%= cottage.equipments.sample.name %></p>
