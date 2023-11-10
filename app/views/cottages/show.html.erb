@@ -1,5 +1,5 @@
 <div class="container padding-container">
-      <h1 class="fs-3"><%= @cottage.name %></h1>
+  <h1 class="fs-3 mb-4"><%= @cottage.name %></h1>
   <div class="row">
     <div class="col-6 pe-1 mb-3">
       <%= cl_image_tag @cottage.photos.first.key, id: "border-top-bottom-start", class: "w-100", quality: "100", fetch_format: "auto", crop: :fill, aspect_ratio: "1.0", gravity: "auto", height: 420 %>
@@ -14,14 +14,61 @@
     </div>
   </div>
   <div class="row">
-    <div class="col">
-      <p><%= @cottage.description %></p>
+    <div class="col-8">
+      <div class="info border-bottom">
+        <p class="fs-5 mb-0">Logement entier : </p>
+        <p class="fw-light" style="font-size: 13px">
+          <%= @cottage.total_occupancy %> <%= @cottage.total_occupancy > 1 ? "Voyageurs" : "Voyageur" %>  |
+          <%= @cottage.total_bedroom %><%= @cottage.total_bedroom > 1 ? "Chambres" : "Chambre" %> |
+          <%= @cottage.total_bed %><%= @cottage.total_bed > 1 ? "Lits" : "Lit" %> |
+          <%= @cottage.total_bathroom %><%= @cottage.total_bathroom > 1 ? "salles de bain" : "salle de bain" %> 
+        </p>
+      </div>
+      <div class="user border-bottom">
+        <div class="d-flex my-3">
+          <%= cl_image_tag @user.profile_photo.key, class: "avatar me-3" %>
+          <div class="user-info">
+            <p class="mb-0 fw-medium" style="font-size: 14px">Hôte : <%= @user.first_name %></p>
+            <p class="mb-0 fw-light" style="font-size: 13px">Hôte depuis <%= @date_since %><%= @date_since > 1 ? "jours" : "jour" %></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="description my-3">
+        <p class="mt-2 fs-6 fw-light truncate"><%= @cottage.description %></p>
+      </div>
+
+      <div data-controller="description">
+        <button class="btn btn-priamry" data-action="click->description#openModal">En savoir plus</button>
+      </div>
+      <!-- Modal -->
+      <div class="modal fade" data-description-target="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <% @cottage.equipments.each do |equipment| %>
         <div class="d-flex">
           <%= cl_image_tag equipment.icon.key, width: 20, height: 20 %>
           <p><%= equipment.name %></p>
         </div>
       <% end %>
+    </div>
+    <div class="col-4">
+
     </div>
   </div>
 </div>

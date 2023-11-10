@@ -6,6 +6,9 @@ class CottagesController < ApplicationController
   end
 
   def show
+    @user = User.find(@cottage.user_id)
+    created_at = @user.created_at.strftime("%Y-%m-%d").to_date
+    @date_since = ( Date.today - created_at ).to_i
   end
 
   def new
