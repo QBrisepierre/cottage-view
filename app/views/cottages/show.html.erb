@@ -1,15 +1,214 @@
-<div class="container">
+<div class="container padding-container">
+  <h1 class="fs-3 mb-4"><%= @cottage.name %></h1>
   <div class="row">
-    <div class="col mb-3">
-      <h1><%= @cottage.name %></h1>
-      <p><%= @cottage.description %></p>
-      <% @cottage.equipments.each do |equipment| %>
-      <div class="d-flex">
-        <%= cl_image_tag equipment.icon.key, width: 20, height: 20 %>
-        <p><%= equipment.name %></p>
-
+    <div class="col-6 pe-1 mb-4">
+      <%= cl_image_tag @cottage.photos.first.key, id: "border-top-bottom-start", class: "w-100", quality: "100", fetch_format: "auto", crop: :fill, aspect_ratio: "1.0", gravity: "auto", height: 520 %>
+    </div>
+    <div class="col-3 ps-1 pe-1">
+        <%= cl_image_tag @cottage.photos[1].key, class: "w-100 pb-1", quality: "100", fetch_format: "auto", crop: :fill, aspect_ratio: "1.0", gravity: "auto", height: 260 %>
+        <%= cl_image_tag @cottage.photos[2].key,  class: "w-100 pt-1", quality: "100", fetch_format: "auto", crop: :fill, aspect_ratio: "1.0", gravity: "auto", height: 260 %>
+    </div>
+    <div class="col-3 ps-1">
+      <%= cl_image_tag @cottage.photos[3].key, id: "border-top-end", class: "w-100 pb-1", quality: "100", fetch_format: "auto", crop: :fill, aspect_ratio: "1.0", gravity: "auto", height: 260 %>
+      <%= cl_image_tag @cottage.photos[4].key, id: "border-bottom-end", class: "w-100 pt-1", quality: "100", fetch_format: "auto", crop: :fill, aspect_ratio: "1.0", gravity: "auto", height: 260 %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-8">
+      <div class="info border-bottom">
+        <p class="fs-4 mb-0">Logement entier : </p>
+        <p class="fw-light" style="font-size: 16px">
+          <%= @cottage.total_occupancy %> <%= @cottage.total_occupancy > 1 ? "Voyageurs" : "Voyageur" %>  |
+          <%= @cottage.total_bedroom %> <%= @cottage.total_bedroom > 1 ? "Chambres" : "Chambre" %> |
+          <%= @cottage.total_bed %> <%= @cottage.total_bed > 1 ? "Lits" : "Lit" %> |
+          <%= @cottage.total_bathroom %> <%= @cottage.total_bathroom > 1 ? "salles de bain" : "salle de bain" %> 
+        </p>
       </div>
-      <% end %>
+      <div class="user border-bottom">
+        <div class="d-flex my-3">
+          <%= cl_image_tag @user.profile_photo.key, class: "avatar me-3" %>
+          <div class="user-info">
+            <p class="mb-0 fw-medium" style="font-size: 17px">Hôte : <%= @user.first_name %></p>
+            <p class="mb-0 fw-light" style="font-size: 16px">Hôte depuis <%= @date_since %> <%= @date_since > 1 ? "jours" : "jour" %></p>
+          </div>
+        </div>
+      </div>
+      <div class="second py-3 border-bottom">
+        <div class="description">
+          <p class="mb-0 fs-6 fw-light truncate"><%= @cottage.description %></p>
+        </div>
+        <div>
+          <!-- Button trigger modal -->
+          <button class="btn p-0 fs-6 fw-medium" data-bs-toggle="modal" data-bs-target="#description">
+            <p class="text-decoration-underline mb-0">En savoir plus<i class="fa-solid fa-chevron-right fa-xs ms-1" style="color: #000000;"></i></p>
+          </button>
+          <!-- Modal -->
+          <div class="modal fade" id="description" tabindex="-1" aria-labelledby="descriptionModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="descriptionModalLabel">À propos de ce logement</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <%= @cottage.description %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="equipment py-3">
+        <p class="fs-4 mb-2">Ce que propose ce logement</p>
+        <div class="d-flex">
+          <div class="me-5 pe-3">
+            <% @cottage.equipments[0..4].each do |equipment| %>
+              <div class="d-flex">
+                <%= cl_image_tag equipment.icon.key, class: "me-2", width: 25, height: 25 %>
+                <p class="fw-light" style="font-size: 18px"><%= equipment.name %></p>
+              </div>
+            <% end %>    
+          </div>
+          <div class="ms-5">
+            <% @cottage.equipments[5..9].each do |equipment| %>
+              <div class="d-flex">
+                <%= cl_image_tag equipment.icon.key, class: "me-2", width: 25, height: 25 %>
+                <p class="fw-light" style="font-size: 18px"><%= equipment.name %></p>
+              </div>
+            <% end %>    
+          </div>
+        </div>
+        <button class="btn btn-outline-dark rounded-4 py-2 px-3 fw-medium" style="font-size: 18px" data-bs-toggle="modal" data-bs-target="#equipments">
+          <p class="mb-0">Ce que propose ce logement</p>
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="equipments" tabindex="-1" aria-labelledby="equipmentsModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="equipmentsModalLabel">À propos de ce logement</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <% @categories.each do |category| %>
+                  <div>
+                    <% equipments = @have_equipments.select { |e| e.category == category } %> 
+                    <% if equipments.count > 0 %>
+                      <div class="pb-4">
+                        <p class="fw-medium mb-1"><%= category %></p>
+                        <% equipments.each do |equipment| %>
+                          <div class="d-flex py-3 border-bottom">
+                            <%= cl_image_tag equipment.icon.key, class: "me-2", width: 25, height: 25 %>
+                            <div>
+                              <p class="fw-light mb-0" style="font-size: 18px"><%= equipment.name %></p>
+                              <% case equipment.name %>
+                              <% when "Équipements de base" %>    
+                                <p class="fw-medium text-body-tertiary mb-0" style="font-size: 14px">Serviettes, draps, savon et papier toilette</p> 
+                              <% when "Cuisine" %>
+                                <p class="fw-medium text-body-tertiary mb-0" style="font-size: 14px">Espace où les voyageurs peuvent cuisiner</p> 
+                              <% when "Équipements de cuisine de base" %>
+                                <p class="fw-medium text-body-tertiary mb-0" style="font-size: 14px">Casseroles et poêles, huile, sel et poivre</p> 
+                              <% when "Entrée privée" %>
+                                <p class="fw-medium text-body-tertiary mb-0" style="font-size: 14px">Entrée par une rue différente ou un immeuble séparé</p>
+                              <% when "Détecteur de fumée" %>
+                                <p class="fw-medium text-body-tertiary mb-0" style="font-size: 14px">Le logement est équipé de détecteur de fumée.</p>
+                              <% when "Détecteur de monoxyde de carbone" %>
+                                <p class="fw-medium text-body-tertiary mb-0" style="font-size: 14px">Le logement est équipé de détecteur de monoxyde de carbone.</p>
+                              <% when "Vaisselle et couverts" %>
+                                <p class="fw-medium text-body-tertiary mb-0" style="font-size: 14px">Bols, baguettes, assiettes, tasses, etc.</p>
+                              <% when "Lit pour bébé" %>
+                                <p class="fw-medium text-body-tertiary mb-0" style="font-size: 14px">Standard (1,3 m de long sur 70 cm de large), stores occultants dans la pièce</p>
+                              <% when "Animaux acceptés" %>
+                                <p class="fw-medium text-body-tertiary mb-0" style="font-size: 14px">Les animaux d'assistance sont toujours autorisé</p>
+                              <% end %>
+                            </div>
+                          </div>
+                        <% end %>
+                      </div>
+                    <% end %>
+                  </div>
+                <% end %>
+
+                <div>
+                  <p class="fw-medium">Non inclus</p>
+                  <% @dont_equipments.each do |equipment| %> 
+                    <div>
+                      <div class="d-flex py-3 border-bottom">
+                        <%= cl_image_tag equipment.icon.key, class: "me-2", width: 25, height: 25 %>
+                        <div>
+                          <p class="fw-light mb-0 text-decoration-line-through" style="font-size: 18px"><%= equipment.name %></p>
+                          <% case equipment.name %>
+                          <% when "Équipements de base" %>    
+                            <p class="fw-medium text-body-tertiary mb-0" style="font-size: 14px">Serviettes, draps, savon et papier toilette</p> 
+                          <% when "Cuisine" %>
+                            <p class="fw-medium text-body-tertiary mb-0" style="font-size: 14px">Espace où les voyageurs peuvent cuisiner</p> 
+                          <% when "Équipements de cuisine de base" %>
+                            <p class="fw-medium text-body-tertiary mb-0" style="font-size: 14px">Casseroles et poêles, huile, sel et poivre</p> 
+                          <% when "Entrée privée" %>
+                            <p class="fw-medium text-body-tertiary mb-0" style="font-size: 14px">Entrée par une rue différente ou un immeuble séparé</p>
+                          <% when "Détecteur de fumée" %>
+                            <p class="fw-medium text-body-tertiary mb-0" style="font-size: 14px">Le logement n'est pas équipé de détecteur de fumée.</p>
+                          <% when "Détecteur de monoxyde de carbone" %>
+                            <p class="fw-medium text-body-tertiary mb-0" style="font-size: 14px">Le logement n'est pas équipé de détecteur de monoxyde de carbone.</p>
+                          <% when "Vaisselle et couverts" %>
+                            <p class="fw-medium text-body-tertiary mb-0" style="font-size: 14px">Bols, baguettes, assiettes, tasses, etc.</p>
+                          <% when "Lit pour bébé" %>
+                            <p class="fw-medium text-body-tertiary mb-0" style="font-size: 14px">Standard (1,3 m de long sur 70 cm de large), stores occultants dans la pièce</p>
+                          <% when "Animaux acceptés" %>
+                            <p class="fw-medium text-body-tertiary mb-0" style="font-size: 14px">Les animaux ne sont pas autorisé</p>
+                          <% end %>
+                        </div>
+                      </div> 
+                    </div>
+                  <% end %>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="card-booking bg-white border border-dark-subtle rounded-4 shadow-sm p-3">
+        <p class="fw-light" style="font-size: 18px"><strong class="fw-medium" style="font-size: 25px">119 €</strong> par nuit</p>
+        <div class="books">
+          <div class="d-flex">
+            <div class="start-day-info border border-dark-subtle w-50 p-1" id="book-radius-first">
+              <p class="mb-0 fw-medium" style="font-size: 14px">Arrivée</p>
+              <p class="fw-light" style="font-size: 16px">10/12/2023</p>
+            </div>
+            <div class="end-day-info border border-dark-subtle border-start-0 w-50 p-1" id="book-radius-second">
+              <p class="mb-0 fw-medium" style="font-size: 14px">Départ</p>
+              <p class="fw-light" style="font-size: 16px">15/12/2023</p>
+            </div>
+          </div>
+          <div class="dropdown occupancy border border-top-0 border-dark-subtle w-100 p-0" id="book-radius-occupancy">
+              <p class="fw-light mb-0 fw-medium pt-1 ps-1" style="font-size: 14px">Voyageur</p>
+              <a class="btn btn-link text-black text-decoration-none dropdown-toggle w-100 text-start ps-1" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="false">
+                1 Voyageur
+              </a>
+
+              <ul class="dropdown-menu w-100 bg-white">
+                <li>
+                  <div class="d-flex justify-content-between">
+                    <div class="adult ps-3 mt-3">
+                      <p class= "mb-0 fw-medium">Adultes</p>
+                      <p class="fw-light" style="font-size: 14px">13 ans et plus</p>
+                    </div>
+                    <div class="number pe-3 mt-3">
+                      <i class="border rounded-circle fa-solid fa-minus fa-2xs" style="color: #000000; width: 35px; height: 35px"></i>
+                    </div>
+                  </div>
+                </li>
+                <li><a class="dropdown-item">Another action</a></li>
+                <li><a class="dropdown-item">Something else here</a></li>
+              </ul>
+          </div>
+
+        </div>
+      </div>
     </div>
   </div>
 </div>
