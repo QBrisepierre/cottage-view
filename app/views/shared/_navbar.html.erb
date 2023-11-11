@@ -1,8 +1,8 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-color-auth py-3">
   <div class="container-fluid">
     <div class="ms-xxl-4">
-    <%= link_to "Home", root_path, class: "navbar-brand fw-medium fs-6" %>
-    <%= link_to "Places", cottages_path, class: "navbar-brand fw-medium fs-6" %>
+    <%= link_to "Home", root_path, class: "navbar-brand fw-medium fs-5" %>
+    <%= link_to "Places", cottages_path, class: "navbar-brand fw-medium fs-5" %>
     </div>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,10 +31,10 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Sign in", new_user_session_path, class: "nav-link text-black fw-medium px-5" %>
+            <%= link_to "Sign in", new_user_session_path, class: "nav-link text-black fw-medium px-5 fs-5" %>
           </li>
           <li>
-            <%= link_to "Sign up", new_user_registration_path, class: "nav-link text-white fw-medium rounded-4 bg-black px-5" %>
+            <%= link_to "Sign up", new_user_registration_path, class: "nav-link text-white fw-medium rounded-4 bg-black px-5 fs-5" %>
           </li>
         <% end %>
       </ul>

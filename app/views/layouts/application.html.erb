@@ -11,10 +11,31 @@
     <%= javascript_importmap_tags %>
   </head>
   <body>
-    <%= render "shared/navbar" %>
-    <%= render "shared/flashes" %>
-    <%= yield %>
-    <%= render "shared/footer" if current_page?(root_path)%> 
+    <% if current_page?(root_path) %>
+      <div style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url('<%= cl_image_path "background", quality: "auto" %>'); background-size: cover; background-repeat: no-repeat">
+        <%= render "shared/navbar" %>
+        <%= render "shared/flashes" %>
+        <%= render "shared/home_search" %> 
+      </div>
+      <%= yield %>
+      <%= render "shared/footer" %> 
+    <% elsif current_page?(new_user_registration_path) %>
+      <div id="background-img" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url('<%= cl_image_path "background_signup", quality: "auto" %>')">
+        <%= render "shared/auth_navbar" %>
+        <%= render "shared/flashes" %>
+        <%= yield %>
+      </div>
+    <% elsif current_page?(new_user_session_path) %>
+      <div id="background-img" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url('<%= cl_image_path "background_signin", quality: "auto" %>')">
+        <%= render "shared/auth_navbar" %>
+        <%= render "shared/flashes" %>
+        <%= yield %>
+      </div>
+    <% else %>
+      <%= render "shared/navbar" %>
+      <%= render "shared/flashes" %>
+      <%= yield %>
+    <% end %>
   </body>
 
 </html>
