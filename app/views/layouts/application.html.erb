@@ -10,22 +10,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <%= javascript_importmap_tags %>
   </head>
-
-  <% if current_page?(new_user_session_path) || current_page?(new_user_registration_path) || current_page?( new_user_password_path) %>
-    <% img = ["background_signin", "background_signup"] %>
-    <body id="background-img" style="background-image: url('<%= cl_image_path img.sample, quality: "auto", fetch_format: "auto" %>')">
-      <%= render "shared/auth_navbar" %>
-    </body>
-  <% elsif current_page?(root_path) %>
-   <body style="background-image: url('<%= cl_image_path "background", quality: "auto", fetch_format: "auto" %>'); background-size: 100%; background-repeat: no-repeat">
-      <%= render "shared/navbar" %>
-    </body>
-  <% else %>
-    <body>
+  <body>
     <%= render "shared/navbar" %>
-  <% end %>
     <%= render "shared/flashes" %>
     <%= yield %>
-    </body>
+  </body>
 
 </html>
