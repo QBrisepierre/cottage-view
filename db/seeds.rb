@@ -357,19 +357,19 @@ title_cottages = [
   "Chalet de montagne avec vue panoramique",
   "Cocon alpin pour une escapade romantique",
   "Chalet familial près des pistes de ski",
- " Chalet rustique au cœur de la nature",
-  "Retraite tranquille en chalet de montagne",
-  "Luxe et détente dans un chalet privé",
-  "Chalet moderne avec jacuzzi en plein air",
-  "Séjour chaleureux dans un chalet en bois",
-  "Chalet avec accès au lac cristallin",
-  "Expérience montagnarde dans un chalet typique",
-  "Chalet isolé pour un séjour paisible",
-  "Chalet design avec vue imprenable",
-  "Séjour en famille dans un chalet spacieux",
-  "Évasion en chalet de luxe en forêt",
-  "Détente totale dans un chalet bien-être",
-  "Chalet de charme pour une escapade authentique"
+  #"Chalet rustique au cœur de la nature",
+  #"Retraite tranquille en chalet de montagne",
+  #"Luxe et détente dans un chalet privé",
+  #"Chalet moderne avec jacuzzi en plein air",
+  #"Séjour chaleureux dans un chalet en bois",
+  #"Chalet avec accès au lac cristallin",
+  #"Expérience montagnarde dans un chalet typique",
+  #"Chalet isolé pour un séjour paisible",
+  #"Chalet design avec vue imprenable",
+  #"Séjour en famille dans un chalet spacieux",
+  #"Évasion en chalet de luxe en forêt",
+  #"Détente totale dans un chalet bien-être",
+  #"Chalet de charme pour une escapade authentique"
 ]
 
   # Images principal for cottage
@@ -377,19 +377,19 @@ title_cottages = [
       "https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg",
       "https://images.pexels.com/photos/65225/boat-house-cottage-waters-lake-65225.jpeg",
       "https://images.pexels.com/photos/434549/pexels-photo-434549.jpeg",
-      "https://images.pexels.com/photos/371404/pexels-photo-371404.jpeg",
-      "https://images.pexels.com/photos/7061662/pexels-photo-7061662.jpeg",
-      "https://images.pexels.com/photos/7031406/pexels-photo-7031406.jpeg",
-      "https://images.pexels.com/photos/5875866/pexels-photo-5875866.jpeg",
-      "https://images.pexels.com/photos/4969837/pexels-photo-4969837.jpeg",
-      "https://images.pexels.com/photos/9211816/pexels-photo-9211816.jpeg",
-      "https://images.pexels.com/photos/4947737/pexels-photo-4947737.jpeg",
-      "https://images.pexels.com/photos/7163610/pexels-photo-7163610.jpeg",
-      "https://images.pexels.com/photos/4558574/pexels-photo-4558574.jpeg",
-      "https://images.pexels.com/photos/7174109/pexels-photo-7174109.jpeg",
-      "https://images.pexels.com/photos/5764100/pexels-photo-5764100.jpeg",
-      "https://images.pexels.com/photos/6032280/pexels-photo-6032280.jpeg",
-      "https://images.pexels.com/photos/17968541/pexels-photo-17968541/free-photo-of-maisons-village-maison-blanc.jpeg"
+      #"https://images.pexels.com/photos/371404/pexels-photo-371404.jpeg",
+      #"https://images.pexels.com/photos/7061662/pexels-photo-7061662.jpeg",
+      #"https://images.pexels.com/photos/7031406/pexels-photo-7031406.jpeg",
+      #"https://images.pexels.com/photos/5875866/pexels-photo-5875866.jpeg",
+      #"https://images.pexels.com/photos/4969837/pexels-photo-4969837.jpeg",
+      #"https://images.pexels.com/photos/9211816/pexels-photo-9211816.jpeg",
+      #"https://images.pexels.com/photos/4947737/pexels-photo-4947737.jpeg",
+      #"https://images.pexels.com/photos/7163610/pexels-photo-7163610.jpeg",
+      #"https://images.pexels.com/photos/4558574/pexels-photo-4558574.jpeg",
+      #"https://images.pexels.com/photos/7174109/pexels-photo-7174109.jpeg",
+      #"https://images.pexels.com/photos/5764100/pexels-photo-5764100.jpeg",
+      #"https://images.pexels.com/photos/6032280/pexels-photo-6032280.jpeg",
+      #"https://images.pexels.com/photos/17968541/pexels-photo-17968541/free-photo-of-maisons-village-maison-blanc.jpeg"
   ]
 # Interior images for cottage
   interiors = [
@@ -423,7 +423,7 @@ title_cottages = [
     "https://images.pexels.com/photos/16747776/pexels-photo-16747776/free-photo-of-dans-une-maison-suedoise.jpeg"
   ]
 
-  
+
 exteriors.each_with_index do |image, index|
   cottage = Cottage.new(
     name: title_cottages[index],
@@ -468,3 +468,4 @@ exteriors.each_with_index do |image, index|
   puts "Creating Cottage: [#{cottage.id}] name: #{cottage.name} photos?: #{cottage.photos.attached?} / equipments?: [#{cottage.equipments.count}]"
 end
 puts "end cottage"
+
