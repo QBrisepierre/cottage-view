@@ -373,7 +373,7 @@ title_cottages = [
 ]
 
   # Images principal for cottage
-  exteriors = [
+=begin exteriors = [
       "https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg",
       "https://images.pexels.com/photos/65225/boat-house-cottage-waters-lake-65225.jpeg",
       "https://images.pexels.com/photos/434549/pexels-photo-434549.jpeg",
@@ -422,7 +422,41 @@ title_cottages = [
     "https://images.pexels.com/photos/5490203/pexels-photo-5490203.jpeg",
     "https://images.pexels.com/photos/16747776/pexels-photo-16747776/free-photo-of-dans-une-maison-suedoise.jpeg"
   ]
+=end
 
+exteriors = [
+      "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/ht5d147pks6q0zz788efx6yr37ld",
+      "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v650d2p4op40w6u6zglo0ohzv4j1",
+      "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/c0mx4zooh6fyaf7ogb8hmd82phm9",
+      #"https://images.pexels.com/photos/371404/pexels-photo-371404.jpeg",
+      #"https://images.pexels.com/photos/7061662/pexels-photo-7061662.jpeg",
+      #"https://images.pexels.com/photos/7031406/pexels-photo-7031406.jpeg",
+      #"https://images.pexels.com/photos/5875866/pexels-photo-5875866.jpeg",
+      #"https://images.pexels.com/photos/4969837/pexels-photo-4969837.jpeg",
+      #"https://images.pexels.com/photos/9211816/pexels-photo-9211816.jpeg",
+      #"https://images.pexels.com/photos/4947737/pexels-photo-4947737.jpeg",
+      #"https://images.pexels.com/photos/7163610/pexels-photo-7163610.jpeg",
+      #"https://images.pexels.com/photos/4558574/pexels-photo-4558574.jpeg",
+      #"https://images.pexels.com/photos/7174109/pexels-photo-7174109.jpeg",
+      #"https://images.pexels.com/photos/5764100/pexels-photo-5764100.jpeg",
+      #"https://images.pexels.com/photos/6032280/pexels-photo-6032280.jpeg",
+      #"https://images.pexels.com/photos/17968541/pexels-photo-17968541/free-photo-of-maisons-village-maison-blanc.jpeg"
+  ]
+
+  interiors = [
+    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/pholy6ib3p0m1ak32lkgzajzpcjx",
+    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/viggqw706g1yart182su8ay0daq4",
+    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/5hoo5gbg3gu7kclx8hob6k8i2qcn",
+    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/ojeh2ow4k9gyqm9vzw17xwe0zsst",
+    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/0q5n308ghphziwjrgwcnk9jx97x2",
+    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/3kin1z3ljanhzcwlsuuvy1mfcdja",
+    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/8iqt4fu6nojc0qujkgbqxlsumm36",
+    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/8frs5xpqarncqy62k3ua1adlqqj5",
+    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/e7fxn79fzm40o2a1jyp4zfcrd32h",
+    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/0527xg1ophpjeb2bhjk43031p5ju",
+    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/pz8driiuho2v3d7p9pgqph8mazfg",
+    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/gj9h6yb8t77bw4n1yus3pgizlh1s",
+  ]
 
 exteriors.each_with_index do |image, index|
   cottage = Cottage.new(
