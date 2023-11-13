@@ -25,8 +25,12 @@
         </p>
       </div>
       <div class="user border-bottom">
-        <div class="d-flex my-3">
-          <%= cl_image_tag @user.profile_photo.key, class: "avatar me-3" %>
+        <div class="d-flex my-3 align-items-center">
+          <% if current_user.profile_photo.attached? %>
+              <%= cl_image_tag current_user.profile_photo.key, class: "avatar mbe-3", style: "height: 40px" %>
+            <% else %>
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar me-3", style: "height: 40px"%>
+            <% end %>
           <div class="user-info">
             <p class="mb-0 fw-medium" style="font-size: 17px">Hôte : <%= @user.first_name %></p>
             <p class="mb-0 fw-light" style="font-size: 16px">Hôte depuis <%= @date_since %> <%= @date_since > 1 ? "jours" : "jour" %></p>

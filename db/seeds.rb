@@ -20,318 +20,321 @@ equipments = [
   {
     name: "Sèche-cheveux",
     category: category[0],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/lwxwjj9cazdvdiq1hg4b"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/i41a7zjrmaftumlpedeu"
   },
   {
     name: "Shampooing",
     category: category[0],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/hrhmlgsjdqnjjfnh636n"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/rdmkzoczn6jxvwt61n23"
   },
   {
     name: "Produits de nettoyage",
     category: category[0],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/moiinsqakqaf6xozf4pv"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/ocknu9aps3pb1nmyzuye"
   },
   {
     name: "Savon pour le corps",
     category: category[0],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/kwisbgc5tt6rdsryaz1t"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/fhm4v7utncq3dz7d8cce"
   },
   {
     name: "Eau chaud",
     category: category[0],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/w5kknquegqnwzl2w8xrm"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/tuujrq8xs1itp0o2zwvg"
   },
   {
     name: "Gel douche",
     category: category[0],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/wgsklws3b4deswuntvgl"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/x9pmwebfjuc3rlpv6yfe"
   },
   {
     name: "Baignoire",
     category: category[0],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/zpcnxyhyiafofbvhusov"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/yam5im5llblqt8sls7rc"
   },
   {
     name: "Équipements de base", # (Serviettes, draps, savon et papier toilette)
     category: category[1],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/vnorrqhwzfxlbogidxgg"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/pwevr6ol9gsoca5fdy8k"
   },
   {
     name: "Draps",
     category: category[1],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/tlzmqxcayq9re4ft4t1p"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/gbkugupcdkhhnrpee7x3"
   },
   {
     name: "Armoire",
     category: category[1],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/ry2ymxpkaaskj4cglgsc"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/m5tnjmumj9lau0o1krw7"
   },
   {
     name: "Cintres",
     category: category[1],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/knrk1yjbx41bs9surzd7"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/efjrdg6wa0odubhn0nxb"
   },
   {
     name: "Lave-linge",
     category: category[1],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/wdjslopm5tqce4sztkol"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/yh9w3biinj4dewhhvcm6"
   },
   {
     name: "Sèche-linge",
     category: category[1],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/mwgdzzle5jd8p2qpxqcg"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/pxucjly573bvkpjewxri"
   },
   {
     name: "Fer à repasser",
     category: category[1],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/cdlvy81wdemxa4e2gm3t"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/thaex7mwjaoygitccmqj"
   },
   {
     name: "Étendoir à linge",
     category: category[1],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/sorxxbgk0m7o2wylheqt"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/fnhfzhseizq4wr4dmjsc"
   },
   {
     name: "Télévision",
     category: category[2],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/ax26t1bvhljbtov0sn9p"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/nderomb5xmkzvoaedqu4"
   },
   {
     name: "Salle de sport",
     category: category[2],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/xhnni9fe7ija9qiyeapu"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/l5jet7ysxgznc9cpq9df"
   },
   {
     name: "Table de ping pong",
     category: category[2],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/eyjrsheojdnrfbf4ym2q"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/woy9swjvjkho0c8hsxvp"
   },
   {
     name: "Billard",
     category: category[2],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/on4snhkf3jsubmf5awvs"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/vylp3m4yjxkh1qreoot1"
   },
   {
     name: "Livres",
     category: category[2],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/cnojdiibwzqozixgcmao"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/agbdubfwkcnsj0xf4avg"
   },
   {
     name: "Piscine",
     category: category[2],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/fgrenkkpbrqkctbrwt5u"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/acwvjd3v9qvcrijf0jvx"
   },
   {
     name: "Jacuzzi",
     category: category[2],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/legigq32zz1j1fu3co8i"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/ntnc1pcvypk3gbrljvsk"
   },
   {
     name: "Sauna",
     category: category[2],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/c4dnyqhcvhinuxin64nw"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/bsulifgavjy0qa4rikly"
   },
   {
     name: "hammam",
     category: category[2],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/ugnqv3znzr2mimt3mfaj"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/vo5aynitw01bkic706jq"
   },
   {
     name: "Lit pour bébé",
     category: category[3],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/njlbtxhqtpa6zlpgvhur"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/wmo2yv8wtllrymph8rcz"
   },
   {
     name: "Chaise haute",
     category: category[3],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/nrbmt9flro5vnmwtg3yw"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/jteldqhntezvqbw1bhmd"
   },
   {
     name: "Livres et jouets pour enfants",
     category: category[3],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/pqoxhbo82pb5xw9mrsb7"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/m05poeqz9xkpwlqgffoj"
   },
   {
     name: "Table à langer",
     category: category[3],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/l3ovbuyv9nk826isnzfr"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/qv6drsdcwoxvtpfi6kvp"
   },
   {
     name: "Protections sur les fenêtres",
     category: category[3],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/gdn3fpmlq2pzlwml2j1i"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/f0vwlyaxmgktjorazzq3"
   },
   {
     name: "Chauffage",
     category: category[4],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/wmmtnjtfsnwprfvxt17u"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/s3dxzfgdaqafeojfioyz"
   },
   {
     name: "Climatisation",
     category: category[4],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/egcrfgeacxkyjmyigqqb"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/mlyigte3kzt673cxjbmh"
   },
   {
     name: "Cheminée",
     category: category[4],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/nwfwnr8a4hw1qdesqydy"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/rbevfdtbnwvevtfm62qz"
   },
   {
     name: "Détecteur de fumée",
     category: category[5],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/qbq4hwptka1ctcbclccm"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/nhy2ukstktci3blugfif"
   },
   {
     name: "Extincteur",
     category: category[5],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/pfec4zgnn0qn99dw55jc"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/vu91ar6q83wmuzwzrpdq"
   },
   {
     name: "Caméras de surveillance",
     category: category[5],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/xamgtxpdh045wmbtoia9"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/yszqahbuecddhofq1esl"
   },
   {
     name: "Détecteur de monoxyde de carbone",
     category: category[5],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/ep8fjrkzbdxxcdxqnzx8"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/fouiucmfwe0rnmskee9r"
   },
   {
     name: "Kit de premiers secours",
     category: category[5],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/btwfqfnquiirhle6odsp"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/zdcyaknzp0pxw0pgsgg5"
   },
   {
     name: "Wifi",
     category: category[6],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/opnc2ucjqxu3koudyw5k"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/krwt4883e7z4wyt55ufk"
   },
   {
     name: "Ordinateur",
     category: category[6],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/jkvanb3wn1w03odmcfil"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/puzork5vd27z5lab5lgn"
   },
   {
     name: "Cuisine",
     category: category[7],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/ijckevt129v4epzormuk"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/tzhaorsjdk3pl9ik8t1j"
   },
   {
     name: "Réfrigérateur",
     category: category[7],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/tfohdycw5at0tcfgigjk"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/gluvnkxjg6vmcle2wiw4"
   },
   {
     name: "Congélateur",
     category: category[7],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/lsallnrtkvr0dowx4kde"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/u3tukbth41gtulycxkuz"
   },
   {
     name: "Cuisinière",
     category: category[7],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/de3ih2wqnjf4hlf8kkt2"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/nurtdqlyrboftboyhihq"
   },
   {
     name: "Four",
     category: category[7],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/webxnphvquddwwchbi7d"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/vhfqovob3nczavf7js59"
   },
   {
     name: "Cafetière",
     category: category[7],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/lx7o3weipjv4ytyofmxk"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/fauunqpdkiymwafzxzyb"
   },
   {
     name: "Micro-ondes",
     category: category[7],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/f34ltc80saiwaodxctzb"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/xy7a1elmpvwumqutppgx"
   },
   {
     name: "Équipements de cuisine de base", # (Casseroles et poêles, huile, sel et poivre)
     category: category[7],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/nohhi3rrdidzrxnxlyzh"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/bawwqkqltgkhijfqlzj2"
   },
   {
     name: "Vaisselle et couverts",
     category: category[7],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/oott1nzqeygl1wtws1m6"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/k5n01uubyzyqmbqoqb01"
   },
   {
     name: "Bouilloire électrique",
     category: category[7],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/rme3w8xokwvldmbvpp9a"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/jjkvujlzmc3ijp7ss9nq"
   },
   {
     name: "Grille-pain",
     category: category[7],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/ppulenitrzmdvu9mkc0p"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/nrzxki6wioxlcq8srsnx"
   },
   {
     name: "Table à manger",
     category: category[7],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/p2nniwwcadg9ywbdrxfz"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/k5wzuleuhujxwulloax5"
   },
   {
     name: "Entrée privée",
     category: category[8],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/lswbto7ax5whdflt81jn"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/xzjqlzpbvvxmvndvhkaa"
   },
   {
     name: "Accès au piste de ski",
     category: category[8],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/jtaknkp6e24vmx8smkg1"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/zzhqfagd82vqi7psipzc"
   },
   {
     name: "Vue sur la montagne",
     category: category[8],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/nscztffufh4mhdr3sld6"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/tejgd1pfcrbmeqlu44p2"
   },
   {
     name: "Vue sur le lac",
     category: category[8],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/vo1nl8wynbumejkafjmo"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/oxq7yjmbfpbcjwpeavk4"
   },
   {
     name: "Patio ou balcon",
     category: category[9],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/mp9fzapu9k9ojwggdqlt"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/rgqhqtwbscohqeqfznlz"
   },
   {
     name: "Mobilier d'extérieur",
     category: category[9],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/wodzansuwfkdpp9ipopj"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/qcxswxqywg6rlrqg3hqv"
   },
   {
     name: "Barbecue",
     category: category[9],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/xlsh0ikmbakr0qeudjgk"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/jlmtg5db5qhaitcaxqw9"
   },
   {
     name: "Parking gratuit sur place",
     category: category[10],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/lxyttz3lgbpvtmx5gjwo"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/aa9zec5jlxy5b85pijot"
   },
   {
     name: "Station de recharge pour véhicules électriques",
     category: category[10],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/hgeicbu6puos8lrxmfnb"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/i5olurrtbgivxy65x62i"
   },
   {
     name: "Clés remises par l'hôte",
     category: category[11],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/vnqcl1fsbd3ibq0ujhch"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/nvr0h1oijzrz0rl6jiqr"
   },
   {
     name: "Animaux acceptés",
     category: category[11],
-    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/tdd5ocodlf8z6f4udpkx"
+    icon: "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/icons/i274xrxt1cxtsdjekszw"
   }
 ]
 
 # Creating first User
 puts "Creating User"
+user_photo = "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/ldxzq7ukelxkpchap7eu.jpg"
+file = URI.open(user_photo)
 user = User.new(email: "l@l.com", first_name: "Quentin", last_name: "Brisepierre", birthday_date: "1999-11-20", password: "hPKH92P9+")
+user.profile_photo.attache(io: file, filename: "#{user.last_name}.png", content_type: "image/png")
 user.save
 puts "user: #{user.last_name} was created whit id #{user.id}"
 
@@ -357,106 +360,72 @@ title_cottages = [
   "Chalet de montagne avec vue panoramique",
   "Cocon alpin pour une escapade romantique",
   "Chalet familial près des pistes de ski",
-  #"Chalet rustique au cœur de la nature",
-  #"Retraite tranquille en chalet de montagne",
-  #"Luxe et détente dans un chalet privé",
-  #"Chalet moderne avec jacuzzi en plein air",
-  #"Séjour chaleureux dans un chalet en bois",
-  #"Chalet avec accès au lac cristallin",
-  #"Expérience montagnarde dans un chalet typique",
-  #"Chalet isolé pour un séjour paisible",
-  #"Chalet design avec vue imprenable",
-  #"Séjour en famille dans un chalet spacieux",
-  #"Évasion en chalet de luxe en forêt",
-  #"Détente totale dans un chalet bien-être",
-  #"Chalet de charme pour une escapade authentique"
+  "Chalet rustique au cœur de la nature",
+  "Retraite tranquille en chalet de montagne",
+  "Luxe et détente dans un chalet privé",
+  "Chalet moderne avec jacuzzi en plein air",
+  "Séjour chaleureux dans un chalet en bois",
+  "Chalet avec accès au lac cristallin",
+  "Expérience montagnarde dans un chalet typique",
+  "Chalet isolé pour un séjour paisible",
+  "Chalet design avec vue imprenable",
+  "Séjour en famille dans un chalet spacieux",
+  "Évasion en chalet de luxe en forêt",
+  "Détente totale dans un chalet bien-être",
+  "Chalet de charme pour une escapade authentique"
 ]
 
   # Images principal for cottage
-=begin exteriors = [
-      "https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg",
-      "https://images.pexels.com/photos/65225/boat-house-cottage-waters-lake-65225.jpeg",
-      "https://images.pexels.com/photos/434549/pexels-photo-434549.jpeg",
-      #"https://images.pexels.com/photos/371404/pexels-photo-371404.jpeg",
-      #"https://images.pexels.com/photos/7061662/pexels-photo-7061662.jpeg",
-      #"https://images.pexels.com/photos/7031406/pexels-photo-7031406.jpeg",
-      #"https://images.pexels.com/photos/5875866/pexels-photo-5875866.jpeg",
-      #"https://images.pexels.com/photos/4969837/pexels-photo-4969837.jpeg",
-      #"https://images.pexels.com/photos/9211816/pexels-photo-9211816.jpeg",
-      #"https://images.pexels.com/photos/4947737/pexels-photo-4947737.jpeg",
-      #"https://images.pexels.com/photos/7163610/pexels-photo-7163610.jpeg",
-      #"https://images.pexels.com/photos/4558574/pexels-photo-4558574.jpeg",
-      #"https://images.pexels.com/photos/7174109/pexels-photo-7174109.jpeg",
-      #"https://images.pexels.com/photos/5764100/pexels-photo-5764100.jpeg",
-      #"https://images.pexels.com/photos/6032280/pexels-photo-6032280.jpeg",
-      #"https://images.pexels.com/photos/17968541/pexels-photo-17968541/free-photo-of-maisons-village-maison-blanc.jpeg"
+  exteriors = [
+      "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/toscxob8wmpzsznxr9o2",
+      "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/b5kbyzvdohjpzprftgts",
+      "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/kwthrqanjg0j3cpcgyim",
+      "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/z3d35tutwv4xepw8edoh",
+      "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/qzhbmd7wbfyxr6tmhgny",
+      "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/hshwg267swe2x8gqr6jq",
+      "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/glzv7wjk277gu1gayzcj",
+      "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/p6shhfrpc3vbbo6ppg6e",
+      "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/ppgvrbyiynsqylbf3kql",
+      "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/uqvnluwqowaaamsrm1cm",
+      "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/nbcg2geaesv6mbi6dkgk",
+      "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/mgptgdbbgznsdqiz2ecs",
+      "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/bh0uvtts3k3prtiacdpb",
+      "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/p6ddrjzzcxizxniir13r",
+      "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/u2xkpeh4hnwpspqbe9fr",
+      "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/rp7arqet8pknruwjovsq"
   ]
 # Interior images for cottage
   interiors = [
-    "https://images.pexels.com/photos/4906249/pexels-photo-4906249.jpeg",
-    "https://images.pexels.com/photos/6775268/pexels-photo-6775268.jpeg",
-    "https://images.pexels.com/photos/4906407/pexels-photo-4906407.jpeg",
-    "https://images.pexels.com/photos/4825713/pexels-photo-4825713.jpeg",
-    "https://images.pexels.com/photos/3951742/pexels-photo-3951742.jpeg",
-    "https://images.pexels.com/photos/3932957/pexels-photo-3932957.jpeg",
-    "https://images.pexels.com/photos/4940808/pexels-photo-4940808.jpeg",
-    "https://images.pexels.com/photos/5998041/pexels-photo-5998041.jpeg",
-    "https://images.pexels.com/photos/6032416/pexels-photo-6032416.jpeg",
-    "https://images.pexels.com/photos/4906243/pexels-photo-4906243.jpeg",
-    "https://images.pexels.com/photos/5824497/pexels-photo-5824497.jpeg",
-    "https://images.pexels.com/photos/9220873/pexels-photo-9220873.jpeg",
-    "https://images.pexels.com/photos/5824493/pexels-photo-5824493.jpeg",
-    "https://images.pexels.com/photos/5824499/pexels-photo-5824499.jpeg",
-    "https://images.pexels.com/photos/7061663/pexels-photo-7061663.jpeg",
-    "https://images.pexels.com/photos/5490199/pexels-photo-5490199.jpeg",
-    "https://images.pexels.com/photos/6370036/pexels-photo-6370036.jpeg",
-    "https://images.pexels.com/photos/4947139/pexels-photo-4947139.jpeg",
-    "https://images.pexels.com/photos/5824495/pexels-photo-5824495.jpeg",
-    "https://images.pexels.com/photos/3951743/pexels-photo-3951743.jpeg",
-    "https://images.pexels.com/photos/5490204/pexels-photo-5490204.jpeg",
-    "https://images.pexels.com/photos/4947749/pexels-photo-4947749.jpeg",
-    "https://images.pexels.com/photos/9220877/pexels-photo-9220877.jpeg",
-    "https://images.pexels.com/photos/5824513/pexels-photo-5824513.jpeg",
-    "https://images.pexels.com/photos/9220882/pexels-photo-9220882.jpeg",
-    "https://images.pexels.com/photos/5824877/pexels-photo-5824877.jpeg",
-    "https://images.pexels.com/photos/5490203/pexels-photo-5490203.jpeg",
-    "https://images.pexels.com/photos/16747776/pexels-photo-16747776/free-photo-of-dans-une-maison-suedoise.jpeg"
-  ]
-=end
-
-exteriors = [
-      "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/ht5d147pks6q0zz788efx6yr37ld",
-      "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v650d2p4op40w6u6zglo0ohzv4j1",
-      "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/c0mx4zooh6fyaf7ogb8hmd82phm9",
-      #"https://images.pexels.com/photos/371404/pexels-photo-371404.jpeg",
-      #"https://images.pexels.com/photos/7061662/pexels-photo-7061662.jpeg",
-      #"https://images.pexels.com/photos/7031406/pexels-photo-7031406.jpeg",
-      #"https://images.pexels.com/photos/5875866/pexels-photo-5875866.jpeg",
-      #"https://images.pexels.com/photos/4969837/pexels-photo-4969837.jpeg",
-      #"https://images.pexels.com/photos/9211816/pexels-photo-9211816.jpeg",
-      #"https://images.pexels.com/photos/4947737/pexels-photo-4947737.jpeg",
-      #"https://images.pexels.com/photos/7163610/pexels-photo-7163610.jpeg",
-      #"https://images.pexels.com/photos/4558574/pexels-photo-4558574.jpeg",
-      #"https://images.pexels.com/photos/7174109/pexels-photo-7174109.jpeg",
-      #"https://images.pexels.com/photos/5764100/pexels-photo-5764100.jpeg",
-      #"https://images.pexels.com/photos/6032280/pexels-photo-6032280.jpeg",
-      #"https://images.pexels.com/photos/17968541/pexels-photo-17968541/free-photo-of-maisons-village-maison-blanc.jpeg"
+    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/ekgmwjucycp67jcdfhq2",
+    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/zbkxvqudemhbsczeerot",
+    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/ffzvon3sn32lyrgfldxk",
+    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/mmlkw7kp87h9wymrg8zx",
+    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/zn9djdsczhrxxvyzbo7v",
+    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/qj1j4xupfoaizxb55e69",
+    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/yzczq5gwdnbudmrjje8c",
+    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/mfcnxathhilopt4icwcu",
+    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/trwpd8d9jet98szark8l",
+    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/irmokvqql6eauq6zjbbo.jpg",
+    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/nzs9hh9k0pcw4wxozkzo.jpg",
+    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/owviroxedzifi48qpf8f.jpg",
+    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/lkjlrl0hvso6p1ameevo.jpg",
+    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/sef2dc1yrd5mxiy79de3.jpg",
+    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/ue2gvr438if7vcxkcix9.jpg",
+    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/fdej3nwnmgsrnjmizwix.jpg",
+    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/csxyxzpxb5dl8snc6ubv.jpg",
+    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/towf5qtkkz6ysb3rsftp.jpg",
+    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/rn7w7st3wpvpvkebnf0a.jpg",
+    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/vgzxmtmu7nhoktibz8bj.jpg",
+    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/noasv0j6ddajmiwyfbyy.jpg",
+    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/mqlu76qwplkhmij9wutb.jpg",
+    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/fwmjgdsamcqeyg538kue.jpg",
+    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/wsycyx8o8kq9vplsfzt6.jpg",
+    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/fqrxp5qzehlcvfnch0v3.jpg",
+    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/ctv6tshns0ttiiwkpqkl.jpg",
+    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/ygefkffyb6uxdoysk34a.jpg",
+    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/v1/cottages/vyjtvlkpan9hjc0m4nyr.jpg"
   ]
 
-  interiors = [
-    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/pholy6ib3p0m1ak32lkgzajzpcjx",
-    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/viggqw706g1yart182su8ay0daq4",
-    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/5hoo5gbg3gu7kclx8hob6k8i2qcn",
-    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/ojeh2ow4k9gyqm9vzw17xwe0zsst",
-    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/0q5n308ghphziwjrgwcnk9jx97x2",
-    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/3kin1z3ljanhzcwlsuuvy1mfcdja",
-    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/8iqt4fu6nojc0qujkgbqxlsumm36",
-    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/8frs5xpqarncqy62k3ua1adlqqj5",
-    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/e7fxn79fzm40o2a1jyp4zfcrd32h",
-    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/0527xg1ophpjeb2bhjk43031p5ju",
-    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/pz8driiuho2v3d7p9pgqph8mazfg",
-    "https://res.cloudinary.com/falconium/image/upload/f_auto,q_auto/gj9h6yb8t77bw4n1yus3pgizlh1s",
-  ]
 
 exteriors.each_with_index do |image, index|
   cottage = Cottage.new(
