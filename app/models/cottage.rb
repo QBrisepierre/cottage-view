@@ -5,7 +5,7 @@ class Cottage < ApplicationRecord
   has_many_attached :photos
 
   validates :name, uniqueness: true, length: { maximum: 30 }, presence: true
-  validates :description, presence: true, length: { maximum: 1000 }
+  validates :description, presence: true, length: { maximum: 70000 }
   validates :total_bedroom, :total_bed, :total_bathroom, :total_occupancy, presence: true, inclusion: 1..10
   validates :address, presence: true
   validates :price, presence: true

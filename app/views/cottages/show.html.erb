@@ -48,7 +48,7 @@
           </button>
           <!-- Modal -->
           <div class="modal fade" id="description" tabindex="-1" aria-labelledby="descriptionModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-dialog-scrollable modal-lg">
               <div class="modal-content">
                 <div class="modal-header">
                   <h1 class="modal-title fs-5" id="descriptionModalLabel">À propos de ce logement</h1>
@@ -176,7 +176,7 @@
     </div>
     <div class="col-4">
       <div class="card-booking bg-white border border-dark-subtle rounded-4 shadow-sm p-3">
-        <p class="fw-light" style="font-size: 18px"><strong class="fw-medium" style="font-size: 25px">119 €</strong> par nuit</p>
+        <p class="fw-light" style="font-size: 18px"><strong class="fw-medium" style="font-size: 25px"><%= @cottage.price %> €</strong> par nuit</p>
 
         <div class="booking-date">
           <div class="d-flex">
