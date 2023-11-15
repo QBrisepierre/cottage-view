@@ -1,319 +1,484 @@
-<div class="container" style="height: 80vh;" data-controller="cottagecheck">
-  <%= simple_form_for @cottage, html: { class: "h-100"} do |f| %>
-    <div class="row justify-content-center align-items-end" style="height: 50%">
-      <div class="col-3">
-        <div class="card shadow rounded-4">
-          <div class="card-body">
-            <h5 class="card-title">Où est situé votre logement ?</h5>
-            <p class="card-text">Votre adresse est uniquement communiquée aux voyageurs une fois leur réservation effectuée.</p>
-            <button type="button" data-cottagecheck-target="buttonAddress" class="btn btn-warning text-white w-100" data-bs-toggle="modal" data-bs-target="#address">
-              Address
-            </button>
-          </div>
-        </div>
-        
-
-        <!-- Modal -->
-        <div class="modal fade" id="address" tabindex="-1" data-bs-backdrop="static" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <h2 class="fw-medium fs-1">Où est situé votre logement ?</h2>
-                <p class="text-secondary fs-5">Votre adresse est uniquement communiquée aux voyageurs une fois leur réservation effectuée.</p>
-                  <div class="form" >
-                    <%= f.input :address,
-                      required: true,
-                      autofocus: true, 
-                      label: false,
-                      input_html: { autocomplete: "Address", "data-cottagecheck-target": "checkAddress" }
-                    %>
-                  </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" data-action="click->cottagecheck#address" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-3">
-        <div class="card shadow rounded-4">
-          <div class="card-body">
-            <h5 class="card-title">Donnez les informations principales concernant votre logement</h5>
-            <p class="card-text">Vous pourrez ajouter d'autres informations plus tard, comme les types de lit.</p>
-              <button type="button" class="btn btn-primary w-100 btn-warning text-white disabled" data-cottagecheck-target="buttonRooms" data-bs-toggle="modal" data-bs-target="#rooms">
-                Rooms
+<div data-controller="cottagecheck">
+  <div class="container">
+    <%= simple_form_for @cottage, html: { class: "h-100"} do |f| %>
+      <!--<div class="row justify-content-center align-items-center" style="height: 100vh">
+        <div class="col-3">
+          <div class="card shadow rounded-4">
+            <div class="card-body">
+              <h5 class="card-title">Où est situé votre logement ?</h5>
+              <p class="card-text">Votre adresse est uniquement communiquée aux voyageurs une fois leur réservation effectuée.</p>
+              <button type="button" data-cottagecheck-target="buttonAddress" class="btn btn-warning text-white w-100" data-bs-toggle="modal" data-bs-target="#address">
+                Address
               </button>
+            </div>
+          </div>-->
+          
+
+          <!-- Modal -->
+          <!--<div class="modal fade" id="address" tabindex="-1" data-bs-backdrop="static" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <h2 class="fw-medium fs-1">Où est situé votre logement ?</h2>
+                  <p class="text-secondary fs-5">Votre adresse est uniquement communiquée aux voyageurs une fois leur réservation effectuée.</p>
+                    <div class="form" >
+                      <%= f.input :address,
+                        required: true,
+                        autofocus: true, 
+                        label: false,
+                        input_html: { autocomplete: "Address", "data-cottagecheck-target": "checkAddress" }
+                      %>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" data-action="click->cottagecheck#address" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- Modal -->
-        <div class="modal fade" id="rooms" tabindex="-1" data-bs-backdrop="static" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="col-3">
+          <div class="card shadow rounded-4">
+            <div class="card-body">
+              <h5 class="card-title">Donnez les informations principales concernant votre logement</h5>
+              <p class="card-text">Vous pourrez ajouter d'autres informations plus tard, comme les types de lit.</p>
+                <button type="button" class="btn btn-primary w-100 btn-warning text-white disabled" data-cottagecheck-target="buttonRooms" data-bs-toggle="modal" data-bs-target="#rooms">
+                  Rooms
+                </button>
+            </div>
+          </div>-->
+
+          <!-- Modal -->
+          <!--<div class="modal fade" id="rooms" tabindex="-1" data-bs-backdrop="static" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <h2 class="fw-medium fs-1">Donnez les informations principales concernant votre logement</h2>
+                  <p class="text-secondary fs-5">Vous pourrez ajouter d'autres informations plus tard, comme les types de lit.</p>
+                    <div class="form mt-5">
+                      <div class="d-flex justify-content-between align-items-center my-4 border-bottom">
+                        <p class="fs-5 fw-light">Voyageurs</p>
+                        <%= f.input :total_occupancy,
+                          collection: 1..10,
+                          required: true,
+                          autofocus: true, 
+                          label: false,
+                          selected: 0,
+                          input_html: { autocomplete: "Total occupancy", "data-cottagecheck-target": "checkOccupancy" }
+                        %>
+                      </div>
+                      <div class="d-flex justify-content-between align-items-center my-4 border-bottom">
+                        <p class="fs-5 fw-light">Chambre</p>
+                        <%= f.input :total_bathroom,
+                          collection: 1..10,
+                          required: true,
+                          autofocus: true, 
+                          selected: 0,
+                          label: false,
+                          input_html: { autocomplete: "Total bathroom", "data-cottagecheck-target": "checkBathroom" }
+                        %>
+                      </div>
+                      <div class="d-flex justify-content-between align-items-center my-4 border-bottom">
+                        <p class="fs-5 fw-light">Lits</p>
+                        <%= f.input :total_bed,
+                          collection: 1..10,
+                          required: true,
+                          autofocus: true, 
+                          selected: 0,
+                          label: false,
+                          input_html: { autocomplete: "Total bed","data-cottagecheck-target": "checkBed" }
+                        %>
+                      </div>
+                      <div class="d-flex justify-content-between align-items-center my-4">
+                        <p class="fs-5 fw-light">Salle de bains</p>
+                        <%= f.input :total_bedroom,
+                          collection: 1..10,
+                          required: true,
+                          autofocus: true, 
+                          selected: 0,
+                          label: false,
+                          input_html: { autocomplete: "Total bedroom", "data-cottagecheck-target": "checkBedroom" }
+                        %>
+                      </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-action="click->cottagecheck#rooms" data-bs-dismiss="modal">Save changes</button>
+                </div>
               </div>
-              <div class="modal-body">
-                <h2 class="fw-medium fs-1">Donnez les informations principales concernant votre logement</h2>
-                <p class="text-secondary fs-5">Vous pourrez ajouter d'autres informations plus tard, comme les types de lit.</p>
-                  <div class="form mt-5">
-                    <div class="d-flex justify-content-between align-items-center my-4 border-bottom">
-                      <p class="fs-5 fw-light">Voyageurs</p>
-                      <%= f.input :total_occupancy,
-                        collection: 1..10,
-                        required: true,
-                        autofocus: true, 
+            </div>
+          </div>
+        </div>
+
+        <div class="col-3">
+          <div class="card shadow rounded-4">
+            <div class="card-body">
+              <h5 class="card-title">Indiquez aux voyageurs quels sont les équipements de votre logement</h5>
+              <p class="card-text">Vous pourrez ajouter des équipements une fois votre annonce publiée.</p>
+                <button type="button" class="btn btn-primary w-100 btn-warning text-white disabled" data-cottagecheck-target="buttonEquipments" data-bs-toggle="modal" data-bs-target="#equipments">
+                  Equipments
+                </button>
+            </div>
+          </div>-->
+
+          <!-- Modal -->
+          <!--<div class="modal fade" id="equipments" tabindex="-1" data-bs-backdrop="static" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <h2 class="fw-medium fs-1">Indiquez aux voyageurs quels sont les équipements de votre logement</h2>
+                  <p class="text-secondary fs-5">Vous pourrez ajouter des équipements une fois votre annonce publiée.</p>
+                    <div class="form">
+                      <%= f.input :equipments,
+                        collection: Equipment.all,
+                        as: :check_boxes,
                         label: false,
-                        selected: 0,
-                        input_html: { autocomplete: "Total occupancy", "data-cottagecheck-target": "checkOccupancy" }
+                        input_html: { multiple: true, }
                       %>
                     </div>
-                    <div class="d-flex justify-content-between align-items-center my-4 border-bottom">
-                      <p class="fs-5 fw-light">Chambre</p>
-                      <%= f.input :total_bathroom,
-                        collection: 1..10,
-                        required: true,
-                        autofocus: true, 
-                        selected: 0,
-                        label: false,
-                        input_html: { autocomplete: "Total bathroom", "data-cottagecheck-target": "checkBathroom" }
-                      %>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center my-4 border-bottom">
-                      <p class="fs-5 fw-light">Lits</p>
-                      <%= f.input :total_bed,
-                        collection: 1..10,
-                        required: true,
-                        autofocus: true, 
-                        selected: 0,
-                        label: false,
-                        input_html: { autocomplete: "Total bed","data-cottagecheck-target": "checkBed" }
-                      %>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center my-4">
-                      <p class="fs-5 fw-light">Salle de bains</p>
-                      <%= f.input :total_bedroom,
-                        collection: 1..10,
-                        required: true,
-                        autofocus: true, 
-                        selected: 0,
-                        label: false,
-                        input_html: { autocomplete: "Total bedroom", "data-cottagecheck-target": "checkBedroom" }
-                      %>
-                    </div>
-                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-action="click->cottagecheck#equipments" data-bs-dismiss="modal">Save changes</button>
+                </div>
               </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-action="click->cottagecheck#rooms" data-bs-dismiss="modal">Save changes</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-3">
+          <div class="card shadow rounded-4">
+            <div class="card-body">
+              <h5 class="card-title">Ajoutez quelques photos de votre appartement</h5>
+              <p class="card-text">Pour commencer, vous aurez besoin de 5 photos. Vous pourrez en ajouter d'autres ou faire des modifications plus tard..</p>
+                <button type="button" class="btn w-100 btn-warning text-white disabled" data-cottagecheck-target="buttonPhotos" data-bs-toggle="modal" data-bs-target="#photos">
+                  Photos
+                </button>
+            </div>
+          </div>-->
+
+          <!-- Modal -->
+          <!--<div class="modal fade" id="photos" tabindex="-1" data-bs-backdrop="static" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <h2 class="fw-medium fs-1">Ajoutez quelques photos de votre appartement</h2>
+                  <p class="text-secondary fs-5">Pour commencer, vous aurez besoin de 5 photos. Vous pourrez en ajouter d'autres ou faire des modifications plus tard..</p>
+                    <div class="form py-5 px-5 text-center" style="border: 1px dashed rgb(176, 176, 176);">
+                      <svg xmlns="http://www.w3.org/2000/svg" height="4em" viewBox="0 0 576 512"><path d="M160 80H512c8.8 0 16 7.2 16 16V320c0 8.8-7.2 16-16 16H490.8L388.1 178.9c-4.4-6.8-12-10.9-20.1-10.9s-15.7 4.1-20.1 10.9l-52.2 79.8-12.4-16.9c-4.5-6.2-11.7-9.8-19.4-9.8s-14.8 3.6-19.4 9.8L175.6 336H160c-8.8 0-16-7.2-16-16V96c0-8.8 7.2-16 16-16zM96 96V320c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H160c-35.3 0-64 28.7-64 64zM48 120c0-13.3-10.7-24-24-24S0 106.7 0 120V344c0 75.1 60.9 136 136 136H456c13.3 0 24-10.7 24-24s-10.7-24-24-24H136c-48.6 0-88-39.4-88-88V120zm208 24a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/></svg>
+                      <h3 class="mt-3">Faites glisser vos photos ici</h3>
+                      <p>Choisissez au moins 5 photos</p>
+                      <%= f.input :photos, as: :file, label: false, input_html: { multiple: true, class: "mt-3", "data-cottagecheck-target": "checkPhotos" } %>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-action="click->cottagecheck#photos" data-bs-dismiss="modal">Save changes</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="col-3">
-        <div class="card shadow rounded-4">
-          <div class="card-body">
-            <h5 class="card-title">Indiquez aux voyageurs quels sont les équipements de votre logement</h5>
-            <p class="card-text">Vous pourrez ajouter des équipements une fois votre annonce publiée.</p>
-              <button type="button" class="btn btn-primary w-100 btn-warning text-white disabled" data-cottagecheck-target="buttonEquipments" data-bs-toggle="modal" data-bs-target="#equipments">
-                Equipments
+      <div class="row justify-content-center align-items-start mt-5" style="height: 50%">
+        <div class="col-3">
+          <div class="card shadow rounded-4">
+            <div class="card-body">
+              <h5 class="card-title">À présent, donnez un titre à votre annonce</h5>
+              <p class="card-text">Racontez ce qui rend votre logement unique.</p>
+              <button type="button" class="btn w-100 btn-warning text-white disabled"  data-cottagecheck-target="buttonName" data-bs-toggle="modal" data-bs-target="#name">
+                Name
               </button>
-          </div>
-        </div>
-
-        <!-- Modal -->
-        <div class="modal fade" id="equipments" tabindex="-1" data-bs-backdrop="static" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <h2 class="fw-medium fs-1">Indiquez aux voyageurs quels sont les équipements de votre logement</h2>
-                <p class="text-secondary fs-5">Vous pourrez ajouter des équipements une fois votre annonce publiée.</p>
-                  <div class="form">
-                    <%= f.input :equipments,
-                      collection: Equipment.all,
-                      as: :check_boxes,
-                      label: false,
-                      input_html: { multiple: true, }
-                    %>
-                  </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-action="click->cottagecheck#equipments" data-bs-dismiss="modal">Save changes</button>
+            </div>
+          </div>-->
+          <!-- Modal -->
+          <!--<div class="modal fade" id="name" tabindex="-1" data-bs-backdrop="static" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <h2 class="fw-medium fs-1">À présent, donnez un titre à votre annonce</h2>
+                  <p class="text-secondary fs-5">Racontez ce qui rend votre logement unique.</p>
+                    <div class="form">
+                      <%= f.input :name,
+                        as: :text,
+                        required: true,
+                        label: false,
+                        input_html: { maxlength: 32, rows: 3, class: "form-control rounded", "data-cottagecheck-target": "checkName" }
+                      %>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-action="click->cottagecheck#name" data-bs-dismiss="modal">Save changes</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="col-3">
-        <div class="card shadow rounded-4">
-          <div class="card-body">
-            <h5 class="card-title">Ajoutez quelques photos de votre appartement</h5>
-            <p class="card-text">Pour commencer, vous aurez besoin de 5 photos. Vous pourrez en ajouter d'autres ou faire des modifications plus tard..</p>
-              <button type="button" class="btn w-100 btn-warning text-white disabled" data-cottagecheck-target="buttonPhotos" data-bs-toggle="modal" data-bs-target="#photos">
-                Photos
+        <div class="col-3">
+          <div class="card shadow rounded-4">
+            <div class="card-body">
+              <h5 class="card-title">À présent, donnez un titre à votre annonce</h5>
+              <p class="card-text">Racontez ce qui rend votre logement unique.</p>
+              <button type="button" class="btn w-100 btn-warning text-white disabled" data-cottagecheck-target="buttonDescription" data-bs-toggle="modal" data-bs-target="#description">
+                Description
               </button>
-          </div>
-        </div>
+            </div>
+          </div>-->
 
-        <!-- Modal -->
-        <div class="modal fade" id="photos" tabindex="-1" data-bs-backdrop="static" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <h2 class="fw-medium fs-1">Ajoutez quelques photos de votre appartement</h2>
-                <p class="text-secondary fs-5">Pour commencer, vous aurez besoin de 5 photos. Vous pourrez en ajouter d'autres ou faire des modifications plus tard..</p>
-                  <div class="form py-5 px-5 text-center" style="border: 1px dashed rgb(176, 176, 176);">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="4em" viewBox="0 0 576 512"><path d="M160 80H512c8.8 0 16 7.2 16 16V320c0 8.8-7.2 16-16 16H490.8L388.1 178.9c-4.4-6.8-12-10.9-20.1-10.9s-15.7 4.1-20.1 10.9l-52.2 79.8-12.4-16.9c-4.5-6.2-11.7-9.8-19.4-9.8s-14.8 3.6-19.4 9.8L175.6 336H160c-8.8 0-16-7.2-16-16V96c0-8.8 7.2-16 16-16zM96 96V320c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H160c-35.3 0-64 28.7-64 64zM48 120c0-13.3-10.7-24-24-24S0 106.7 0 120V344c0 75.1 60.9 136 136 136H456c13.3 0 24-10.7 24-24s-10.7-24-24-24H136c-48.6 0-88-39.4-88-88V120zm208 24a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/></svg>
-                    <h3 class="mt-3">Faites glisser vos photos ici</h3>
-                    <p>Choisissez au moins 5 photos</p>
-                    <%= f.input :photos, as: :file, label: false, input_html: { multiple: true, class: "mt-3", "data-cottagecheck-target": "checkPhotos" } %>
-                  </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-action="click->cottagecheck#photos" data-bs-dismiss="modal">Save changes</button>
+          <!-- Modal -->
+          <!--<div class="modal fade" id="description" tabindex="-1" data-bs-backdrop="static" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <h2 class="fw-medium fs-1">Créez votre description</h2>
+                  <p class="text-secondary fs-5">Les titres courts sont généralement les plus efficaces. Ne vous inquiétez pas, vous pourrez toujours le modifier plus tard.</p>
+                    <div class="form">
+                      <%= f.input :description,
+                        as: :text,
+                        required: true,
+                        label: false,
+                        input_html: { maxlength: 70000, minlength: 60, rows: 10, class: "form-control rounded", "data-cottagecheck-target": "checkDescription" }
+                      %>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-action="click->cottagecheck#description" data-bs-dismiss="modal">Save changes</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
 
-    <div class="row justify-content-center align-items-start mt-5" style="height: 50%">
-      <div class="col-3">
-        <div class="card shadow rounded-4">
-          <div class="card-body">
-            <h5 class="card-title">À présent, donnez un titre à votre annonce</h5>
-            <p class="card-text">Racontez ce qui rend votre logement unique.</p>
-            <button type="button" class="btn w-100 btn-warning text-white disabled"  data-cottagecheck-target="buttonName" data-bs-toggle="modal" data-bs-target="#name">
-              Name
-            </button>
-          </div>
-        </div>
-        <!-- Modal -->
-        <div class="modal fade" id="name" tabindex="-1" data-bs-backdrop="static" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <h2 class="fw-medium fs-1">À présent, donnez un titre à votre annonce</h2>
-                <p class="text-secondary fs-5">Racontez ce qui rend votre logement unique.</p>
-                  <div class="form">
-                    <%= f.input :name,
-                      as: :text,
-                      required: true,
-                      label: false,
-                      input_html: { maxlength: 32, rows: 3, class: "form-control rounded", "data-cottagecheck-target": "checkName" }
-                    %>
-                  </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-action="click->cottagecheck#name" data-bs-dismiss="modal">Save changes</button>
-              </div>
+        <div class="col-3">
+          <div class="card shadow rounded-4">
+            <div class="card-body">
+              <h5 class="card-title">À présent, donnez un titre à votre annonce</h5>
+              <p class="card-text">Racontez ce qui rend votre logement unique.</p>
+              <button type="button" class="btn w-100 btn-warning text-white disabled"  data-cottagecheck-target="buttonPrice" data-bs-toggle="modal" data-bs-target="#price">
+              Price
+              </button>
             </div>
-          </div>
-        </div>
-      </div>
+          </div>-->
 
-      <div class="col-3">
-        <div class="card shadow rounded-4">
-          <div class="card-body">
-            <h5 class="card-title">À présent, donnez un titre à votre annonce</h5>
-            <p class="card-text">Racontez ce qui rend votre logement unique.</p>
-            <button type="button" class="btn w-100 btn-warning text-white disabled" data-cottagecheck-target="buttonDescription" data-bs-toggle="modal" data-bs-target="#description">
-              Description
-            </button>
-          </div>
-        </div>
-
-        <!-- Modal -->
-        <div class="modal fade" id="description" tabindex="-1" data-bs-backdrop="static" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <h2 class="fw-medium fs-1">Créez votre description</h2>
-                <p class="text-secondary fs-5">Les titres courts sont généralement les plus efficaces. Ne vous inquiétez pas, vous pourrez toujours le modifier plus tard.</p>
-                  <div class="form">
-                    <%= f.input :description,
-                      as: :text,
-                      required: true,
-                      label: false,
-                      input_html: { maxlength: 70000, minlength: 60, rows: 10, class: "form-control rounded", "data-cottagecheck-target": "checkDescription" }
-                    %>
-                  </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-action="click->cottagecheck#description" data-bs-dismiss="modal">Save changes</button>
+          <!-- Modal -->
+          <!--<div class="modal fade" id="price" tabindex="-1" data-bs-backdrop="static" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <h2 class="fw-medium fs-1">Donnez nous votre prix</h2>
+                  <p class="text-secondary fs-5">Le prix definis le coût d'une nuit passé dans votre chalêt</p>
+                    <div class="form">
+                      <%= f.input :price,
+                        required: true,
+                        label: false,
+                        input_html: { class: "form-control rounded", "data-cottagecheck-target": "checkPrice" }
+                      %>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-action="click->cottagecheck#price" data-bs-dismiss="modal">Save changes</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="col-3">
-        <div class="card shadow rounded-4">
-          <div class="card-body">
-            <h5 class="card-title">À présent, donnez un titre à votre annonce</h5>
-            <p class="card-text">Racontez ce qui rend votre logement unique.</p>
-            <button type="button" class="btn w-100 btn-warning text-white disabled"  data-cottagecheck-target="buttonPrice" data-bs-toggle="modal" data-bs-target="#price">
-            Price
-            </button>
+      <div class="row align-items-center">
+        <div class="col-10">
+          <div class="progress" role="progressbar" aria-label="striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="height: 10px">
+            <div class="progress-bar" data-cottagecheck-target="progressBar" style="width: 0%"></div>
           </div>
         </div>
+        <div class="col-2">
+          <%= f.submit "Créer", class: "btn bg-warning text-white rounded-4 w-100 disabled", "data-cottagecheck-target": "submitButton"  %>
+        </div>
+      </div>
+    -->
 
-        <!-- Modal -->
-        <div class="modal fade" id="price" tabindex="-1" data-bs-backdrop="static" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="row align-items-center" data-cottagecheck-target="stepOne" style="height: 86vh">
+        <div class="col-6">
+          <p class="fw-medium fs-5">Étape 1</p>
+          <h1 style="font-size: 56px">Parlez-nous de <br> votre logement</h1>
+          <p class=" fw-light fs-5">Au cours de cette étape, nous allons vous demander quel type de logement vous proposez et si les voyageurs pourront le réserver dans son intégralité ou
+            si vous ne louez qu'une chambre. Nous vous demanderons ensuite d'indiquer son emplacement et sa capacité d'accueil.
+          </p>
+        </div>
+        <div class="col-6">
+          <%= cl_video_tag "hphlwlgswei3zdxejmid", alt: "text" %>
+        </div>
+      </div>
+
+      <div class="row mt-5 justify-content-center d-none" data-cottagecheck-target="stepAddress" style="height: 86vh">
+        <div class="col-6">
+          <h1 class="fs-1">Où est situé votre logement ?</h1>
+          <p class="fs-5">Votre adresse est uniquement communiquée aux voyageurs une fois leur réservation effectuée.</p>
+            <div class="form was-validated" >
+              <%= f.input :address,
+                required: true,
+                autofocus: true, 
+                label: false,
+                placeholder: "Saisissez votre addresse",
+                input_html: { autocomplete: "Address", class: "invalid rounded-4", "data-cottagecheck-target": "checkAddress" }
+              %>
               </div>
-              <div class="modal-body">
-                <h2 class="fw-medium fs-1">Donnez nous votre prix</h2>
-                <p class="text-secondary fs-5">Le prix definis le coût d'une nuit passé dans votre chalêt</p>
-                  <div class="form">
-                    <%= f.input :price,
-                      required: true,
-                      label: false,
-                      input_html: { class: "form-control rounded", "data-cottagecheck-target": "checkPrice" }
-                    %>
-                  </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-action="click->cottagecheck#price" data-bs-dismiss="modal">Save changes</button>
-              </div>
+        </div>
+      </div>
+
+      <div class="row mt-5 justify-content-center d-none" data-cottagecheck-target="stepRooms" style="height: 86vh">
+        <div class="col-6">
+          <h1 class="fs-1">Donnez les informations principales concernant votre logement</h1>
+          <p class="fs-5">Vous pourrez ajouter d'autres informations plus tard, comme les types de lit.</p>
+          <div class="form mt-5 was-validated">
+            <div class="d-flex justify-content-between align-items-center my-4 border-bottom">
+              <p class="fs-5 fw-light">Voyageurs</p>
+              <%= f.input :total_occupancy,
+                collection: 1..10,
+                required: true,
+                autofocus: true, 
+                label: false,
+                selected: 0,
+                input_html: { autocomplete: "Total occupancy", class: "invalid", "data-cottagecheck-target": "checkOccupancy" }
+              %>
+            </div>
+            <div class="d-flex justify-content-between align-items-center my-4 border-bottom">
+              <p class="fs-5 fw-light">Chambre</p>
+              <%= f.input :total_bathroom,
+                collection: 1..10,
+                required: true,
+                autofocus: true, 
+                selected: 0,
+                label: false,
+                input_html: { autocomplete: "Total bathroom", class: "invalid", "data-cottagecheck-target": "checkBathroom" }
+              %>
+            </div>
+            <div class="d-flex justify-content-between align-items-center my-4 border-bottom">
+              <p class="fs-5 fw-light">Lits</p>
+              <%= f.input :total_bed,
+                collection: 1..10,
+                required: true,
+                autofocus: true, 
+                selected: 0,
+                label: false,
+                input_html: { autocomplete: "Total bed", class: "invalid", "data-cottagecheck-target": "checkBed" }
+              %>
+            </div>
+            <div class="d-flex justify-content-between align-items-center my-4">
+              <p class="fs-5 fw-light">Salle de bains</p>
+              <%= f.input :total_bedroom,
+                collection: 1..10,
+                required: true,
+                autofocus: true, 
+                selected: 0,
+                label: false,
+                input_html: { autocomplete: "Total bedroom", class: "invalid", "data-cottagecheck-target": "checkBedroom" }
+              %>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="row align-items-center">
-      <div class="col-10">
-        <div class="progress" role="progressbar" aria-label="striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="height: 10px">
+      <div class="row mt-5 justify-content-center d-none" data-cottagecheck-target="stepEquipments" style="height: 86vh">
+        <div class="col-6">
+          <h1 class="fs-1">Indiquez aux voyageurs quels sont les équipements de votre logement</h1>
+          <p class="fs-5">Vous pourrez ajouter des équipements une fois votre annonce publiée.</p>
+            <div class="form was-validated" >
+              <%= f.input :equipments,
+                collection: Equipment.all,
+                as: :check_boxes,
+                label: false,
+                input_html: { multiple: true }
+              %>
+              </div>
+        </div>
+      </div>
+
+      <div class="row mt-5 justify-content-center d-none" data-cottagecheck-target="stepPhotos" style="height: 86vh">
+        <div class="col-6">
+          <h1 class="fs-1">Ajoutez quelques photos de votre appartement</h1>
+          <p class="fs-5">Pour commencer, vous aurez besoin de 5 photos. Vous pourrez en ajouter d'autres ou faire des modifications plus tard..</p>
+          <div class="form py-5 px-5 text-center was-validated" style="border: 1px dashed rgb(176, 176, 176);">
+            <svg xmlns="http://www.w3.org/2000/svg" height="4em" viewBox="0 0 576 512"><path d="M160 80H512c8.8 0 16 7.2 16 16V320c0 8.8-7.2 16-16 16H490.8L388.1 178.9c-4.4-6.8-12-10.9-20.1-10.9s-15.7 4.1-20.1 10.9l-52.2 79.8-12.4-16.9c-4.5-6.2-11.7-9.8-19.4-9.8s-14.8 3.6-19.4 9.8L175.6 336H160c-8.8 0-16-7.2-16-16V96c0-8.8 7.2-16 16-16zM96 96V320c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H160c-35.3 0-64 28.7-64 64zM48 120c0-13.3-10.7-24-24-24S0 106.7 0 120V344c0 75.1 60.9 136 136 136H456c13.3 0 24-10.7 24-24s-10.7-24-24-24H136c-48.6 0-88-39.4-88-88V120zm208 24a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/></svg>
+            <h3 class="mt-3">Faites glisser vos photos ici</h3>
+            <p>Choisissez au moins 5 photos</p>
+            <%= f.input :photos, as: :file, required: true, label: false, input_html: { multiple: true, class: "mt-3 invalid", "data-cottagecheck-target": "checkPhotos" } %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-5 justify-content-center d-none" data-cottagecheck-target="stepName" style="height: 86vh">
+        <div class="col-6">
+          <h1 class="fs-1">À présent, donnez un titre à votre annonce</h1>
+          <p class="fs-5">Racontez ce qui rend votre logement unique.</p>
+            <div class="form was-validated" >
+              <%= f.input :name,
+                as: :text,
+                required: true,
+                label: false,
+                input_html: { maxlength: 32, rows: 3, class: "form-control rounded", "data-cottagecheck-target": "checkName" }
+              %>
+              </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+
+
+
+  <div class="container-fluid position-fixed" style="top: 92vh">
+    <div class="row">
+      <div class="col-4 pe-0">
+        <div class="progress" role="progressbar" aria-label="striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="height: 8px">
           <div class="progress-bar" data-cottagecheck-target="progressBar" style="width: 0%"></div>
         </div>
       </div>
-      <div class="col-2">
-        <%= f.submit "Créer", class: "btn bg-warning text-white rounded-4 w-100 disabled", "data-cottagecheck-target": "submitButton"  %>
+      <div class="col-4 pe-0">
+        <div class="progress" role="progressbar" aria-label="striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="height: 8px">
+          <div class="progress-bar" data-cottagecheck-target="progressBar" style="width: 0%"></div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="progress" role="progressbar" aria-label="striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="height: 8px">
+          <div class="progress-bar" data-cottagecheck-target="progressBar" style="width: 0%"></div>
+        </div>
       </div>
     </div>
-  <% end %>
+    <div class="row justify-content-between text-center mt-3">
+      <div class="col-1">
+        <a href="">Retour</a>
+      </div>
+      <div class="col-10"></div>
+      <div class="col-1">
+        <button class="btn bg-warning text-white rounded-4 w-100" data-cottagecheck-target="buttonOne" data-action="click->cottagecheck#toStepAddress">Suivant</button>
+        <button class="btn bg-warning text-white rounded-4 w-100 d-none" data-cottagecheck-target="buttonAddress" data-action="click->cottagecheck#toStepRooms">Suivant</button>
+        <button class="btn bg-warning text-white rounded-4 w-100 d-none" data-cottagecheck-target="buttonRooms" data-action="click->cottagecheck#toStepEquipments">Suivant</button>
+        <button class="btn bg-warning text-white rounded-4 w-100 d-none" data-cottagecheck-target="buttonEquipments" data-action="click->cottagecheck#toStepPhotos">Suivant</button>
+        <button class="btn bg-warning text-white rounded-4 w-100 d-none" data-cottagecheck-target="buttonPhotos" data-action="click->cottagecheck#toStepName">Suivant</button>
+        <button class="btn bg-warning text-white rounded-4 w-100 d-none" data-cottagecheck-target="buttonName" data-action="click->cottagecheck#toStepPhotos">Suivant</button>
+      </div>
+    </div>
+  </div>
 </div>

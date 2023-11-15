@@ -27,7 +27,23 @@ export default class extends Controller {
     "buttonPrice",
 
     "progressBar",
-    "submitButton"
+    "submitButton",
+
+    "stepOne",
+    "stepAddress",
+    "buttonOne",
+    "stepRooms",
+    "buttonRooms",
+
+    "stepEquipments",
+    "buttonEquipments",
+
+    "stepPhotos",
+    "buttonPhotos",
+
+    "stepName",
+    "buttonName"
+
   ]
   address() {
     if (this.checkAddressTarget.value) {
@@ -115,6 +131,47 @@ export default class extends Controller {
       this.submitButtonTarget.classList.add("disabled", "bg-warning",)
       this.submitButtonTarget.classList.remove("bg-primary")
       this.progressBarTarget.style.width = "84%"
+    }
+  }
+
+  toStepAddress() {
+      this.stepOneTarget.classList.add("d-none")
+      this.stepAddressTarget.classList.remove("d-none")
+      this.buttonOneTarget.classList.add("d-none")
+      this.buttonAddressTarget.classList.remove("d-none")
+  }
+
+  toStepRooms(){
+    if(this.checkAddressTarget.value) {
+      this.stepAddressTarget.classList.add("d-none")
+      this.stepRoomsTarget.classList.remove("d-none")
+      this.buttonAddressTarget.classList.add("d-none")
+      this.buttonRoomsTarget.classList.remove("d-none")
+    }
+  }
+
+  toStepEquipments(){
+    if (this.checkOccupancyTarget.value != 0 && this.checkBathroomTarget.value != 0 && this.checkBedTarget.value != 0 &&  this.checkBedroomTarget.value) {
+      this.stepRoomsTarget.classList.add("d-none")
+      this.stepEquipmentsTarget.classList.remove("d-none")
+      this.buttonRoomsTarget.classList.add("d-none")
+      this.buttonEquipmentsTarget.classList.remove("d-none")
+    }
+  }
+
+  toStepPhotos(){
+    this.stepEquipmentsTarget.classList.add("d-none")
+    this.stepPhotosTarget.classList.remove("d-none")
+    this.buttonEquipmentsTarget.classList.add("d-none")
+    this.buttonPhotosTarget.classList.remove("d-none")
+  }
+
+  toStepName(){
+    if (this.checkPhotosTarget.files.length >= 5){
+      this.stepPhotosTarget.classList.add("d-none")
+      this.stepNameTarget.classList.remove("d-none")
+      this.buttonPhotosTarget.classList.add("d-none")
+      this.buttonNameTarget.classList.remove("d-none")
     }
   }
 
