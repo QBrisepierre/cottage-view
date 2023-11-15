@@ -23,10 +23,12 @@ class CottagesController < ApplicationController
 
   def new
     @cottage = Cottage.new
+    @equipments = Equipment.all
   end
 
   def create
     @cottage = Cottage.new(cottage_params)
+    raise
     @cottage.user_id = current_user.id
     if @cottage.save
       params[:cottage][:equipments].each do |equip|

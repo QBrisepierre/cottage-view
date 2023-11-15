@@ -400,18 +400,36 @@
         </div>
       </div>
 
-      <div class="row mt-5 justify-content-center d-none" data-cottagecheck-target="stepEquipments" style="height: 86vh">
-        <div class="col-6">
+      <div class="row mt-5 justify-content-center d-none" data-controller="checkboxe" data-cottagecheck-target="stepEquipments" style="height: 86vh">
+        <div class="col-8">
           <h1 class="fs-1">Indiquez aux voyageurs quels sont les équipements de votre logement</h1>
           <p class="fs-5">Vous pourrez ajouter des équipements une fois votre annonce publiée.</p>
             <div class="form was-validated" >
-              <%= f.input :equipments,
-                collection: Equipment.all,
-                as: :check_boxes,
-                label: false,
-                input_html: { multiple: true }
-              %>
+              <div class="container text-center">
+                <div class="row row-cols-4" style="padding-bottom: 6rem">
+
+                  <%= f.association :equipments,
+                    as: :check_boxes,
+                    label: false,
+                    input_html: { class: "tag-selector col p-2", "data-action": "click->checkboxe#fire" },
+                    item_wrapper_class: 'border py-5 rounded-4 cursor'
+                  %>
+
+                    <!--<% @equipments.each do |equipment| %>
+                      <div class="col p-2">
+                        <div class="border py-5 rounded-4" style="cursor: pointer" data-action="click->checkboxe#fire">
+                          <%= cl_image_tag equipment.icon.key, alt: "text", height: 50 %>
+                          <p><%= equipment.name %></p>
+                        </div>
+                      </div>
+                    <% end %>-->
+                  
+
+
+
+                </div>
               </div>
+            </div>
         </div>
       </div>
 
@@ -448,7 +466,7 @@
 
 
 
-  <div class="container-fluid position-fixed" style="top: 92vh">
+  <div class="container-fluid position-fixed py-2" style="top: 92vh; background-color: var(--bs-body-bg);">
     <div class="row">
       <div class="col-4 pe-0">
         <div class="progress" role="progressbar" aria-label="striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="height: 8px">
@@ -475,7 +493,7 @@
         <button class="btn bg-warning text-white rounded-4 w-100" data-cottagecheck-target="buttonOne" data-action="click->cottagecheck#toStepAddress">Suivant</button>
         <button class="btn bg-warning text-white rounded-4 w-100 d-none" data-cottagecheck-target="buttonAddress" data-action="click->cottagecheck#toStepRooms">Suivant</button>
         <button class="btn bg-warning text-white rounded-4 w-100 d-none" data-cottagecheck-target="buttonRooms" data-action="click->cottagecheck#toStepEquipments">Suivant</button>
-        <button class="btn bg-warning text-white rounded-4 w-100 d-none" data-cottagecheck-target="buttonEquipments" data-action="click->cottagecheck#toStepPhotos">Suivant</button>
+        <!--<button class="btn bg-warning text-white rounded-4 w-100 d-none" data-cottagecheck-target="buttonEquipments" data-action="click->checkboxe#addingEquipments" data-action="click->cottagecheck#toStepPhotos">Suivant</button>-->
         <button class="btn bg-warning text-white rounded-4 w-100 d-none" data-cottagecheck-target="buttonPhotos" data-action="click->cottagecheck#toStepName">Suivant</button>
         <button class="btn bg-warning text-white rounded-4 w-100 d-none" data-cottagecheck-target="buttonName" data-action="click->cottagecheck#toStepPhotos">Suivant</button>
       </div>
