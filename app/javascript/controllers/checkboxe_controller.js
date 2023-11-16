@@ -3,10 +3,10 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="checkboxe"
 const selected = []
 export default class extends Controller {
-  static targets = []
+  static targets = ["icon", "col"]
   fire() {
     console.log(event)
-    event.currentTarget.classList.toggle("border-black")
+    this.colTarget.classList.toggle("border-black")
     if (selected.includes(event.currentTarget.innerText)) {
       const index = selected.indexOf(event.currentTarget.innerText)
       selected.splice(index, 1)
@@ -15,7 +15,7 @@ export default class extends Controller {
     }
     console.log(selected)
   }
-  addingEquipments() {
-
+  connect() {
+    
   }
 }

@@ -3,46 +3,33 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="cottagenew"
 export default class extends Controller {
   static targets = [
+    "stepOne",
+    "buttonOne",
+
     "checkAddress",
+    "stepAddress",
     "buttonAddress",
 
     "checkOccupancy",
     "checkBathroom",
     "checkBed",
     "checkBedroom",
-    "buttonRooms",
-
-    "buttonEquipments",
-
-    "checkPhotos",
-    "buttonPhotos",
-
-    "checkName",
-    "buttonName",
-
-    "checkDescription",
-    "buttonDescription",
-
-    "checkPrice",
-    "buttonPrice",
-
-    "progressBar",
-    "submitButton",
-
-    "stepOne",
-    "stepAddress",
-    "buttonOne",
     "stepRooms",
     "buttonRooms",
 
     "stepEquipments",
     "buttonEquipments",
 
+    "checkPhotos",
     "stepPhotos",
     "buttonPhotos",
 
+    "checkName",
     "stepName",
-    "buttonName"
+    "buttonName",
+
+    "stepDescription",
+    "buttonDescription"
 
   ]
   address() {
@@ -172,6 +159,17 @@ export default class extends Controller {
       this.stepNameTarget.classList.remove("d-none")
       this.buttonPhotosTarget.classList.add("d-none")
       this.buttonNameTarget.classList.remove("d-none")
+    }
+  }
+
+  toStepDescription() {
+    console.log("hello")
+    if (this.checkNameTarget.value) {
+      console.log("if")
+      this.stepNameTarget.classList.add("d-none")
+      this.stepDescriptionTarget.classList.remove("d-none")
+      this.buttonNameTarget.classList.add("d-none")
+      this.buttonDescriptionTarget.classList.remove("d-none")
     }
   }
 
