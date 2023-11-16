@@ -23,14 +23,19 @@ class CottagesController < ApplicationController
 
   def new
     @cottage = Cottage.new
+    @equipments = Equipment.all
   end
 
   def create
     @cottage = Cottage.new(cottage_params)
-    @cottage.user_id = current_user.id if @cottage.user_id.nil?
+    raise
+    @cottage.user_id = current_user.id
     if @cottage.save
-      session[:cottage_id] = @cottage.id
-      redirect_to cottage_steps_path
+      params[:cottage][:equipments].each do |equip|
+        cottage_equip = CottageEquipment.new(cottage_id: @cottage.id, equipment_id: equip.to_i)
+        cottage_equip.save
+      end
+      redirect_to cottage_path(@cottage)
     else
       render :new, status: :unprocessable_entity
     end
@@ -43,6 +48,6 @@ class CottagesController < ApplicationController
   end
 
   def cottage_params
-    params.require(:cottage).permit(:name, :description, :total_bedroom, :total_bed, :total_bathroom, :total_occupancy, :address, :price, :user_id, photos: [] )
+    params.require(:cottage).permit(:name, :name, :description, :total_bedroom, :total_bed, :total_bathroom, :total_occupancy, :address, :price, :user_id, photos: [] )
   end
 end

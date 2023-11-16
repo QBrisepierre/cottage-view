@@ -1,0 +1,32 @@
+.category-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.category-item {
+  flex: 0 0 24%;
+}
+
+.category-selector {
+  transform: scale(0);
+  background-image: url("https://res.cloudinary.com/falconium/image/upload/v1699871158/development/6bnww4ab9r340y7adw4m3kamp3yt.png");
+}
+
+.category-selector + label {
+  display: block;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 18px;
+  text-align: center;
+  padding: 40px 5px;
+  border: 1px solid #EAEAEA;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.category-selector:checked + label {
+  border-color: black;
+}
