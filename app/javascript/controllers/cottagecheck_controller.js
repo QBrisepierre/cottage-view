@@ -34,7 +34,14 @@ export default class extends Controller {
     "buttonName",
 
     "stepDescription",
+    "checkDescription",
     "buttonDescription",
+
+    "stepPrice",
+    "checkPrice",
+    "buttonPrice",
+
+    "stepFinish",
 
     "occupancyCounter",
     "bathroomCounter",
@@ -179,6 +186,24 @@ export default class extends Controller {
       this.stepDescriptionTarget.classList.remove("d-none")
       this.buttonNameTarget.classList.add("d-none")
       this.buttonDescriptionTarget.classList.remove("d-none")
+    }
+  }
+
+  toStepPrice() {
+    if (this.checkDescriptionTarget.value) {
+      this.stepDescriptionTarget.classList.add("d-none")
+      this.stepPriceTarget.classList.remove("d-none")
+      this.buttonDescriptionTarget.classList.add("d-none")
+      this.buttonPriceTarget.classList.remove("d-none")
+    }
+  }
+
+  toStepFinish() {
+    if (this.checkPriceTarget.value >= 20) {
+      console.log("hey inside if")
+      this.stepPriceTarget.classList.add("d-none")
+      this.stepFinishTarget.classList.remove("d-none")
+      this.buttonPriceTarget.classList.add("d-none")
     }
   }
 

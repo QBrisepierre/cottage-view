@@ -1,6 +1,7 @@
 <div data-controller="cottagecheck">
   <div class="container">
     <%= simple_form_for @cottage, html: { class: "h-100"} do |f| %>
+      <%= f.error_notification %>
       <!--<div class="row justify-content-center align-items-center" style="height: 100vh">
         <div class="col-3">
           <div class="card shadow rounded-4">
@@ -347,7 +348,7 @@
         </div>
       </div>
 
-      <div class="row mt-5 justify-content-center d-none" data-cottagecheck-target="stepRooms" style="height: 86vh">
+      <div class="row mt-5 justify-content-center d-none" data-cottagecheck-target="stepRooms" style="height: 86vh">-
         <div class="col-6">
           <h1 class="fs-1">Donnez les informations principales concernant votre logement</h1>
           <p class="fs-5">Vous pourrez ajouter d'autres informations plus tard, comme les types de lit.</p>
@@ -505,17 +506,37 @@
         <div class="col-6">
           <h1 class="fs-1">Créez votre description</h1>
           <p class="fs-5">Les titres courts sont généralement les plus efficaces. Ne vous inquiétez pas, vous pourrez toujours le modifier plus tard.</p>
-            <div class="form was-validated" >
-              <%= f.input :description,
-                as: :text,
-                required: true,
-                label: false,
-                input_html: { maxlength: 70000, minlength: 60, rows: 10, class: "form-control rounded", "data-cottagecheck-target": "checkDescription" }
-              %>
-              </div>
+          <div class="form was-validated" >
+            <%= f.input :description,
+              as: :text,
+              required: true,
+              label: false,
+              input_html: { maxlength: 70000, minlength: 60, rows: 10, class: "form-control rounded", "data-cottagecheck-target": "checkDescription" }
+            %>
+          </div>
         </div>
       </div>
-    <% end %>
+      <div class="row mt-5 justify-content-center d-none" data-cottagecheck-target="stepPrice" style="height: 86vh">
+        <div class="col-6">
+          <h1 class="fs-1">Donnez nous votre prix</h1>
+          <p class="fs-5">Le prix definis le coût d'une nuit passé dans votre chalêt</p>
+          <div class="form was-validated" >
+            <%= f.input :price,
+              required: true,
+              label: false,
+              input_html: { class: "form-control rounded", "data-cottagecheck-target": "checkPrice" }
+            %>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-5 justify-content-center d-none" data-cottagecheck-target="stepFinish" style="height: 86vh">
+        <div class="col-6 text-center">
+          <h1 class="fs-1">Félicitation !</h1>
+          <p class="fs-5">Vous pouvez désormais mettre votre chalêt sur le marché de CottageView</p>
+          <%= f.button :submit, "Créer", class: "btn bg-warning text-white rounded-4 w-100"  %>
+      <% end %>
+        </div>
+      </div>
   </div>
 
 
@@ -545,13 +566,14 @@
       </div>
       <div class="col-10"></div>
       <div class="col-1">
-        <button class="btn bg-warning text-white rounded-4 w-100" data-cottagecheck-target="buttonOne" data-action="click->cottagecheck#toStepAddress">Suivant</button>
-        <button class="btn bg-warning text-white rounded-4 w-100 d-none" data-cottagecheck-target="buttonAddress" data-action="click->cottagecheck#toStepRooms">Suivant</button>
-        <button class="btn bg-warning text-white rounded-4 w-100 d-none" data-cottagecheck-target="buttonRooms" data-action="click->cottagecheck#toStepEquipments">Suivant</button>
-        <button class="btn bg-warning text-white rounded-4 w-100 d-none" data-cottagecheck-target="buttonEquipments" data-action="click->cottagecheck#toStepPhotos">Suivant</button>
-        <button class="btn bg-warning text-white rounded-4 w-100 d-none" data-cottagecheck-target="buttonPhotos" data-action="click->cottagecheck#toStepName">Suivant</button>
-        <button class="btn bg-warning text-white rounded-4 w-100 d-none" data-cottagecheck-target="buttonName" data-action="click->cottagecheck#toStepDescription">Suivant</button>
-        <button class="btn bg-warning text-white rounded-4 w-100 d-none" data-cottagecheck-target="buttonDescription" data-action="click->cottagecheck#toStepPhotos">Suivant</button>
+        <button type="button" class="btn bg-warning text-white rounded-4 w-100" data-cottagecheck-target="buttonOne" data-action="click->cottagecheck#toStepAddress">Suivant</button>
+        <button type="button" class="btn bg-warning text-white rounded-4 w-100 d-none" data-cottagecheck-target="buttonAddress" data-action="click->cottagecheck#toStepRooms">Suivant</button>
+        <button type="button" class="btn bg-warning text-white rounded-4 w-100 d-none" data-cottagecheck-target="buttonRooms" data-action="click->cottagecheck#toStepEquipments">Suivant</button>
+        <button type="button" class="btn bg-warning text-white rounded-4 w-100 d-none" data-cottagecheck-target="buttonEquipments" data-action="click->cottagecheck#toStepPhotos">Suivant</button>
+        <button type="button" class="btn bg-warning text-white rounded-4 w-100 d-none" data-cottagecheck-target="buttonPhotos" data-action="click->cottagecheck#toStepName">Suivant</button>
+        <button type="button" class="btn bg-warning text-white rounded-4 w-100 d-none" data-cottagecheck-target="buttonName" data-action="click->cottagecheck#toStepDescription">Suivant</button>
+        <button type="button" class="btn bg-warning text-white rounded-4 w-100 d-none" data-cottagecheck-target="buttonDescription" data-action="click->cottagecheck#toStepPrice">Suivant</button>
+        <button type="button" class="btn bg-warning text-white rounded-4 w-100 d-none" data-cottagecheck-target="buttonPrice" data-action="click->cottagecheck#toStepFinish">Suivant</button>
       </div>
     </div>
   </div>
