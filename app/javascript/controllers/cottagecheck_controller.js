@@ -1,7 +1,11 @@
 import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="cottagenew"
-let a = 0
+let occupancy = 0
+let bathroom = 0
+let bed = 0
+let bedroom = 0
+
 export default class extends Controller {
   static targets = [
     "stepOne",
@@ -32,8 +36,10 @@ export default class extends Controller {
     "stepDescription",
     "buttonDescription",
 
-    "counter",
-    "down"
+    "occupancyCounter",
+    "bathroomCounter",
+    "bedCounter",
+    "bedroomCounter",
   ]
   address() {
     if (this.checkAddressTarget.value) {
@@ -178,16 +184,55 @@ export default class extends Controller {
 
   
   upOccupancy(){
-    a++
-    this.counterTarget.innerText = a
-    this.checkOccupancyTarget.value = a
+    occupancy++
+    this.occupancyCounterTarget.innerText = occupancy
+    this.checkOccupancyTarget.value = occupancy
     console.log(this.checkOccupancyTarget.value)
   }
-  donwOccupancy(){
-    a--
-    this.counterTarget.innerText = a
-    this.checkOccupancyTarget.value = a
+  downOccupancy(){
+    occupancy--
+    this.occupancyCounterTarget.innerText = occupancy
+    this.checkOccupancyTarget.value = occupancy
     console.log(this.checkOccupancyTarget.value)
+  }
+
+  upBathroom(){
+    bathroom++
+    this.bathroomCounterTarget.innerText = bathroom
+    this.checkBathroomTarget.value = bathroom
+    console.log(this.checkBathroomTarget.value)
+  }
+  downBathroom(){
+    bathroom--
+    this.bathroomCounterTarget.innerText = bathroom
+    this.checkBathroomTarget.value = bathroom
+    console.log(this.checkBathroomTarget.value)
+  }
+
+  upBed(){
+    bed++
+    this.bedCounterTarget.innerText = bed
+    this.checkBedTarget.value = bed
+    console.log(this.checkBedTarget.value)
+  }
+  downBed(){
+    bed--
+    this.bedCounterTarget.innerText = bed
+    this.checkBedTarget.value = bed
+    console.log(this.checkBedTarget.value)
+  }
+
+  upBedroom(){
+    bedroom++
+    this.bedroomCounterTarget.innerText = bedroom
+    this.checkBedroomTarget.value = bedroom
+    console.log(this.checkBedroomTarget.value)
+  }
+  downBedroom(){
+    bedroom--
+    this.bedroomCounterTarget.innerText = bedroom
+    this.checkBedroomTarget.value = bedroom
+    console.log(this.checkBedroomTarget.value)
   }
 
 
