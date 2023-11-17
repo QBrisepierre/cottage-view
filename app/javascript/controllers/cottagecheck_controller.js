@@ -1,6 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="cottagenew"
+let a = 0
 export default class extends Controller {
   static targets = [
     "stepOne",
@@ -29,8 +30,10 @@ export default class extends Controller {
     "buttonName",
 
     "stepDescription",
-    "buttonDescription"
+    "buttonDescription",
 
+    "counter",
+    "down"
   ]
   address() {
     if (this.checkAddressTarget.value) {
@@ -172,5 +175,20 @@ export default class extends Controller {
       this.buttonDescriptionTarget.classList.remove("d-none")
     }
   }
+
+  
+  upOccupancy(){
+    a++
+    this.counterTarget.innerText = a
+    this.checkOccupancyTarget.value = a
+    console.log(this.checkOccupancyTarget.value)
+  }
+  donwOccupancy(){
+    a--
+    this.counterTarget.innerText = a
+    this.checkOccupancyTarget.value = a
+    console.log(this.checkOccupancyTarget.value)
+  }
+
 
 }
