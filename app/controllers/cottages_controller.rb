@@ -30,7 +30,7 @@ class CottagesController < ApplicationController
     @cottage = Cottage.new(cottage_params)
     @cottage.user_id = current_user.id
     if @cottage.save
-      params[:cottage][:equipments].each do |equip|
+      params[:cottage][:equipment_ids].each do |equip|
         cottage_equip = CottageEquipment.new(cottage_id: @cottage.id, equipment_id: equip.to_i)
         cottage_equip.save
       end
