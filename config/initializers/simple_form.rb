@@ -175,3 +175,4 @@ SimpleForm.setup do |config|
   # config.input_field_error_class = 'is-invalid'
   
 end
+
