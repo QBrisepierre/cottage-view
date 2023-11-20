@@ -10,6 +10,10 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+function updateTextInput(val) {
+  document.getElementById('textInput').value=val;
+}
+
 export default class extends Controller {
   static targets = [
     "stepOne",
@@ -25,6 +29,9 @@ export default class extends Controller {
     "checkBedroom",
     "stepRooms",
     "buttonRooms",
+
+    "stepTwo",
+    "buttonTwo",
 
     "stepEquipments",
     "buttonEquipments",
@@ -45,106 +52,30 @@ export default class extends Controller {
     "checkPrice",
     "buttonPrice",
 
+    "stepThree",
+    "buttonThree",
+
     "stepFinish",
 
     "occupancyCounter",
     "bathroomCounter",
     "bedCounter",
     "bedroomCounter",
+
+    "overflow",
+
+    "progressBarOne",
+    "progressBarTwo",
+    "progressBarThree",
+
+    "price",
   ]
-  address() {
-    if (this.checkAddressTarget.value) {
-      this.buttonAddressTarget.classList.remove("btn-warning", "text-white")
-      this.buttonAddressTarget.classList.add("btn-primary")
-      this.buttonRoomsTarget.classList.remove("disabled")
-      this.progressBarTarget.style.width = "14%"
-    }else {
-      this.buttonAddressTarget.classList.remove("btn-primary")
-      this.buttonAddressTarget.classList.add("btn-warning", "text-white")
-      this.buttonRoomsTarget.classList.add("disabled")
-      this.progressBarTarget.style.width = "0%"
-    }
-  }
-  rooms() {
-    if (this.checkOccupancyTarget.value != 0 && this.checkBathroomTarget.value != 0 && this.checkBedTarget.value != 0 &&  this.checkBedroomTarget.value) {
-      this.buttonRoomsTarget.classList.remove("btn-warning", "text-white")
-      this.buttonRoomsTarget.classList.add("btn-primary")
-      this.buttonEquipmentsTarget.classList.remove("disabled")
-      this.progressBarTarget.style.width = "28%"
-    }else {
-      this.buttonRoomsTarget.classList.remove("btn-primary")
-      this.buttonRoomsTarget.classList.add("btn-warning", "text-white")
-      this.buttonEquipmentsTarget.classList.add("disabled")
-      this.progressBarTarget.style.width = "14%"
-    }
-  }
-  equipments() {
-    this.buttonEquipmentsTarget.classList.remove("btn-warning", "text-white")
-    this.buttonEquipmentsTarget.classList.add("btn-primary")
-    this.buttonPhotosTarget.classList.remove("disabled")
-    this.progressBarTarget.style.width = "42%"
-  }
-
-  photos() {
-    if (this.checkPhotosTarget.files.length >= 5) {
-      this.buttonPhotosTarget.classList.remove("btn-warning", "text-white")
-      this.buttonPhotosTarget.classList.add("btn-primary")
-      this.buttonNameTarget.classList.remove("disabled")
-      this.progressBarTarget.style.width = "56%"
-    }else {
-      this.buttonPhotosTarget.classList.remove("btn-primary")
-      this.buttonPhotosTarget.classList.add("btn-warning", "text-white")
-      this.buttonNameTarget.classList.add("disabled")
-      this.progressBarTarget.style.width = "42%"
-    }
-  }
-
-  name() {
-    if (this.checkNameTarget.value) {
-      this.buttonNameTarget.classList.remove("btn-warning", "text-white")
-      this.buttonNameTarget.classList.add("btn-primary")
-      this.buttonDescriptionTarget.classList.remove("disabled")
-      this.progressBarTarget.style.width = "70%"
-    }else {
-      this.buttonNameTarget.classList.remove("btn-primary")
-      this.buttonNameTarget.classList.add("btn-warning", "text-white")
-      this.buttonDescriptionTarget.classList.remove("add")
-      this.progressBarTarget.style.width = "56%"
-    }
-  }
-  description() {
-    if (this.checkDescriptionTarget.value.length >= 60) {
-      this.buttonDescriptionTarget.classList.remove("btn-warning", "text-white")
-      this.buttonDescriptionTarget.classList.add("btn-primary")
-      this.buttonPriceTarget.classList.remove("disabled")
-      this.progressBarTarget.style.width = "84%"
-    }else {
-      this.buttonDescriptionTarget.classList.remove("btn-primary")
-      this.buttonDescriptionTarget.classList.add("btn-warning", "text-white")
-      this.buttonPriceTarget.classList.add("disabled")
-      this.progressBarTarget.style.width = "70%"
-    }
-  }
-  price() {
-    if (this.checkPriceTarget.value >= 20) {
-      this.buttonPriceTarget.classList.remove("btn-warning", "text-white")
-      this.buttonPriceTarget.classList.add("btn-primary")
-      this.submitButtonTarget.classList.remove("disabled", "bg-warning")
-      this.submitButtonTarget.classList.add("bg-primary")
-      this.progressBarTarget.style.width = "100%"
-    }else {
-      this.buttonPriceTarget.classList.remove("btn-primary")
-      this.buttonPriceTarget.classList.add("btn-warning", "text-white")
-      this.submitButtonTarget.classList.add("disabled", "bg-warning",)
-      this.submitButtonTarget.classList.remove("bg-primary")
-      this.progressBarTarget.style.width = "84%"
-    }
-  }
 
   toStepAddress() {
     this.stepOneTarget.classList.remove("fade-in")
     this.stepOneTarget.classList.add("fade-out")
     sleep(1000).then(() => {
+      this.progressBarOneTarget.style.width = "33%"
       this.stepOneTarget.classList.add("d-none")
       this.stepAddressTarget.classList.remove("d-none")
       this.buttonOneTarget.classList.add("d-none")
@@ -155,8 +86,9 @@ export default class extends Controller {
   toStepRooms(){
     if(this.checkAddressTarget.value) {
       this.stepAddressTarget.classList.remove("fade-in")
-      this.stepAddressTarget.classList.remove("fade-out")
+      this.stepAddressTarget.classList.add("fade-out")
       sleep(1000).then(() => {
+        this.progressBarOneTarget.style.width = "66%"
         this.stepAddressTarget.classList.add("d-none")
         this.stepRoomsTarget.classList.remove("d-none")
         this.buttonAddressTarget.classList.add("d-none")
@@ -165,57 +97,111 @@ export default class extends Controller {
     }
   }
 
-  toStepEquipments(){
+  toStepTwo(){
     if (this.checkOccupancyTarget.value != 0 && this.checkBathroomTarget.value != 0 && this.checkBedTarget.value != 0 &&  this.checkBedroomTarget.value) {
-      this.stepRoomsTarget.classList.add("d-none")
-      this.stepEquipmentsTarget.classList.remove("d-none")
-      this.buttonRoomsTarget.classList.add("d-none")
-      this.buttonEquipmentsTarget.classList.remove("d-none")
+      this.stepRoomsTarget.classList.remove("fade-in")
+      this.stepRoomsTarget.classList.add("fade-out")
+      sleep(1000).then(() => {
+        this.progressBarOneTarget.style.width = "100%"
+        this.stepRoomsTarget.classList.add("d-none")
+        this.stepTwoTarget.classList.remove("d-none")
+        this.buttonRoomsTarget.classList.add("d-none")
+        this.buttonTwoTarget.classList.remove("d-none")
+      })
     }
   }
 
+  toStepEquipments(){
+      this.stepTwoTarget.classList.remove("fade-in")
+      this.stepTwoTarget.classList.add("fade-out")
+      sleep(1000).then(() => {
+        this.progressBarTwoTarget.style.width = "20%"
+        this.stepTwoTarget.classList.add("d-none")
+        this.stepEquipmentsTarget.classList.remove("d-none")
+        this.buttonTwoTarget.classList.add("d-none")
+        this.buttonEquipmentsTarget.classList.remove("d-none")
+        this.overflowTarget.classList.remove("overflow-hidden")
+      })
+  }
+
   toStepPhotos(){
-    this.stepEquipmentsTarget.classList.add("d-none")
-    this.stepPhotosTarget.classList.remove("d-none")
-    this.buttonEquipmentsTarget.classList.add("d-none")
-    this.buttonPhotosTarget.classList.remove("d-none")
+    this.stepEquipmentsTarget.classList.remove("fade-in")
+    this.stepEquipmentsTarget.classList.add("fade-out")
+    sleep(1000).then(() => {
+      this.progressBarTwoTarget.style.width = "40%"
+      this.stepEquipmentsTarget.classList.add("d-none")
+      this.stepPhotosTarget.classList.remove("d-none")
+      this.buttonEquipmentsTarget.classList.add("d-none")
+      this.buttonPhotosTarget.classList.remove("d-none")
+      this.overflowTarget.classList.add("overflow-hidden")
+    })
   }
 
   toStepName(){
     if (this.checkPhotosTarget.files.length >= 5){
-      this.stepPhotosTarget.classList.add("d-none")
-      this.stepNameTarget.classList.remove("d-none")
-      this.buttonPhotosTarget.classList.add("d-none")
-      this.buttonNameTarget.classList.remove("d-none")
+      this.stepPhotosTarget.classList.remove("fade-in")
+      this.stepPhotosTarget.classList.add("fade-out")
+      sleep(1000).then(() => {
+        this.progressBarTwoTarget.style.width = "60%"
+        this.stepPhotosTarget.classList.add("d-none")
+        this.stepNameTarget.classList.remove("d-none")
+        this.buttonPhotosTarget.classList.add("d-none")
+        this.buttonNameTarget.classList.remove("d-none")
+      })
     }
   }
 
   toStepDescription() {
-    console.log("hello")
-    if (this.checkNameTarget.value) {
-      console.log("if")
-      this.stepNameTarget.classList.add("d-none")
-      this.stepDescriptionTarget.classList.remove("d-none")
-      this.buttonNameTarget.classList.add("d-none")
-      this.buttonDescriptionTarget.classList.remove("d-none")
+    if (this.checkNameTarget.value.length >= 5) {
+      this.stepNameTarget.classList.remove("fade-in")
+      this.stepNameTarget.classList.add("fade-out")
+      sleep(1000).then(() => {
+        this.progressBarTwoTarget.style.width = "80%"
+        this.stepNameTarget.classList.add("d-none")
+        this.stepDescriptionTarget.classList.remove("d-none")
+        this.buttonNameTarget.classList.add("d-none")
+        this.buttonDescriptionTarget.classList.remove("d-none")
+      })
+    }
+  }
+
+  toStepThree(){
+    if (this.checkDescriptionTarget.value.length >= 60) {
+      this.stepDescriptionTarget.classList.remove("fade-in")
+      this.stepDescriptionTarget.classList.add("fade-out")
+      sleep(1000).then(() => {
+        this.progressBarTwoTarget.style.width = "100%"
+        this.stepDescriptionTarget.classList.add("d-none")
+        this.stepThreeTarget.classList.remove("d-none")
+        this.buttonDescriptionTarget.classList.add("d-none")
+        this.buttonThreeTarget.classList.remove("d-none")
+      })
     }
   }
 
   toStepPrice() {
-    if (this.checkDescriptionTarget.value) {
-      this.stepDescriptionTarget.classList.add("d-none")
+    this.stepThreeTarget.classList.remove("fade-in")
+    this.stepThreeTarget.classList.add("fade-out")
+    sleep(1000).then(() => {
+      this.progressBarThreeTarget.style.width = "50%"
+      this.stepThreeTarget.classList.add("d-none")
       this.stepPriceTarget.classList.remove("d-none")
-      this.buttonDescriptionTarget.classList.add("d-none")
+      this.buttonThreeTarget.classList.add("d-none")
       this.buttonPriceTarget.classList.remove("d-none")
-    }
+    })
   }
 
   toStepFinish() {
     if (this.checkPriceTarget.value >= 20) {
-      console.log("hey inside if")
-      this.stepPriceTarget.classList.add("d-none")
-      this.stepFinishTarget.classList.remove("d-none")
-      this.buttonPriceTarget.classList.add("d-none")
+      this.priceTarget.value = this.checkPriceTarget.value
+      this.stepPriceTarget.classList.remove("fade-in")
+      this.stepPriceTarget.classList.add("fade-out")
+      sleep(1000).then(() => {
+        this.progressBarThreeTarget.style.width = "100%"
+        this.stepPriceTarget.classList.add("d-none")
+        this.stepFinishTarget.classList.remove("d-none")
+        this.buttonPriceTarget.classList.add("d-none")
+      })
     }
   }
 
@@ -271,6 +257,5 @@ export default class extends Controller {
     this.checkBedroomTarget.value = bedroom
     console.log(this.checkBedroomTarget.value)
   }
-
 
 }
