@@ -319,7 +319,7 @@
       </div>
     -->
 
-      <div class="row align-items-center justify-content-between" data-cottagecheck-target="stepOne" style="height: 86vh">
+      <div class="row align-items-center justify-content-between fade-in" data-cottagecheck-target="stepOne" style="height: 86vh">
         <div class="col-6">
           <p class="fw-medium fs-5">Étape 1</p>
           <h1 style="font-size: 56px">Parlez-nous de <br> votre logement</h1>
@@ -328,11 +328,11 @@
           </p>
         </div>
         <div class="col-6">
-          <%= cl_video_tag "hphlwlgswei3zdxejmid", alt: "text", height: 500 %>
+          <%= cl_image_tag "r46wnrrutkikeejzj7sd", height: 300 %>
         </div>
       </div>
 
-      <div class="row mt-5 justify-content-center d-none" data-cottagecheck-target="stepAddress" style="height: 86vh">
+      <div class="row mt-5 justify-content-center d-none fade-in" data-cottagecheck-target="stepAddress" style="height: 86vh">
         <div class="col-6">
           <h1 class="fs-1">Où est situé votre logement ?</h1>
           <p class="fs-5">Votre adresse est uniquement communiquée aux voyageurs une fois leur réservation effectuée.</p>
@@ -529,11 +529,12 @@
           </div>
         </div>
       </div>
-      <div class="row mt-5 justify-content-center d-none" data-cottagecheck-target="stepFinish" style="height: 86vh">
+      <div class="row mt-5 justify-content-center d-none fade-out" data-cottagecheck-target="stepFinish" style="height: 86vh">
         <div class="col-6 text-center">
           <h1 class="fs-1">Félicitation !</h1>
           <p class="fs-5">Vous pouvez désormais mettre votre chalêt sur le marché de CottageView</p>
-          <%= f.button :submit, "Créer", class: "btn bg-warning text-white rounded-4 w-100"  %>
+          <%= cl_image_tag "xhcyqnouax6tog2jlard", height: 300 %>
+          <%= f.button :submit, "Mettre en ligne", class: "mt-5 btn bg-warning text-white rounded-4 w-100"  %>
       <% end %>
         </div>
       </div>

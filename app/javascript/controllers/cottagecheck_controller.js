@@ -6,6 +6,10 @@ let bathroom = 0
 let bed = 0
 let bedroom = 0
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 export default class extends Controller {
   static targets = [
     "stepOne",
@@ -138,18 +142,26 @@ export default class extends Controller {
   }
 
   toStepAddress() {
+    this.stepOneTarget.classList.remove("fade-in")
+    this.stepOneTarget.classList.add("fade-out")
+    sleep(1000).then(() => {
       this.stepOneTarget.classList.add("d-none")
       this.stepAddressTarget.classList.remove("d-none")
       this.buttonOneTarget.classList.add("d-none")
       this.buttonAddressTarget.classList.remove("d-none")
+    })
   }
 
   toStepRooms(){
     if(this.checkAddressTarget.value) {
-      this.stepAddressTarget.classList.add("d-none")
-      this.stepRoomsTarget.classList.remove("d-none")
-      this.buttonAddressTarget.classList.add("d-none")
-      this.buttonRoomsTarget.classList.remove("d-none")
+      this.stepAddressTarget.classList.remove("fade-in")
+      this.stepAddressTarget.classList.remove("fade-out")
+      sleep(1000).then(() => {
+        this.stepAddressTarget.classList.add("d-none")
+        this.stepRoomsTarget.classList.remove("d-none")
+        this.buttonAddressTarget.classList.add("d-none")
+        this.buttonRoomsTarget.classList.remove("d-none")
+      })
     }
   }
 
