@@ -16,3 +16,18 @@
   0% { opacity: 1; }
   100% { opacity: 0; }
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.hover-count:hover{
+  border-color: black !important;
+  color: black !important;
+}
+
+.hover-count:hover i{
+  color: black !important;
+}
