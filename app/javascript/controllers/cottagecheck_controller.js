@@ -24,6 +24,7 @@ export default class extends Controller {
     "buttonAddress",
 
     "checkOccupancy",
+    "occupancyBorderUp",
     "checkBathroom",
     "checkBed",
     "checkBedroom",
@@ -191,6 +192,16 @@ export default class extends Controller {
     })
   }
 
+  priceBackspace(){
+    if (this.checkPriceTarget.value.length === 1) {
+      if (event.keyCode === 8) {
+        event.preventDefault()
+      }
+    } else if (this.checkPriceTarget.value.length === 0) {
+      this.checkPriceTarget.value = "€"
+    }
+  }
+
   toStepFinish() {
     if (this.checkPriceTarget.value >= 20) {
       this.priceTarget.value = this.checkPriceTarget.value
@@ -207,9 +218,17 @@ export default class extends Controller {
 
   
   upOccupancy(){
-    occupancy++
-    this.occupancyCounterTarget.innerText = occupancy
-    this.checkOccupancyTarget.value = occupancy
+    if (this.checkOccupancyTarget.value === "10") {
+      this.occupancyBorderUpTarget.classList.remove("border-secondary")
+      this.occupancyBorderUpTarget.classList.remove("hover-count")
+      this.occupancyBorderUpTarget.style.cursor = "not-allowed"
+    } else {
+      this.occupancyBorderUpTarget.classList.add("hover-count")
+      this.occupancyBorderUpTarget.style.cursor = "pointer"
+      occupancy++
+      this.occupancyCounterTarget.innerText = occupancy
+      this.checkOccupancyTarget.value = occupancy
+    }
     console.log(this.checkOccupancyTarget.value)
   }
   downOccupancy(){
@@ -236,26 +255,22 @@ export default class extends Controller {
     bed++
     this.bedCounterTarget.innerText = bed
     this.checkBedTarget.value = bed
-    console.log(this.checkBedTarget.value)
   }
   downBed(){
     bed--
     this.bedCounterTarget.innerText = bed
     this.checkBedTarget.value = bed
-    console.log(this.checkBedTarget.value)
   }
 
   upBedroom(){
     bedroom++
     this.bedroomCounterTarget.innerText = bedroom
     this.checkBedroomTarget.value = bedroom
-    console.log(this.checkBedroomTarget.value)
   }
   downBedroom(){
     bedroom--
     this.bedroomCounterTarget.innerText = bedroom
     this.checkBedroomTarget.value = bedroom
-    console.log(this.checkBedroomTarget.value)
   }
 
 }

@@ -46,12 +46,12 @@
                 input_html: { autocomplete: "Total occupancy", class: "invalid d-none", "data-cottagecheck-target": "checkOccupancy" }
               %>
               <div class="number d-flex justify-content-between align-items-center" style="width: 100px; margin-bottom: 1rem">
-                <div class="border rounded-circle position-relative cursor" style="width: 35px; height: 35px" data-action="click->cottagecheck#downOccupancy">
-                  <p class="text-center mb-0 position-absolute top-50 start-50 translate-middle user-select-none">-</p>
+                <div class="border rounded-circle border-secondary position-relative hover-count" style="width: 35px; height: 35px; cursor: pointer" data-action="click->cottagecheck#downOccupancy" >
+                  <i class="fa-solid text-secondary fa-minus text-center mb-0 position-absolute top-50 start-50 translate-middle user-select-none"></i>
                 </div>
                 <p class="mb-0 user-select-none" data-cottagecheck-target="occupancyCounter">0</p>
-                <div class="border rounded-circle position-relative cursor" style="width: 35px; height: 35px" data-action="click->cottagecheck#upOccupancy">
-                  <p class="text-center mb-0 position-absolute top-50 start-50 translate-middle user-select-none">+</p>
+                <div class="border rounded-circle border-secondary position-relative hover-count" style="width: 35px; height: 35px; cursor: pointer" data-action="click->cottagecheck#upOccupancy" data-cottagecheck-target="occupancyBorderUp">
+                  <i class="fa-solid text-secondary fa-plus text-center mb-0 position-absolute top-50 start-50 translate-middle user-select-none"></i>
                 </div>
               </div>
             </div>
@@ -67,11 +67,11 @@
                 input_html: { autocomplete: "Total bathroom", class: "invalid d-none", "data-cottagecheck-target": "checkBathroom" }
               %>
               <div class="number d-flex justify-content-between align-items-center" style="width: 100px; margin-bottom: 1rem">
-                <div class="border rounded-circle position-relative cursor" style="width: 35px; height: 35px" data-action="click->cottagecheck#downBathroom">
+                <div class="border rounded-circle border-secondary position-relative cursor" style="width: 35px; height: 35px" data-action="click->cottagecheck#downBathroom">
                   <p class="text-center mb-0 position-absolute top-50 start-50 translate-middle user-select-none">-</p>
                 </div>
                 <p class="mb-0 user-select-none" data-cottagecheck-target="bathroomCounter">0</p>
-                <div class="border rounded-circle position-relative cursor" style="width: 35px; height: 35px" data-action="click->cottagecheck#upBathroom">
+                <div class="border rounded-circle border-secondary position-relative cursor" style="width: 35px; height: 35px" data-action="click->cottagecheck#upBathroom">
                   <p class="text-center mb-0 position-absolute top-50 start-50 translate-middle user-select-none">+</p>
                 </div>
               </div>
@@ -87,11 +87,11 @@
                 input_html: { autocomplete: "Total bed", class: "invalid d-none", "data-cottagecheck-target": "checkBed" }
               %>
               <div class="number d-flex justify-content-between align-items-center" style="width: 100px; margin-bottom: 1rem">
-                <div class="border rounded-circle position-relative cursor" style="width: 35px; height: 35px" data-action="click->cottagecheck#downBed">
+                <div class="border rounded-circle border-secondary position-relative cursor" style="width: 35px; height: 35px" data-action="click->cottagecheck#downBed">
                   <p class="text-center mb-0 position-absolute top-50 start-50 translate-middle user-select-none">-</p>
                 </div>
                 <p class="mb-0 user-select-none" data-cottagecheck-target="bedCounter">0</p>
-                <div class="border rounded-circle position-relative cursor" style="width: 35px; height: 35px" data-action="click->cottagecheck#upBed">
+                <div class="border rounded-circle border-secondary position-relative cursor" style="width: 35px; height: 35px" data-action="click->cottagecheck#upBed">
                   <p class="text-center mb-0 position-absolute top-50 start-50 translate-middle user-select-none">+</p>
                 </div>
               </div>
@@ -107,11 +107,11 @@
                 input_html: { autocomplete: "Total bedroom", class: "invalid d-none", "data-cottagecheck-target": "checkBedroom" }
               %>
               <div class="number d-flex justify-content-between align-items-center" style="width: 100px; margin-bottom: 1rem">
-                <div class="border rounded-circle position-relative cursor" style="width: 35px; height: 35px" data-action="click->cottagecheck#downBedroom">
+                <div class="border rounded-circle border-secondary position-relative cursor" style="width: 35px; height: 35px" data-action="click->cottagecheck#downBedroom" data-cottagecheck-target="">
                   <p class="text-center mb-0 position-absolute top-50 start-50 translate-middle user-select-none">-</p>
                 </div>
                 <p class="mb-0 user-select-none" data-cottagecheck-target="bedroomCounter">0</p>
-                <div class="border rounded-circle position-relative cursor" style="width: 35px; height: 35px" data-action="click->cottagecheck#upBedroom">
+                <div class="border rounded-circle border-secondary position-relative cursor" style="width: 35px; height: 35px" data-action="click->cottagecheck#upBedroom">
                   <p class="text-center mb-0 position-absolute top-50 start-50 translate-middle user-select-none">+</p>
                 </div>
               </div>
@@ -235,7 +235,7 @@
               label: false,
               input_html: { class: "form-control rounded d-none", "data-cottagecheck-target": "price" }
             %>
-            <input min="20" max="1000" value="50" type="number" data-cottagecheck-target="checkPrice" data-action="input->cottagecheck#priceWithPrefix" class="form-control border-0 shadow-none fw-semibold text-center" style="font-size: 7rem" />
+            <input min="20" max="1000" value="€50" type="text" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" data-cottagecheck-target="checkPrice" data-action="keydown->cottagecheck#priceBackspace" class="form-control border-0 shadow-none fw-semibold text-center user-select-none" style="font-size: 7rem" />
           </div>
         </div>
       </div>
