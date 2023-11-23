@@ -18,15 +18,18 @@
         <div class="col-6">
           <h1 class="fs-1">Où est situé votre logement ?</h1>
           <p class="fs-5">Votre adresse est uniquement communiquée aux voyageurs une fois leur réservation effectuée.</p>
-            <div class="form was-validated" >
+            <div class="form was-validated" data-controller="address-autocomplete" data-address-autocomplete-api-key-value= "<%= ENV["MAPBOX_API_KEY"] %>">
               <%= f.input :address,
                 required: true,
                 autofocus: true, 
                 label: false,
                 placeholder: "Saisissez votre addresse",
-                input_html: { autocomplete: "Address", class: "invalid rounded-4", "data-cottagecheck-target": "checkAddress" }
+                input_html: { autocomplete: "Address", class: "invalid rounded-4 d-none", "data-cottagecheck-target": "checkAddress", "data-address-autocomplete-target": "address"}
               %>
+              <div style="width: 100%; height: 400px;" data-address-autocomplete-target ="map">
               </div>
+              <button type="button" class="btn bg-black text-white rounded-4 w-100" data-action="click->address-autocomplete#showMap">Test</button>
+            </div>
         </div>
       </div>
 
