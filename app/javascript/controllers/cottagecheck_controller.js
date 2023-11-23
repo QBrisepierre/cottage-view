@@ -1,10 +1,10 @@
 import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="cottagenew"
-let occupancy = 0
-let bathroom = 0
-let bed = 0
-let bedroom = 0
+let occupancy = 1
+let bathroom = 1
+let bed = 1
+let bedroom = 1
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -25,9 +25,16 @@ export default class extends Controller {
 
     "checkOccupancy",
     "occupancyBorderUp",
+    "occupancyBorderDown",
     "checkBathroom",
+    "bathroomBorderUp",
+    "bathroomBorderDown",
     "checkBed",
+    "bedBorderUp",
+    "bedBorderDown",
     "checkBedroom",
+    "bedroomBorderDown",
+    "bedroomBorderUp",
     "stepRooms",
     "buttonRooms",
 
@@ -218,59 +225,185 @@ export default class extends Controller {
 
   
   upOccupancy(){
-    if (this.checkOccupancyTarget.value === "10") {
-      this.occupancyBorderUpTarget.classList.remove("border-secondary")
-      this.occupancyBorderUpTarget.classList.remove("hover-count")
+    if (this.checkOccupancyTarget.value === "9") {
+      occupancy++
+      this.occupancyCounterTarget.innerText = occupancy
+      this.checkOccupancyTarget.value = occupancy
+      this.occupancyBorderUpTarget.classList.remove("border-secondary", "hover-count")
       this.occupancyBorderUpTarget.style.cursor = "not-allowed"
+    } else if (this.checkOccupancyTarget.value === "10") {
+      console.log("Stop")
     } else {
-      this.occupancyBorderUpTarget.classList.add("hover-count")
+      this.occupancyBorderUpTarget.classList.add("border-secondary", "hover-count")
       this.occupancyBorderUpTarget.style.cursor = "pointer"
+
+      this.occupancyBorderDownTarget.classList.add("border-secondary", "hover-count")
+      this.occupancyBorderDownTarget.style.cursor = "pointer"
       occupancy++
       this.occupancyCounterTarget.innerText = occupancy
       this.checkOccupancyTarget.value = occupancy
     }
     console.log(this.checkOccupancyTarget.value)
   }
+
   downOccupancy(){
-    occupancy--
-    this.occupancyCounterTarget.innerText = occupancy
-    this.checkOccupancyTarget.value = occupancy
-    console.log(this.checkOccupancyTarget.value)
+    if (this.checkOccupancyTarget.value === "10") {
+      occupancy--
+      this.occupancyCounterTarget.innerText = occupancy
+      this.checkOccupancyTarget.value = occupancy
+      this.occupancyBorderUpTarget.classList.add("border-secondary", "hover-count")
+      this.occupancyBorderUpTarget.style.cursor = "pointer"
+    } else if (this.checkOccupancyTarget.value === "1") {
+      occupancy--
+      this.occupancyCounterTarget.innerText = occupancy
+      this.checkOccupancyTarget.value = occupancy
+      this.occupancyBorderDownTarget.classList.remove("border-secondary", "hover-count")
+      this.occupancyBorderDownTarget.style.cursor = "not-allowed"
+    } else if (this.checkOccupancyTarget.value === "") {
+      console.log("Stop 0")
+    } else {
+      occupancy--
+      this.occupancyCounterTarget.innerText = occupancy
+      this.checkOccupancyTarget.value = occupancy
+      console.log(this.checkOccupancyTarget.value)
+    }
   }
 
   upBathroom(){
-    bathroom++
-    this.bathroomCounterTarget.innerText = bathroom
-    this.checkBathroomTarget.value = bathroom
+    if (this.checkBathroomTarget.value === "9") {
+      bathroom++
+      this.bathroomCounterTarget.innerText = bathroom
+      this.checkBathroomTarget.value = bathroom
+      this.bathroomBorderUpTarget.classList.remove("border-secondary", "hover-count")
+      this.bathroomBorderUpTarget.style.cursor = "not-allowed"
+    } else if (this.checkBathroomTarget.value === "10") {
+      console.log("Stop")
+    } else {
+      this.bathroomBorderUpTarget.classList.add("border-secondary", "hover-count")
+      this.bathroomBorderUpTarget.style.cursor = "pointer"
+
+      this.bathroomBorderDownTarget.classList.add("border-secondary", "hover-count")
+      this.bathroomBorderDownTarget.style.cursor = "pointer"
+      bathroom++
+      this.bathroomCounterTarget.innerText = bathroom
+      this.checkBathroomTarget.value = bathroom
+    }
     console.log(this.checkBathroomTarget.value)
   }
+
   downBathroom(){
-    bathroom--
-    this.bathroomCounterTarget.innerText = bathroom
-    this.checkBathroomTarget.value = bathroom
+    if (this.checkBathroomTarget.value === "10") {
+      bathroom--
+      this.bathroomCounterTarget.innerText = bathroom
+      this.checkBathroomTarget.value = bathroom
+      this.bathroomBorderUpTarget.classList.add("border-secondary", "hover-count")
+      this.bathroomBorderUpTarget.style.cursor = "pointer"
+    } else if (this.checkBathroomTarget.value == "1") {
+      bathroom--
+      this.bathroomCounterTarget.innerText = bathroom
+      this.checkBathroomTarget.value = bathroom
+      this.bathroomBorderDownTarget.classList.remove("border-secondary", "hover-count")
+      this.bathroomBorderDownTarget.style.cursor = "not-allowed"
+    } else if (this.checkBathroomTarget.value === "") {
+      console.log("Stop 0")
+    } else {
+      bathroom--
+      this.bathroomCounterTarget.innerText = bathroom
+      this.checkBathroomTarget.value = bathroom
+    }
     console.log(this.checkBathroomTarget.value)
   }
 
   upBed(){
-    bed++
-    this.bedCounterTarget.innerText = bed
-    this.checkBedTarget.value = bed
+    if (this.checkBedTarget.value === "9"){
+      bed++
+      this.bedCounterTarget.innerText = bed
+      this.checkBedTarget.value = bed
+
+      this.bedBorderUpTarget.classList.remove("border-secondary", "hover-count")
+      this.bedBorderUpTarget.style.cursor = "not-allowed"
+    } else if (this.checkBedTarget.value === "10") {
+      console.log("Stop")
+    } else {
+      this.bedBorderUpTarget.classList.add("border-secondary", "hover-count")
+      this.bedBorderUpTarget.style.cursor = "pointer"
+
+      this.bedBorderDownTarget.classList.add("border-secondary", "hover-count")
+      this.bedBorderDownTarget.style.cursor = "pointer"
+      bed++
+      this.bedCounterTarget.innerText = bed
+      this.checkBedTarget.value = bed
+    }
   }
   downBed(){
-    bed--
-    this.bedCounterTarget.innerText = bed
-    this.checkBedTarget.value = bed
+    if (this.checkBedTarget.value === "10") {
+      bed--
+      this.bedCounterTarget.innerText = bed
+      this.checkBedTarget.value = bed
+
+      this.bedBorderUpTarget.classList.add("border-secondary", "hover-count")
+      this.bedBorderUpTarget.style.cursor = "pointer"
+    } else if (this.checkBedTarget.value === "1") {
+      bed--
+      this.bedCounterTarget.innerText = bed
+      this.checkBedTarget.value = bed
+
+      this.bedBorderDownTarget.classList.remove("border-secondary", "hover-count")
+      this.bedBorderDownTarget.style.cursor = "not-allowed"
+    } else if (this.checkBedTarget.value === "") {
+      console.log("Stop 0")
+    } else {
+      bed--
+      this.bedCounterTarget.innerText = bed
+      this.checkBedTarget.value = bed
+    }
   }
 
   upBedroom(){
-    bedroom++
-    this.bedroomCounterTarget.innerText = bedroom
-    this.checkBedroomTarget.value = bedroom
+    if (this.checkBedroomTarget.value === "9"){
+      bedroom++
+      this.bedroomCounterTarget.innerText = bedroom
+      this.checkBedroomTarget.value = bedroom
+
+      this.bedroomBorderUpTarget.classList.remove("border-secondary", "hover-count")
+      this.bedroomBorderUpTarget.style.cursor = "not-allowed"
+    } else if (this.checkBedroomTarget.value === "10") {
+      console.log("Stop")
+    } else {
+      this.bedroomBorderUpTarget.classList.add("border-secondary", "hover-count")
+      this.bedroomBorderUpTarget.style.cursor = "pointer"
+
+      this.bedroomBorderDownTarget.classList.add("border-secondary", "hover-count")
+      this.bedroomBorderDownTarget.style.cursor = "pointer"
+
+      bedroom++
+      this.bedroomCounterTarget.innerText = bedroom
+      this.checkBedroomTarget.value = bedroom
+    }
   }
+
   downBedroom(){
-    bedroom--
-    this.bedroomCounterTarget.innerText = bedroom
-    this.checkBedroomTarget.value = bedroom
+    if (this.checkBedroomTarget.value === "10") {
+      bedroom--
+      this.bedroomCounterTarget.innerText = bedroom
+      this.checkBedroomTarget.value = bedroom
+
+      this.bedroomBorderUpTarget.classList.add("border-secondary", "hover-count")
+      this.bedroomBorderUpTarget.style.cursor = "pointer"
+    } else if (this.checkBedroomTarget.value === "1") {
+      bedroom--
+      this.bedroomCounterTarget.innerText = bedroom
+      this.checkBedroomTarget.value = bedroom
+
+      this.bedroomBorderDownTarget.classList.remove("border-secondary", "hover-count")
+      this.bedroomBorderDownTarget.style.cursor = "not-allowed"
+    } else if (this.checkBedroomTarget.value === "") {
+      console.log("Stop 0")
+    } else {
+      bedroom--
+      this.bedroomCounterTarget.innerText = bedroom
+      this.checkBedroomTarget.value = bedroom
+    }
   }
 
 }
