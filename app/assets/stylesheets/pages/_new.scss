@@ -2,6 +2,10 @@
   animation: fadeIn 1s
 }
 
+.fade-in-static {
+  animation: fadeInStatic 1s
+}
+
 .fade-out {
   animation: fadeOut 1s
 }
@@ -15,6 +19,11 @@
 @keyframes fadeOut {
   0% { opacity: 1; }
   100% { opacity: 0; }
+}
+
+@keyframes fadeInStatic {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 input::-webkit-outer-spin-button,
