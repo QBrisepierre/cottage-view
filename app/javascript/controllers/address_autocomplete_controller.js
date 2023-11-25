@@ -6,14 +6,13 @@ import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 export default class extends Controller {
   static values = { apiKey: String }
 
-  static targets = ["address", "map"]
+  static targets = ["address", "map", "groupe", "putAddress"]
   connect() {
-    console.log(this.mapTarget)
     this.geocoder = new MapboxGeocoder({
       accessToken: this.apiKeyValue,
       types: "country,region,place,postcode,locality,neighborhood,address"
     })
-    this.geocoder.addTo(this.element)
+    this.geocoder.addTo(this.addressTarget)
 
     this.geocoder.on("result", event => this.#setInputValue(event))
      this.geocoder.on("clear", () => this.#clearInputValue())
@@ -25,6 +24,8 @@ export default class extends Controller {
 
   #setInputValue(event) {
     this.addressTarget.value = event.result["place_name"]
+    this.putAddressTarget.value = event.result["place_name"]
+
   }
   
   #clearInputValue() {
@@ -32,13 +33,18 @@ export default class extends Controller {
   }
 
   showMap() {
+
+    const map = document.getElementById("map")
+    if (map) {
+      map.remove()
+    }
+    this.groupeTarget.insertAdjacentHTML( "beforeend", "<div id='map' style='width: 100%; height: 400px;' class='rounded-4' data-address-autocomplete-target ='map'>")
     // TODO: Construct the URL (with apiKey & userInput) and make the fetch request to the mapbox API
     const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${this.addressTarget.value}.json?access_token=${this.apiKeyValue}`;
   
     fetch(url)
       .then(response => response.json())
       .then((data) => {
-        console.log(data);
         // TODO: Insert the info into the DOM
         // - Extract the coordinates from the parsed JSON response (lang, lat)
         const longitude = data.features[0].center[0];
@@ -55,7 +61,7 @@ export default class extends Controller {
     mapboxgl.accessToken = this.apiKeyValue;
     const map = new mapboxgl.Map({
       container: this.mapTarget,
-      style: "mapbox://styles/mapbox/streets-v12",
+      style: "mapbox://styles/qbrisepierre/clen6u5ml00b301ntvq7pddp7",
       center: [lng, lat],
       zoom: 17,
     });
