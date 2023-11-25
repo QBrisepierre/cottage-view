@@ -6,7 +6,7 @@ import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 export default class extends Controller {
   static values = { apiKey: String }
 
-  static targets = ["address", "map", "groupe"]
+  static targets = ["address", "map", "groupe", "putAddress"]
   connect() {
     this.geocoder = new MapboxGeocoder({
       accessToken: this.apiKeyValue,
@@ -24,6 +24,8 @@ export default class extends Controller {
 
   #setInputValue(event) {
     this.addressTarget.value = event.result["place_name"]
+    this.putAddressTarget.value = event.result["place_name"]
+
   }
   
   #clearInputValue() {
@@ -43,7 +45,6 @@ export default class extends Controller {
     fetch(url)
       .then(response => response.json())
       .then((data) => {
-        console.log(data);
         // TODO: Insert the info into the DOM
         // - Extract the coordinates from the parsed JSON response (lang, lat)
         const longitude = data.features[0].center[0];
