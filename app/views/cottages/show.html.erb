@@ -13,19 +13,19 @@
       <%= cl_image_tag @cottage.photos[4].key, id: "border-bottom-end", class: "w-100 pt-1", quality: "100", fetch_format: "auto", crop: :fill, aspect_ratio: "1.0", gravity: "auto", height: 260 %>
     </div>
   </div>
-  <div class="row">
-    <div class="col-8">
-      <div class="info border-bottom">
+  <div class="row mb-3 justify-content-between">
+    <div class="col-7">
+      <div class="info pb-4 border-bottom">
         <p class="fs-4 mb-0">Logement entier : </p>
-        <p class="fw-light" style="font-size: 16px">
+        <p class="fw-light mb-0" style="font-size: 16px">
           <%= @cottage.total_occupancy %> <%= @cottage.total_occupancy > 1 ? "Voyageurs" : "Voyageur" %>  |
           <%= @cottage.total_bedroom %> <%= @cottage.total_bedroom > 1 ? "Chambres" : "Chambre" %> |
           <%= @cottage.total_bed %> <%= @cottage.total_bed > 1 ? "Lits" : "Lit" %> |
           <%= @cottage.total_bathroom %> <%= @cottage.total_bathroom > 1 ? "salles de bain" : "salle de bain" %> 
         </p>
       </div>
-      <div class="user border-bottom">
-        <div class="d-flex my-3 align-items-center">
+      <div class="user py-4 border-bottom">
+        <div class="d-flex align-items-center">
           <% if current_user.profile_photo.attached? %>
               <%= cl_image_tag current_user.profile_photo.key, class: "avatar mbe-3", style: "height: 40px" %>
             <% else %>
@@ -37,7 +37,7 @@
           </div>
         </div>
       </div>
-      <div class="second py-3 border-bottom">
+      <div class="second py-4 border-bottom">
         <div class="description">
           <p class="mb-0 fs-6 fw-light truncate"><%= @cottage.description %></p>
         </div>
@@ -175,7 +175,7 @@
       </div>
     </div>
     <div class="col-4">
-      <div class="card-booking bg-white border border-dark-subtle rounded-4 shadow-sm p-3">
+      <div class="card-booking bg-white border border-dark-subtle rounded-4 shadow-sm p-3 position-sticky sticky-top top-2">
         <p class="fw-light" style="font-size: 18px"><strong class="fw-medium" style="font-size: 25px"><%= @cottage.price %> €</strong> par nuit</p>
 
         <div class="booking-date">
@@ -189,13 +189,13 @@
               <p class="fw-light" style="font-size: 16px">15/12/2023</p>
             </div>
           </div>
-          <div class="dropdown occupancy border border-top-0 border-dark-subtle w-100 pt-2" id="book-radius-occupancy">
+          <div class="dropdown occupancy border border-top-0 border-dark-subtle w-100 pt-2 book-radius-occupancy">
               <p class="fw-light mb-0 fw-medium ps-2" style="font-size: 14px">Voyageur</p>
               <a class="btn btn-link text-black text-decoration-none dropdown-toggle w-100 text-start pt-0 pb-2" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="false">
                 1 Voyageur
               </a>
 
-              <ul class="dropdown-menu w-100 bg-white">
+              <ul class="dropdown-menu w-100 bg-white book-radius-occupancy">
                 <li>
                   <div class="d-flex justify-content-between">
                     <div class="adult ps-3 mt-3">
@@ -270,9 +270,13 @@
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-6">
-      
+  <div class="row mb-3">
+    <div class="col-12">
+      <div style="width: 100%; height: 400px;" class="rounded-4"
+        data-controller="mapshow"
+        data-mapshow-marker-value="<%= @marker.to_json %>"
+        data-mapshow-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
     </div>
   </div>
 </div>

@@ -19,6 +19,12 @@ class CottagesController < ApplicationController
     @dont_equipments = Equipment.all.select do |equipment|
       !@cottage.equipments.exists?(equipment.id)
     end
+
+    @marker = {
+      lat: @cottage.latitude,
+      lng: @cottage.longitude,
+      marker_html: render_to_string(partial: "marker")
+    }
   end
 
   def new
