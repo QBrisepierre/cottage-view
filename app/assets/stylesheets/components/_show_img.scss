@@ -28,13 +28,13 @@
 }
 
 #book-radius-first {
-  border-radius: 5% 0 0 0;
+  border-radius: 10px 0 0 0;
 }
 
 #book-radius-second {
-  border-radius: 0 5% 0 0;
+  border-radius: 0 10px 0 0;
 }
 
-#book-radius-occupancy {
-  border-radius: 0 0 5% 5%;
+.book-radius-occupancy {
+  border-radius: 0 0 10px 10px;
 }
