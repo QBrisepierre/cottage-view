@@ -3,7 +3,7 @@ import flatpickr from "flatpickr";
 
   const start_date = Date.now()
   const end_date = new Date()
-  end_date.setDate(end_date.getDate() + 5);
+  end_date.setDate(end_date.getDate() + 1);
 // Connects to data-controller="datepickr"
 export default class extends Controller {
 
@@ -11,10 +11,12 @@ export default class extends Controller {
 
   connect() {
     this.startDateTarget.flatpickr({
-      defaultDate: new Date(start_date)
+      defaultDate: new Date(start_date),
+      minDate: "today"
       })
     this.endDateTarget.flatpickr({
-      defaultDate: new Date(end_date)
+      defaultDate: new Date(end_date),
+      minDate: "today"
       })
   }
 }
