@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :cottages
+  has_many :bookings
   has_one_attached :profile_photo
   validates :first_name, :last_name, :birthday_date, presence: true
 end

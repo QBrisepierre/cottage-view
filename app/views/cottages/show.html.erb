@@ -279,4 +279,44 @@
       </div>
     </div>
   </div>
+
+  <div class="row mb-5 mt-5">
+    <h1>Create Booking</h1>
+    <div class="col-12" style="height: 500px" data-controller="booking">
+      <%= simple_form_for [@cottage, @booking] do |f| %>
+      <div data-controller="datepickr">
+        <%= f.input :start_date,
+          required: true,
+          autofocus: true, 
+          label: 'Start_date',
+          as: :string,
+          input_html: { "data-datepickr-target": "startDate", "data-booking-target": "startDate", "data-action": "click->booking#updatePrice" }
+         %>
+
+         <%= f.input :end_date,
+          required: true,
+          autofocus: true, 
+          label: 'End_date',
+          as: :string,
+          input_html: { "data-datepickr-target": "endDate", "data-booking-target": "endDate" }
+         %>
+      </div>
+
+         <%= f.input :travellers,
+          required: true,
+          autofocus: true, 
+          label: 'Travellers',
+          as: :select,
+          collection: 1..@cottage.total_occupancy
+         %>
+
+         <%= f.input :price,
+          required: true,
+          autofocus: true, 
+          label: 'price',
+          input_html: { "data-booking-target": "price"}
+         %>
+      <% end %>
+    </div>
+  </div>
 </div>
