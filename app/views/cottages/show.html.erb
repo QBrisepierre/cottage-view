@@ -174,100 +174,140 @@
         </div>
       </div>
     </div>
+
     <div class="col-4">
-      <div class="card-booking bg-white border border-dark-subtle rounded-4 shadow-sm p-3 position-sticky sticky-top top-2">
-        <p class="fw-light" style="font-size: 18px"><strong class="fw-medium" style="font-size: 25px"><%= @cottage.price %> €</strong> par nuit</p>
+      <%= simple_form_for [@cottage, @booking] do |f| %>
+        <div class="card-booking bg-white border border-dark-subtle rounded-4 shadow-sm p-3 position-sticky sticky-top top-2">
+          <div class="book hello la vie" data-controller="booking" data-booking-price-value = <%= @cottage.price%> >
+            <p class="fw-light" style="font-size: 18px"><strong class="fw-medium" style="font-size: 25px"><%= @cottage.price %> €</strong> par nuit</p>
+            <div class="booking-date">
+              <div class="1" data-controller="datepickr">
+                <div class="d-flex">
+                  <div class="start-day-info border border-dark-subtle w-50 ps-2 pt-2" id="book-radius-first">
+                    <p class="mb-0 fw-medium" style="font-size: 14px">Arrivée</p>
+                    <%= f.input :start_date,
+                      required: true,
+                      autofocus: true,
+                      label: false,
+                      as: :string,
+                      input_html: { class: "date-design fw-light", "data-datepickr-target": "startDate", "data-booking-target": "startDate", "data-action": "change->booking#updatePrice" }
+                    %>
+                  </div>
+                  <div class="end-day-info border border-dark-subtle border-start-0 w-50 ps-2 pt-2" id="book-radius-second">
+                    <p class="mb-0 fw-medium" style="font-size: 14px">Départ</p>
+                    <%= f.input :end_date,
+                      required: true,
+                      autofocus: true, 
+                      label: false,
+                      as: :string,
+                      input_html: {  class: "date-design fw-light", "data-datepickr-target": "endDate", "data-booking-target": "endDate", "data-action": "change->booking#updatePrice" }
+                    %>
+                  </div>
+                </div> 
+              </div>
+              <div class="dropdown occupancy border border-top-0 border-dark-subtle w-100 pt-2 book-radius-occupancy">
+                <p class="fw-light mb-0 fw-medium ps-2" style="font-size: 14px">Voyageur</p>
+                <a class="btn btn-link text-black text-decoration-none dropdown-toggle w-100 text-start pt-0 pb-2" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="false">
+                  1 Voyageur
+                </a>
 
-        <div class="booking-date">
-          <div class="d-flex">
-            <div class="start-day-info border border-dark-subtle w-50 ps-2 pt-2" id="book-radius-first">
-              <p class="mb-0 fw-medium" style="font-size: 14px">Arrivée</p>
-              <p class="fw-light" style="font-size: 16px">10/12/2023</p>
+                <ul class="dropdown-menu w-100 bg-white book-radius-occupancy">
+                  <li>
+                    <div class="d-flex justify-content-between">
+                      <div class="adult ps-3 mt-3">
+                        <p class= "mb-0 fw-medium">Adultes</p>
+                        <p class="fw-light" style="font-size: 14px">13 ans et plus</p>
+                      </div>
+                      <div class="number d-flex justify-content-evenly pe-3 align-items-center" style="width: 140px">
+                        <div class="border rounded-circle position-relative" style="width: 35px; height: 35px">
+                          <p class="text-center mb-0 position-absolute top-50 start-50 translate-middle">-</p>
+                        </div>
+                        <p class="mb-0">1</p>
+                        <div class="border rounded-circle position-relative" style="width: 35px; height: 35px">
+                          <p class="text-center mb-0 position-absolute top-50 start-50 translate-middle">+</p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div class="d-flex justify-content-between">
+                      <div class="adult ps-3 mt-3">
+                        <p class= "mb-0 fw-medium">Enfants</p>
+                        <p class="fw-light" style="font-size: 14px">De 2 à 17 ans</p>
+                      </div>
+                      <div class="number d-flex justify-content-evenly pe-3 align-items-center" style="width: 140px">
+                        <div class="border rounded-circle position-relative" style="width: 35px; height: 35px">
+                          <p class="text-center mb-0 position-absolute top-50 start-50 translate-middle">-</p>
+                        </div>
+                        <p class="mb-0">0</p>
+                        <div class="border rounded-circle position-relative" style="width: 35px; height: 35px">
+                          <p class="text-center mb-0 position-absolute top-50 start-50 translate-middle">+</p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div class="d-flex justify-content-between">
+                      <div class="adult ps-3 mt-3">
+                        <p class= "mb-0 fw-medium">Bébés</p>
+                        <p class="fw-light" style="font-size: 14px">- de 2 ans</p>
+                      </div>
+                      <div class="number d-flex justify-content-evenly pe-3 align-items-center" style="width: 140px">
+                        <div class="border rounded-circle position-relative" style="width: 35px; height: 35px">
+                          <p class="text-center mb-0 position-absolute top-50 start-50 translate-middle">-</p>
+                        </div>
+                        <p class="mb-0">0</p>
+                        <div class="border rounded-circle position-relative" style="width: 35px; height: 35px">
+                          <p class="text-center mb-0 position-absolute top-50 start-50 translate-middle">+</p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>  
             </div>
-            <div class="end-day-info border border-dark-subtle border-start-0 w-50 ps-2 pt-2" id="book-radius-second">
-              <p class="mb-0 fw-medium" style="font-size: 14px">Départ</p>
-              <p class="fw-light" style="font-size: 16px">15/12/2023</p>
+            <button class="btn btn-primary w-100 mt-3 rounded-4 py-2">Réserver</button>
+            <p class="pt-2 text-center">Aucun montant ne vous sera débité pour le moment</p>
+              <%= f.input :price,
+                required: true,
+                autofocus: true, 
+                label: false,
+                input_html: { class: "d-none", "data-booking-target": "priceValue", value: @cottage.price}
+              %>
+            <div class="pricing d-flex justify-content-between">
+              <p class="text-decoration-underline" data-booking-target= "night"></p>
+              <div class="d-flex">
+                <p data-booking-target= "price"><%= @cottage.price %></p>
+                <p>€</p>
+              </div>
             </div>
-          </div>
-          <div class="dropdown occupancy border border-top-0 border-dark-subtle w-100 pt-2 book-radius-occupancy">
-              <p class="fw-light mb-0 fw-medium ps-2" style="font-size: 14px">Voyageur</p>
-              <a class="btn btn-link text-black text-decoration-none dropdown-toggle w-100 text-start pt-0 pb-2" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="false">
-                1 Voyageur
-              </a>
-
-              <ul class="dropdown-menu w-100 bg-white book-radius-occupancy">
-                <li>
-                  <div class="d-flex justify-content-between">
-                    <div class="adult ps-3 mt-3">
-                      <p class= "mb-0 fw-medium">Adultes</p>
-                      <p class="fw-light" style="font-size: 14px">13 ans et plus</p>
-                    </div>
-                    <div class="number d-flex justify-content-evenly pe-3 align-items-center" style="width: 140px">
-                      <div class="border rounded-circle position-relative" style="width: 35px; height: 35px">
-                        <p class="text-center mb-0 position-absolute top-50 start-50 translate-middle">-</p>
-                      </div>
-                      <p class="mb-0">1</p>
-                      <div class="border rounded-circle position-relative" style="width: 35px; height: 35px">
-                        <p class="text-center mb-0 position-absolute top-50 start-50 translate-middle">+</p>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-
-                <li>
-                  <div class="d-flex justify-content-between">
-                    <div class="adult ps-3 mt-3">
-                      <p class= "mb-0 fw-medium">Enfants</p>
-                      <p class="fw-light" style="font-size: 14px">De 2 à 17 ans</p>
-                    </div>
-                    <div class="number d-flex justify-content-evenly pe-3 align-items-center" style="width: 140px">
-                      <div class="border rounded-circle position-relative" style="width: 35px; height: 35px">
-                        <p class="text-center mb-0 position-absolute top-50 start-50 translate-middle">-</p>
-                      </div>
-                      <p class="mb-0">0</p>
-                      <div class="border rounded-circle position-relative" style="width: 35px; height: 35px">
-                        <p class="text-center mb-0 position-absolute top-50 start-50 translate-middle">+</p>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-
-                <li>
-                  <div class="d-flex justify-content-between">
-                    <div class="adult ps-3 mt-3">
-                      <p class= "mb-0 fw-medium">Bébés</p>
-                      <p class="fw-light" style="font-size: 14px">- de 2 ans</p>
-                    </div>
-                    <div class="number d-flex justify-content-evenly pe-3 align-items-center" style="width: 140px">
-                      <div class="border rounded-circle position-relative" style="width: 35px; height: 35px">
-                        <p class="text-center mb-0 position-absolute top-50 start-50 translate-middle">-</p>
-                      </div>
-                      <p class="mb-0">0</p>
-                      <div class="border rounded-circle position-relative" style="width: 35px; height: 35px">
-                        <p class="text-center mb-0 position-absolute top-50 start-50 translate-middle">+</p>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-          </div>
+            <div class="cleaning d-flex justify-content-between">
+              <p class="text-decoration-underline">Frais de ménage</p>
+              <div class="d-flex">
+                <p>10</p>
+                <p>€</p>
+              </div>
+            </div>
+            <div class="taxes d-flex justify-content-between">
+              <p class="text-decoration-underline">Frais de service CottageView</p>
+              <div class="d-flex">
+                <p data-booking-target= "taxe"></p>
+                <p>€</p>
+              </div>
+            </div>
+            <div class="border-bottom">
+            </div>
+            <div class="total d-flex justify-content-between mt-3">
+              <p class="fw-semibold mb-0" style="font-size: 17px">Total</p>
+              <div class="d-flex">
+                <p class="fw-semibold mb-0" style="font-size: 17px" data-booking-target= "total"></p>
+                <p>€</p>
+              </div>
+            </div>
         </div>
-        <button class="btn btn-primary w-100 mt-3 rounded-4 py-2">Réserver</button>
-        <p class="pt-2 text-center">Aucun montant ne vous sera débité pour le moment</p>
-        <div class="pricing d-flex justify-content-between">
-          <p class="text-decoration-underline">598 € x 5 nuits</p>
-          <p>2 989 €</p>
-        </div>
-        <div class="taxes d-flex justify-content-between">
-          <p class="text-decoration-underline">Taxes</p>
-          <p>12 €</p>
-        </div>
-        <div class="border-bottom"></div>
-        <div class="total d-flex justify-content-between mt-3">
-          <p class="fw-semibold mb-0" style="font-size: 17px">Total</p>
-          <p class="fw-semibold mb-0" style="font-size: 17px">3 001 €</p>
-        </div>
-      </div>
+      <% end %>
     </div>
   </div>
   <div class="row mb-3">
@@ -279,4 +319,43 @@
       </div>
     </div>
   </div>
+<!--
+  <div class="row mb-5 mt-5">
+    <h1>Create Booking</h1>
+    <div class="col-12" style="height: 500px" data-controller="booking" data-booking-price-value = <%= @cottage.price%> >
+      <%= simple_form_for [@cottage, @booking] do |f| %>
+        <div data-controller="datepickr">
+          <%= f.input :start_date,
+            required: true,
+            autofocus: true, 
+            label: 'Start_date',
+            as: :string,
+            input_html: { "data-datepickr-target": "startDate", "data-booking-target": "startDate", "data-action": "change->booking#updatePrice" }
+          %>
+
+          <%= f.input :end_date,
+            required: true,
+            autofocus: true, 
+            label: 'End_date',
+            as: :string,
+            input_html: { "data-datepickr-target": "endDate", "data-booking-target": "endDate", "data-action": "change->booking#updatePrice" }
+          %>
+        </div>
+         <%= f.input :travellers,
+          required: true,
+          autofocus: true, 
+          label: 'Travellers',
+          as: :select,
+          collection: 1..@cottage.total_occupancy
+         %>
+         <%= f.input :price,
+          required: true,
+          autofocus: true, 
+          label: 'price',
+          input_html: { "data-booking-target": "price", value: @cottage.price}
+         %>
+      <% end %>
+    </div>
+  </div>
+  -->
 </div>
