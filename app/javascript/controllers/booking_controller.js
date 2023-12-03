@@ -10,7 +10,6 @@ export default class extends Controller {
     this.taxeTarget.innerText = (this.priceValue * 0.18).toFixed()
     this.totalTarget.innerText = this.priceValue + Number(this.taxeTarget.innerText) + 10
     this.nightTarget.innerText =  "".concat(this.priceValue, ' ', "€ x 1 Nuit")
-    console.log(this.nightTarget.innerText)
   }
 
   updatePrice() {
