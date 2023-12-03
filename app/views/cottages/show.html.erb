@@ -178,7 +178,7 @@
     <div class="col-4">
       <%= simple_form_for [@cottage, @booking] do |f| %>
         <div class="card-booking bg-white border border-dark-subtle rounded-4 shadow-sm p-3 position-sticky sticky-top top-2">
-          <div class="book hello la vie" data-controller="booking" data-booking-price-value = <%= @cottage.price%> >
+          <div class="book hello la vie" data-controller="booking" data-booking-price-value = <%= @cottage.price%> data-booking-total-value = <%= @cottage.total_occupancy %> >
             <p class="fw-light" style="font-size: 18px"><strong class="fw-medium" style="font-size: 25px"><%= @cottage.price %> €</strong> par nuit</p>
             <div class="booking-date">
               <div class="1" data-controller="datepickr">
@@ -210,21 +210,28 @@
                 <a class="btn btn-link text-black text-decoration-none dropdown-toggle w-100 text-start pt-0 pb-2" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="false">
                   1 Voyageur
                 </a>
-
                 <ul class="dropdown-menu w-100 bg-white book-radius-occupancy">
                   <li>
+                    <%= f.input :travellers,
+                      collection: 1..@cottage.total_occupancy,
+                      required: true,
+                      autofocus: true, 
+                      label: false,
+                      selected: 1,
+                      input_html: {class: "d-none", "data-booking-target": "checkAdult"  }
+                    %>
                     <div class="d-flex justify-content-between">
                       <div class="adult ps-3 mt-3">
                         <p class= "mb-0 fw-medium">Adultes</p>
                         <p class="fw-light" style="font-size: 14px">13 ans et plus</p>
                       </div>
-                      <div class="number d-flex justify-content-evenly pe-3 align-items-center" style="width: 140px">
-                        <div class="border rounded-circle position-relative" style="width: 35px; height: 35px">
-                          <p class="text-center mb-0 position-absolute top-50 start-50 translate-middle">-</p>
+                      <div class="number d-flex justify-content-evenly align-items-center" style="width: 140px">
+                        <div class="border rounded-circle border-secondary position-relative hover-count" style="width: 30px; height: 30px; cursor: pointer" data-action="click->booking#downAdult" data-booking-target="adultBorderDown">
+                          <i class="fa-solid text-secondary fa-minus text-center mb-0 position-absolute top-50 start-50 translate-middle user-select-none"></i>
                         </div>
-                        <p class="mb-0">1</p>
-                        <div class="border rounded-circle position-relative" style="width: 35px; height: 35px">
-                          <p class="text-center mb-0 position-absolute top-50 start-50 translate-middle">+</p>
+                        <p class="mb-0 user-select-none" data-booking-target="adultCounter">1</p>
+                        <div class="border rounded-circle border-secondary position-relative hover-count" style="width: 30px; height: 30px; cursor: pointer" data-action="click->booking#upAdult" data-booking-target="adlutBorderUp">
+                          <i class="fa-solid text-secondary fa-plus text-center mb-0 position-absolute top-50 start-50 translate-middle user-select-none"></i>
                         </div>
                       </div>
                     </div>
@@ -268,14 +275,20 @@
                 </ul>
               </div>  
             </div>
-            <button class="btn btn-primary w-100 mt-3 rounded-4 py-2">Réserver</button>
+            <%= f.input :price,
+              required: true,
+              autofocus: true, 
+              label: false,
+              input_html: { class: "d-none", "data-booking-target": "priceValue", value: @cottage.price}
+            %>
+            <%= f.input :total,
+              required: true,
+              autofocus: true, 
+              label: false,
+              input_html: { class: "d-none", "data-booking-target": "priceTotalValue"}
+            %>
+            <%= f.submit "Réserver", class: "btn btn-primary w-100 mt-3 rounded-4 py-2" %>
             <p class="pt-2 text-center">Aucun montant ne vous sera débité pour le moment</p>
-              <%= f.input :price,
-                required: true,
-                autofocus: true, 
-                label: false,
-                input_html: { class: "d-none", "data-booking-target": "priceValue", value: @cottage.price}
-              %>
             <div class="pricing d-flex justify-content-between">
               <p class="text-decoration-underline" data-booking-target= "night"></p>
               <div class="d-flex">
