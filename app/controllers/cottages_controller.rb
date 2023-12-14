@@ -33,7 +33,7 @@ class CottagesController < ApplicationController
       marker_html: render_to_string(partial: "marker")
     }
 
-    @booking = Booking.new
+    @booking = Booking.new(cottage: @cottage)
   end
 
   def new

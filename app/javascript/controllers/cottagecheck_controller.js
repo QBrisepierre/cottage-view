@@ -10,10 +10,6 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function updateTextInput(val) {
-  document.getElementById('textInput').value=val;
-}
-
 export default class extends Controller {
   static targets = [
     "stepOne",
