@@ -4,6 +4,10 @@ class CottagesController < ApplicationController
   def index
     @cottages = Cottage.all
 
+    if params[:query].present?
+      @cottages = @cottages.search_by_address(params[:query])
+    end
+
     @markers = @cottages.geocoded.map do |cottage|
       {
         lat: cottage.latitude,
